@@ -45,19 +45,54 @@ const Zone = (props) => {
           <table className="table zones table-striped">
             <thead>
               <tr>
-                <th scope="col" className="width1">
+                <th
+                  style={{
+                    background: "#ea6666",
+                    color: "white",
+                  }}
+                  scope="col"
+                  className="width1"
+                >
                   Zone
                 </th>
-                <th scope="col" className="width2">
+                <th
+                  style={{
+                    background: "#ea6666",
+                    color: "white",
+                  }}
+                  scope="col"
+                  className="width2"
+                >
                   District
                 </th>
-                <th scope="col" className="width2">
+                <th
+                  style={{
+                    background: "#ea6666",
+                    color: "white",
+                  }}
+                  scope="col"
+                  className="width2"
+                >
                   LAST DATE OF REGISTRATION{" "}
                 </th>
-                <th scope="col" className="width2">
+                <th
+                  style={{
+                    background: "#ea6666",
+                    color: "white",
+                  }}
+                  scope="col"
+                  className="width2"
+                >
                   TEST DATE
                 </th>
-                <th scope="col" className="width2">
+                <th
+                  style={{
+                    background: "#ea6666",
+                    color: "white",
+                  }}
+                  scope="col"
+                  className="width2"
+                >
                   RESULT DATE
                 </th>
               </tr>
@@ -87,8 +122,8 @@ const Zone = (props) => {
                   Kishanganj, Madhepura, Supaul, Araria, Khagaria, Patna,
                   Garhwa, Daltonganj
                 </td>
-                <td className="width2">27-01-2023</td>
-                <td className="width2">29-01-2023</td>
+                <td className="width2">13-01-2023</td>
+                <td className="width2">15-01-2023</td>
                 <td className="width2">05-02-2023</td>
               </tr>
             </tbody>

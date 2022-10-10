@@ -1,6 +1,35 @@
+import subject71 from "./assets/subject-7-1.png";
+import subject72 from "./assets/subject-7-2.png";
+import subject81 from "./assets/subject-8-1.png";
+import subject131 from "./assets/subject-13-1.png";
+import subject82 from "./assets/subject-8-2.png";
+import subject91 from "./assets/subject-9-1.png";
+import subject92 from "./assets/subject-9-2.png";
+import subject101 from "./assets/subject-10-1.png";
+import subject102 from "./assets/subject-10-2.png";
+import subject103 from "./assets/subject-10-3.png";
+import subject104 from "./assets/subject-10-4.png";
+import subject105 from "./assets/subject-10-5.png";
+import subject106 from "./assets/subject-10-6.png";
+import subject111 from "./assets/subject-11-1.png";
+import subject112 from "./assets/subject-11-2.png";
+import subject113 from "./assets/subject-11-3.png";
+import subject114 from "./assets/subject-11-4.png";
+import subject115 from "./assets/subject-11-5.png";
+
+import subject116 from "./assets/subject-11-6.png";
+import subject117 from "./assets/subject-11-7.png";
+import subject118 from "./assets/subject-11-8.png";
+import subject121 from "./assets/subject-12-1.png";
+
+import subject141 from "./assets/subject-14-1.png";
+import subject122 from "./assets/subject-12-2.png";
 export const syllabus = {
   7: {
-    title: "For Class 7 Studying Students going to Class 8 in 2023",
+    title:
+      "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) ZENITH – Class–XIIth PASS Students",
+    images: [subject71, subject72],
+
     arrs: [
       {
         head: "MENTAL ABILITY",
@@ -58,7 +87,10 @@ export const syllabus = {
     },
   },
   8: {
-    title: "For Class 8 Studying Students going to Class 9 in 2023",
+    title:
+      "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) ZENITH – Class–XIIth PASS Students",
+    images: [subject81, subject82],
+
     arrs: [
       {
         head: "MENTAL ABILITY",
@@ -124,7 +156,11 @@ export const syllabus = {
     },
   },
   9: {
-    title: "For Class 9 Studying Students going to Class 10 in 2023",
+    title:
+      "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) ACME – Class–IX (8th Studying Students)",
+
+    images: [subject91, subject92],
+
     arrs: [
       {
         head: "MENTAL ABILITY",
@@ -186,7 +222,17 @@ export const syllabus = {
     },
   },
   10: {
-    title: "For Class 10 Studying Students going to Class 11 in 2023",
+    title:
+      "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) APEX – Class–XI (10th Studying Students)",
+
+    images: [
+      subject101,
+      subject102,
+      subject103,
+      subject104,
+      subject105,
+      subject106,
+    ],
     arrs: [
       {
         head: "MENTAL ABILITY",
@@ -252,7 +298,237 @@ export const syllabus = {
     },
   },
   11: {
-    title: "For Class 11 Studying Students going to Class 12 in 2023",
+    title:
+      "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) APOGEE– Class–X(9th Studying Students)",
+    images: [
+      subject111,
+      subject112,
+      subject113,
+      subject114,
+      subject115,
+      subject116,
+      subject117,
+      subject118,
+    ],
+    arrs: [
+      {
+        head: "MENTAL ABILITY",
+        text: [
+          "Alphabet Test",
+          "Coding-Decoding",
+          "Direction Sense",
+          "Mirror Image",
+          "Number Series",
+          "Letter Series",
+          "Blood Relation",
+          "Cube dice",
+        ],
+      },
+      {
+        head: "PHYSICS",
+        text: [
+          "Vector & Basic Mathematics",
+          "Kinematics",
+          "Laws of Motion & Friction",
+          "Circular Motion",
+        ],
+      },
+      {
+        head: "CHEMISTRY",
+        text: [
+          "Some Basic Concepts of Chemistry",
+          "Atomic Structure",
+          "Classification of Elements & Periodicity in Properties",
+        ],
+      },
+      {
+        head: "MATHEMATICS",
+        text: [
+          "Basic Mathematics & Inequalities",
+          "Set Theory",
+          "Modulus & Logarithmic Functions",
+          "Quadratic Equation",
+          "Sequence & Series",
+        ],
+      },
+      {
+        head: "BIOLOGY",
+        text: [
+          "Cell-The Unit of Life",
+          "Cell Cycle & Cell Division",
+          "Morphology of Flowering Plants",
+          "Anatomy of Flowering Plants",
+        ],
+      },
+    ],
+    para1: {
+      head: "VE-GRE Paper Pattern: ",
+      text: [
+        "No. of Ques. = 60",
+        "Part 1: 14 Single Correct Type Objective Ques. in Physics, Chemistry & Mathematics Each",
+        "Part 2: 6 Passage Type Questions in Physics, Chemistry & Mathematics Each",
+
+        "Paper Duration: 2 hrs. | Total Marks: 180 (Marking Scheme: Part 1 & Part 2: +3, -1)",
+      ],
+    },
+    para2: {
+      head: "No. of Ques. = 120 (30 Single Correct Type Objective Ques. in Physics & Chemistry Each + 60 Single Correct Type Objective Ques. in Biology)    ",
+      text: [
+        "Paper Duration: 2 hrs.  | Total Marks: 480 (Marking Scheme: +4, -1)",
+        "",
+      ],
+    },
+  },
+  12: {
+    title:
+      "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) CREST – Class–XII IIT (11th Studying Students)",
+    images: [subject121, subject122],
+    arrs: [
+      {
+        head: "MENTAL ABILITY",
+        text: [
+          "Alphabet Test",
+          "Coding-Decoding",
+          "Direction Sense",
+          "Mirror Image",
+          "Number Series",
+          "Letter Series",
+          "Blood Relation",
+          "Cube dice",
+        ],
+      },
+      {
+        head: "PHYSICS",
+        text: [
+          "Vector & Basic Mathematics",
+          "Kinematics",
+          "Laws of Motion & Friction",
+          "Circular Motion",
+        ],
+      },
+      {
+        head: "CHEMISTRY",
+        text: [
+          "Some Basic Concepts of Chemistry",
+          "Atomic Structure",
+          "Classification of Elements & Periodicity in Properties",
+        ],
+      },
+      {
+        head: "MATHEMATICS",
+        text: [
+          "Basic Mathematics & Inequalities",
+          "Set Theory",
+          "Modulus & Logarithmic Functions",
+          "Quadratic Equation",
+          "Sequence & Series",
+        ],
+      },
+      {
+        head: "BIOLOGY",
+        text: [
+          "Cell-The Unit of Life",
+          "Cell Cycle & Cell Division",
+          "Morphology of Flowering Plants",
+          "Anatomy of Flowering Plants",
+        ],
+      },
+    ],
+    para1: {
+      head: "VE-GRE Paper Pattern: ",
+      text: [
+        "No. of Ques. = 60",
+        "Part 1: 14 Single Correct Type Objective Ques. in Physics, Chemistry & Mathematics Each",
+        "Part 2: 6 Passage Type Questions in Physics, Chemistry & Mathematics Each",
+
+        "Paper Duration: 2 hrs. | Total Marks: 180 (Marking Scheme: Part 1 & Part 2: +3, -1)",
+      ],
+    },
+    para2: {
+      head: "No. of Ques. = 120 (30 Single Correct Type Objective Ques. in Physics & Chemistry Each + 60 Single Correct Type Objective Ques. in Biology)    ",
+      text: [
+        "Paper Duration: 2 hrs.  | Total Marks: 480 (Marking Scheme: +4, -1)",
+        "",
+      ],
+    },
+  },
+  13: {
+    title:
+      "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) CREST – Class–XII Medical (11th Studying Students)",
+    images: [subject131],
+    arrs: [
+      {
+        head: "MENTAL ABILITY",
+        text: [
+          "Alphabet Test",
+          "Coding-Decoding",
+          "Direction Sense",
+          "Mirror Image",
+          "Number Series",
+          "Letter Series",
+          "Blood Relation",
+          "Cube dice",
+        ],
+      },
+      {
+        head: "PHYSICS",
+        text: [
+          "Vector & Basic Mathematics",
+          "Kinematics",
+          "Laws of Motion & Friction",
+          "Circular Motion",
+        ],
+      },
+      {
+        head: "CHEMISTRY",
+        text: [
+          "Some Basic Concepts of Chemistry",
+          "Atomic Structure",
+          "Classification of Elements & Periodicity in Properties",
+        ],
+      },
+      {
+        head: "MATHEMATICS",
+        text: [
+          "Basic Mathematics & Inequalities",
+          "Set Theory",
+          "Modulus & Logarithmic Functions",
+          "Quadratic Equation",
+          "Sequence & Series",
+        ],
+      },
+      {
+        head: "BIOLOGY",
+        text: [
+          "Cell-The Unit of Life",
+          "Cell Cycle & Cell Division",
+          "Morphology of Flowering Plants",
+          "Anatomy of Flowering Plants",
+        ],
+      },
+    ],
+    para1: {
+      head: "VE-GRE Paper Pattern: ",
+      text: [
+        "No. of Ques. = 60",
+        "Part 1: 14 Single Correct Type Objective Ques. in Physics, Chemistry & Mathematics Each",
+        "Part 2: 6 Passage Type Questions in Physics, Chemistry & Mathematics Each",
+
+        "Paper Duration: 2 hrs. | Total Marks: 180 (Marking Scheme: Part 1 & Part 2: +3, -1)",
+      ],
+    },
+    para2: {
+      head: "No. of Ques. = 120 (30 Single Correct Type Objective Ques. in Physics & Chemistry Each + 60 Single Correct Type Objective Ques. in Biology)    ",
+      text: [
+        "Paper Duration: 2 hrs.  | Total Marks: 480 (Marking Scheme: +4, -1)",
+        "",
+      ],
+    },
+  },
+  14: {
+    title:
+      "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) SUMMIT – Class–VIII(7th Studying Students)",
+    images: [subject141],
     arrs: [
       {
         head: "MENTAL ABILITY",

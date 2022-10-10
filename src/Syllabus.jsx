@@ -9,32 +9,37 @@ const Syllabus = (props) => {
 
   let links = [
     {
-      name: "For Class 7 Studying Students going to Class 8 in 2023",
-      url: "/syllabus/7",
+      name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022)ZENITH – Class–XIIth PASS Students",
+      link: "/syllabus/7",
     },
     {
-      name: "For Class 8 Studying Students going to Class 9 in 2023",
-      url: "/syllabus/8",
+      name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) ZENITH – Class–XIIth PASS Students",
+      link: "/syllabus/8",
     },
     {
-      name: "For Class 9 Studying Students going to Class 10 in 2023",
-      url: "/syllabus/9",
+      name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) ACME – Class–IX (8th Studying Students)",
+      link: "/syllabus/9",
     },
     {
-      name: "For Class 10 Studying Students going to Class 11 in 2023",
-      url: "/syllabus/10",
+      name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) APEX – Class–XI (10th Studying Students)",
+      link: "/syllabus/10",
     },
-    // {
-    //   name: "For Class 10 Studying Students going to Class 11 in 2023",
-    //   url: "/syllabus/11",
-    // },
+
     {
-      name: "For Class 11 Studying Students going to Class 12 [E] in 2023",
-      url: "/syllabus/11",
+      name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) APOGEE– Class–X(9th Studying Students)",
+      link: "/syllabus/11",
     },
     {
-      name: "For Class 11 Studying Students going to Class 12 [M] in 2023",
-      url: "/syllabus/12",
+      name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) CREST – Class–XII IIT (11th Studying Students)",
+      link: "/syllabus/12",
+    },
+    {
+      name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) CREST – Class–XII Medical (11th Studying Students)",
+      link: "/syllabus/13",
+    },
+    {
+      name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) SUMMIT – Class–VIII(7th Studying Students)",
+      link: "/syllabus/14",
     },
   ];
 
@@ -128,7 +133,12 @@ const Syllabus = (props) => {
         </div>
         <div className="comm2">
           <h4>SYLLABUS</h4>
-          <div className="syllabus">
+          <h2>{syllabus[id]?.title}</h2>
+          {syllabus[id].images.map((item) => (
+            <img src={item} width="100%" style={{ objectFit: "contain" }} />
+          ))}
+
+          {/* <div className="syllabus">
             <h2>{syllabus[id]?.title}</h2>
             <div className="syllabus1">
               {syllabus[id]?.arrs.map((e, index) => {
@@ -158,7 +168,7 @@ const Syllabus = (props) => {
                 </>
               ) : null}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

@@ -44,10 +44,10 @@ const Procedure = (props) => {
             })}
           </div>
         </div>
-        <div className="comm2">
+        <div className="comm2" style={{ fontSize: "50px" }}>
           <h4>PROCEDURE FOR REGISTRATION</h4>
           <p>
-            HOW TO APPLY:
+            <span style={{ color: "red" }}>HOW TO APPLY:</span>
             <ul>
               <li>
                 APPLY ONLINE ON {"  "}
@@ -56,11 +56,20 @@ const Procedure = (props) => {
                   style={{ fontWeight: "bold" }}
                   href="https://www.vegre.com"
                 >
-                  <em>www.vegre.com</em>
+                  <em style={{ color: "blue" }}>www.vegre.in</em>
                 </a>
               </li>
+              <li>
+                GET OFFLINE REGISTRATION FORM FROM OUR CORPORATE OFFICE:
+                <br />
+                <em style={{ fontSize: "30px" }}>
+                  First Floor, AMS park, Behind Hira Panna Jewellers, 
+                  <br/>
+                  Boring
+                  Road Crossing, Patna- 800001.
+                </em>
+              </li>
             </ul>
-            GET OFFLINE REGISTRATION FORM FROM OUR CORPORATE OFFICE
           </p>
         </div>
       </div>

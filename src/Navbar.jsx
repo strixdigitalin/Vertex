@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
@@ -19,29 +19,37 @@ const navOp = [
     cat: "SYLLABUS",
     subcat: [
       {
-        name: "For Class 7 Studying Students going to Class 8 in 2023",
+        name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022)ZENITH – Class–XIIth PASS Students",
         link: "/syllabus/7",
       },
       {
-        name: "For Class 8 Studying Students going to Class 9 in 2023",
+        name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) ZENITH – Class–XIIth PASS Students",
         link: "/syllabus/8",
       },
       {
-        name: "For Class 9 Studying Students going to Class 10 in 2023",
+        name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) ACME – Class–IX (8th Studying Students)",
         link: "/syllabus/9",
       },
       {
-        name: "For Class 10 Studying Students going to Class 11 in 2023",
+        name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) APEX – Class–XI (10th Studying Students)",
         link: "/syllabus/10",
       },
 
       {
-        name: "For Class 11 Studying Students going to Class 12 [E] in 2023",
+        name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) APOGEE– Class–X(9th Studying Students)",
         link: "/syllabus/11",
       },
       {
-        name: "For Class 11 Studying Students going to Class 12 [M] in 2023",
+        name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) CREST – Class–XII IIT (11th Studying Students)",
         link: "/syllabus/12",
+      },
+      {
+        name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) CREST – Class–XII Medical (11th Studying Students)",
+        link: "/syllabus/13",
+      },
+      {
+        name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) SUMMIT – Class–VIII(7th Studying Students)",
+        link: "/syllabus/14",
       },
     ],
   },
@@ -56,7 +64,7 @@ const navOp = [
     link: "/zones",
   },
   {
-    cat: "TEST CNETRES",
+    cat: "TEST CENTERS",
     subcat: [],
     link: "/test-centers",
   },
@@ -146,7 +154,24 @@ const Navbar = (props) => {
     REWARD: false,
     ADMIT: false,
   });
+
+  const registerRef = useRef();
+  const modlRef = useRef();
+  const navtoggle = useRef();
   const [blikButtons, setBlikButtons] = useState(false);
+
+  window.onclick = (e) => {
+    console.log(e.target.className);
+    if (e.target.className == "modal0") {
+      modlRef.current.style.display = "none";
+      navtoggle.current.style.display = "block";
+    }
+  };
+
+  const onClickPostEnquiry = () => {
+    modlRef.current.style.display = "block";
+    navtoggle.current.style.display = "none";
+  };
 
   useEffect(() => {
     setInterval(() => {
@@ -351,9 +376,9 @@ const Navbar = (props) => {
     <>
       <div className="top-header">
         Phone:
-        <span style={{ marginLeft: "10px" }}>+91 8989898989</span>
+        <span style={{ marginLeft: "10px" }}>+91 90310 11932</span>
         <span style={{ marginLeft: "30px" }}>
-          email: email@vertexeducation.com
+          email: info@vertexeducations.com
         </span>
       </div>
 
@@ -370,7 +395,12 @@ const Navbar = (props) => {
             <div className="nav121 reg ms-2">
               <button
                 // className="btn btn-danger"
-                className="registerbtn"
+                className="registerbtn "
+                onClick={() => {
+                  console.log(registerRef.current, "<<<registerref");
+                  registerRef.current.style.color = "red";
+                }}
+                ref={registerRef}
               >
                 Register Now
               </button>
@@ -386,13 +416,13 @@ const Navbar = (props) => {
           </div>
         </div>
         <div
-          className="nav121-mob reg-mob ms-2"
+          className="nav121-mob  ms-2"
           style={{ display: "flex", justifyContent: "center" }}
         >
           <button
             // className="btn btn-danger"
 
-            className="registerbtn"
+            className="registerbtn reg-mob"
           >
             Register Now
           </button>
@@ -473,7 +503,7 @@ const Navbar = (props) => {
           </div>
         </div>
 
-        <div className="navbtn">
+        <div className="navbtn" useRef={navtoggle}>
           <svg
             onClick={openNav}
             xmlns="http://www.w3.org/2000/svg"
@@ -494,9 +524,41 @@ const Navbar = (props) => {
         <button className="btn btn-warning me-1 registerbtnright">
           Register Now
         </button>
-        <button className="btn btn-primary ms-1 registerbtnright">
+        <button
+          className="btn btn-primary ms-1 registerbtnright"
+          onClick={onClickPostEnquiry}
+        >
           Post Enquiry
         </button>
+      </div>
+
+      <div className="modal0" ref={modlRef}>
+        <div className="modal1">
+          <h4 style={{ color: "white" }}>Post Your Enquiry</h4>
+          <p style={{ color: "white", padding: "5px 20px" }}>
+            (Submit your details below and you will be contacted by our
+            Executive)
+          </p>
+          <input placeholder="name" />
+          {/* <br /> */}
+          <input placeholder="Mobile" />
+          {/* <br /> */}
+          <input placeholder="Email" />
+          {/* <br /> */}
+          <input placeholder="Message" />
+          <br />
+          <button
+            style={{
+              color: "white",
+              background: "#7B0100",
+              borderRadius: "15px",
+              padding: " 5px 10px",
+              width: "120px",
+            }}
+          >
+            Submit
+          </button>
+        </div>
       </div>
     </>
   );

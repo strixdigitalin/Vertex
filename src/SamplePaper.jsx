@@ -37,13 +37,32 @@ const SamplePaper = (props) => {
         <div className="comm2">
           <h4>SAMPLE PAPER</h4>
           <div className="sample">
-            <h2 className="mb-3">VE-GRE Sample Paper</h2>
+            {/* <h2 className="mb-3">VE-GRE Sample Paper</h2> */}
             <table className="table table-striped">
               <thead>
                 <tr>
-                  <th scope="col">S No.</th>
-                  <th scope="col">Class</th>
-                  <th scope="col">Question Paper with Key</th>
+                  <th
+                    scope="col"
+                    className="table-head"
+                    style={{
+                      background: "#ea6666",
+                      color: "white",
+                    }}
+                  >
+                    S No.
+                  </th>
+                  <th scope="col" 
+                   style={{
+                    background: "#ea6666",
+                    color: "white",
+                  }}
+                  >Class</th>
+                  <th scope="col"
+                   style={{
+                    background: "#ea6666",
+                    color: "white",
+                  }}
+                  >Question Paper with Key</th>
                 </tr>
               </thead>
               <tbody>

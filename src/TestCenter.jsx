@@ -43,7 +43,19 @@ const TestCenter = (props) => {
         </div>
         <div className="comm2">
           <h4>TEST CENTERS</h4>
-          <h1 className="display-1">Coming Soon...</h1>
+          <h5 className="display-1"></h5>
+          <h2>Districts</h2>
+          <h5>
+            Sheohar, EastChamparan, Sitamarhi, Madhubani, Darbhanga,
+            Muzaffarpur, Samastipur, Patna, Hajipur, Ara, Buxar, Kaimur, Rohtas,
+            Arwal, Aurangabad, Jehanabad, Gaya, Nalanda, Nawada, Saran,
+            Begusarai, Godda, Dumka.
+          </h5>
+          <h5>
+            Gopalganj, Siwan, West Champaran, Supaul, Saharsha, Lakhisarai,
+            Munger, Bhagalpur, Jamui, Banka, Purnea, Katihar, Kishanganj,
+            Madhepura, Supaul, Araria, Khagaria, Patna, Garhwa, Daltonganj
+          </h5>
         </div>
       </div>
     </div>

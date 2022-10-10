@@ -61,7 +61,7 @@ const Rewards = (props) => {
                 </ul>
               </div>
               <div className="rewards12">
-                <h5>Cash Rewards</h5>
+                <h3 style={{ color: "blue" }}>Cash Rewards</h3>
                 <h3>State Rank</h3>
                 <b>10th & 11th</b>
                 <ul>

@@ -57,7 +57,9 @@ const Courses = (props) => {
         <div className="comm2">
           <h4>OUR COURSES</h4>
           <div className="courses">
-            <h3 className="courses-h3">{coursesData[id].head}</h3>
+            <h3 className="courses-h3" style={{ fontSize: "45px" }}>
+              {coursesData[id].head}
+            </h3>
             <div className="courses1">
               <ul>
                 {coursesData[id].text.map((e, index) => {
