@@ -14,6 +14,76 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.registerbtn {
+  background-color: #1c87c9;
+  -webkit-border-radius: 60px;
+  border-radius: 60px;
+  border: none;
+  color: #eeeeee;
+  cursor: pointer;
+  display: inline-block;
+  font-family: sans-serif;
+  font-size: 20px;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+}
+@keyframes glowing {
+  0% {
+    background-color: #a81505;
+    box-shadow: 0 0 5px #a81505;
+  }
+  50% {
+    background-color: #49e819;
+    box-shadow: 0 0 20px #49e819;
+  }
+  100% {
+    background-color: #2ba805;
+    box-shadow: 0 0 5px #2ba805;
+  }
+}
+.registerbtn {
+  animation: glowing 1300ms infinite;
+}
+.registerbtnright {
+  background-color: #1c87c9;
+  -webkit-border-radius: 60px;
+  border-radius: 60px;
+  border: none;
+  color: #eeeeee;
+  cursor: pointer;
+  display: inline-block;
+  font-family: sans-serif;
+  font-size: 20px;
+  /* padding: 5px 15px; */
+  text-align: center;
+  text-decoration: none;
+}
+@keyframes glowingright {
+  0% {
+    background-color: #a81505;
+    box-shadow: 0 0 5px #a81505;
+  }
+  50% {
+    background-color: #196ce8;
+    box-shadow: 0 0 20px #5f00bd;
+  }
+  100% {
+    background-color: #0022ff;
+    box-shadow: 0 0 5px #2ba805;
+  }
+}
+.registerbtnright {
+  animation: glowingright 1300ms infinite;
+}
+
+
+.top-header {background-color: black;color: white;
+padding: 5px 20px;
+
+}
+
 .navbtn svg{
   width: 40px;
   height: 40px;
@@ -49,7 +119,7 @@
   background-color: #eeeeee;
 }
 .nav1{
-  padding: 15px 16px;
+  padding: 6px 16px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -77,12 +147,12 @@
   width: 100%;
 }
 .nav13{
-  width: 10vw;
-  height: 7rem;
+  /* width: 10vw; */
+  /* height: 7rem; */
 }
 .nav13 img{
-  height: 100%;
-  width: 100%;
+  /* height: 100%; */
+  /* width: 100%; */
 }
 .nav-active{
   background-color: #FFDD00;
@@ -148,8 +218,8 @@
 .enq-btns{
   z-index: 999;
   position: fixed;
-  right: -106px;
-  top: 30%;
+  right: -123px;
+  top: 43%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -220,10 +290,17 @@ footer{
   color: white;
 }
 .comm2 h4{
+  border-radius: 10px;
   margin-bottom: 2rem;
+  background: gray;
+  color: white;
+  padding: 10px;
 }
 .rewards1{
   padding: 0rem 1rem;
+}
+.courses > h3{
+  font-size: 16px;
 }
 .rewards11{
   margin-bottom: 1.5rem;
@@ -275,6 +352,7 @@ p{
   min-height: 43rem;
   flex-direction: row;
 }
+
 .comm1{
   width: 40%;
   margin-right: 2rem;
@@ -282,6 +360,13 @@ p{
 .comm2{
   width: 60%;
   margin-left: 2rem;
+}
+table, th, td {
+  border: 1px solid black;
+}
+.comm-table{
+  width: 90%;
+  margin: auto;
 }
 .comm11{
   padding: 10px;
@@ -301,6 +386,18 @@ p{
   font-size: 15px;
   word-break: break-word;
 }
+
+.width1{
+  min-width: 70px;
+
+}
+.width2{
+  min-width: 150px;
+}
+.width3{
+  min-width: 500px;
+}
+
 @media screen and (max-width:1170px){
   .nav2{
     flex-wrap: wrap;
@@ -318,7 +415,19 @@ p{
     width: 100%;
   }
 }
+
+
 @media screen and (max-width:900px){
+  .width1{
+    min-width: 50px;
+  
+  }
+  .width2{
+    min-width: 130px;
+  }
+  .width3{
+    min-width: 300px;
+  }
   .nav21{
     justify-content: flex-start;
   }
@@ -376,21 +485,38 @@ p{
     padding: 2rem 1rem;
   }
 }
+.reg {
+  width: 31vw;
+}
+.reg-mob{
+  display: none;
+}
+
 @media screen and (max-width:600px){
+  .comm-table{
+    width: 100%;
+    overflow-x: scroll;
+  }
+
   .nav1{
     flex-wrap: wrap;
   }
   .nav11 {
     width: 25vw;
   }
-  .nav121 {
+  .reg {
     width: 31vw;
+    display: none;
+  }
+  .reg-mob{
+    display: block;
   }
   
+  
   .nav13 {
-    width: 21vw;
-    margin-top: 1.4rem;
-    display: none;
+    /* width: 21vw; */
+    /* margin-top: 1.4rem; */
+    /* display: none; */
   }
   .zones{
     font-size: 9px;

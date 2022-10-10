@@ -1,123 +1,162 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import logofile from "./assets/logo.svg";
 
-const navOp = [{
-    cat: 'HOME',
+const navOp = [
+  {
+    cat: "HOME",
     subcat: [],
-    link: '/'
-},
-{
-    cat: 'ELIGIBILITY',
+    link: "/",
+  },
+  {
+    cat: "ELIGIBILITY",
     subcat: [],
-    link: '/eligiblity'
-},
-{
-    cat: 'SYLLABUS',
-    subcat: [{
-        name: 'For Class 7 Studying Students going to Class 8 in 2023',
-        link: '/syllabus/7'
-    }, {
-        name: 'For Class 8 Studying Students going to Class 9 in 2023',
-        link: '/syllabus/8'
-    }, {
-        name: 'For Class 9 Studying Students going to Class 10 in 2023',
-        link: '/syllabus/9'
-    }, {
-        name: 'For Class 10 Studying Students going to Class 11 in 2023',
-        link: '/syllabus/10'
-    }, {
-        name: 'For Class 10 Studying Students going to Class 11 in 2023',
-        link: '/syllabus/11'
-    }, {
-        name: 'For Class 11 Studying Students going to Class 12 [E] in 2023',
-        link: '/syllabus/12'
-    }, {
-        name: 'For Class 11 Studying Students going to Class 12 [M] in 2023',
-        link: '/syllabus/13'
-    }]
-},
-{
-    cat: 'SAMPLE PAPER',
+    link: "/eligiblity",
+  },
+  {
+    cat: "SYLLABUS",
+    subcat: [
+      {
+        name: "For Class 7 Studying Students going to Class 8 in 2023",
+        link: "/syllabus/7",
+      },
+      {
+        name: "For Class 8 Studying Students going to Class 9 in 2023",
+        link: "/syllabus/8",
+      },
+      {
+        name: "For Class 9 Studying Students going to Class 10 in 2023",
+        link: "/syllabus/9",
+      },
+      {
+        name: "For Class 10 Studying Students going to Class 11 in 2023",
+        link: "/syllabus/10",
+      },
+
+      {
+        name: "For Class 11 Studying Students going to Class 12 [E] in 2023",
+        link: "/syllabus/11",
+      },
+      {
+        name: "For Class 11 Studying Students going to Class 12 [M] in 2023",
+        link: "/syllabus/12",
+      },
+    ],
+  },
+  {
+    cat: "SAMPLE PAPER",
     subcat: [],
-    link: '/sample-paper'
-},
-{
-    cat: 'IMPORTANT DATES',
+    link: "/sample-paper",
+  },
+  {
+    cat: "IMPORTANT DATES",
     subcat: [],
-    link: '/zones'
-},
-{
-    cat: 'TEST CNETRES',
+    link: "/zones",
+  },
+  {
+    cat: "TEST CNETRES",
     subcat: [],
-    link: '/test-centers'
-},
-{
-    cat: 'PROCEDURE FOR REGISTRATION',
+    link: "/test-centers",
+  },
+  {
+    cat: "PROCEDURE FOR REGISTRATION",
     subcat: [],
-    link: '/procedure'
-},
-{
-    cat: 'NEWS-RESULT',
+    link: "/procedure",
+  },
+  {
+    cat: "NEWS",
+    subcat: [{ name: "Result", link: "/news" }],
+    link: "/news",
+  },
+  {
+    cat: "TERMS & CONDITIONS",
     subcat: [],
-    link: '/news'
-},
-{
-    cat: 'TERMS & CONDITIONS',
+    link: "/terms",
+  },
+  {
+    cat: "OUR COURSES",
+    subcat: [
+      {
+        name: "SUMMIT BATCH (FOR Class-8)",
+        link: "/courses/8",
+      },
+      {
+        name: "ACME BATCH (FOR Class-9) ",
+        link: "/courses/9",
+      },
+      {
+        name: "APOGEE BATCH (FOR Class-10) ",
+        link: "/courses/10",
+      },
+      {
+        name: "APEX BATCH (FOR Class-11)",
+        link: "/courses/11",
+      },
+      {
+        name: "CREST BATCH (FOR Class-12) ",
+        link: "/courses/12",
+      },
+      {
+        name: "ZENITH BATCH (FOR 12th Pass Students)",
+        link: "/courses/13",
+      },
+    ],
+  },
+  {
+    cat: "REWARD & SHCOLARSHIP",
     subcat: [],
-    link: '/terms'
-},
-{
-    cat: 'OUR COURSES',
-    subcat: [{
-        name: 'SUMMIT BATCH (FOR Class-8)',
-        link: '/courses/8'
-    }, {
-        name: 'ACME BATCH (FOR Class-9) ',
-        link: '/courses/9'
-    }, {
-        name: 'APOGEE BATCH (FOR Class-10) ',
-        link: '/courses/10'
-    }, {
-        name: 'APEX BATCH (FOR Class-11)',
-        link: '/courses/11'
-    }, {
-        name: 'CREST BATCH (FOR Class-12) ',
-        link: '/courses/12'
-    }, {
-        name: 'ZENITH BATCH (FOR 12th Pass Students)',
-        link: '/courses/13'
-    }]
-},
-{
-    cat: 'REWARD & SHCOLARSHIP',
+    link: "/rewards",
+  },
+  {
+    cat: "ADMIT CARD",
     subcat: [],
-    link: '/rewards'
-},
-{
-    cat: 'ADMIT CARD',
-    subcat: [],
-    link: '/admit-card'
-}];
+    link: "/admit-card",
+  },
+];
 
 const urlObj = {
-    'HOME': 'home',
-    'ELIGIBILITY': 'eligiblity',
-    'SYLLABUS': 'SYLLABUS',
-    'SAMPLE PAPER': 'SAMPLE_PAPER',
-    'IMPORTANT DATES': 'IMPORTANT_DATES',
-    'TEST CNETRES': 'TEST_CNETRES',
-    'PROCEDURE FOR REGISTRATION': 'PROCEDURE',
-    'NEWS-RESULT': 'NEWS_RESULT',
-    'TERMS & CONDITIONS': 'TERMS',
-    'OUR COURSES': 'COURSES',
-    'REWARD & SHCOLARSHIP': 'REWARD',
-    'ADMIT CARD': 'ADMIT'
+  HOME: "home",
+  ELIGIBILITY: "eligiblity",
+  SYLLABUS: "SYLLABUS",
+  "SAMPLE PAPER": "SAMPLE_PAPER",
+  "IMPORTANT DATES": "IMPORTANT_DATES",
+  "TEST CNETRES": "TEST_CNETRES",
+  "PROCEDURE FOR REGISTRATION": "PROCEDURE",
+  "NEWS-RESULT": "NEWS_RESULT",
+  "TERMS & CONDITIONS": "TERMS",
+  "OUR COURSES": "COURSES",
+  "REWARD & SHCOLARSHIP": "REWARD",
+  "ADMIT CARD": "ADMIT",
 };
 
 const Navbar = (props) => {
-    const [activeFlag, setActiveFlag] = useState({
+  const [activeFlag, setActiveFlag] = useState({
+    home: true,
+    eligiblity: false,
+    SYLLABUS: false,
+    SAMPLE_PAPER: false,
+    IMPORTANT_DATES: false,
+    TEST_CNETRES: false,
+    PROCEDURE: false,
+    NEWS_RESULT: false,
+    TERMS: false,
+    COURSES: false,
+    REWARD: false,
+    ADMIT: false,
+  });
+  const [blikButtons, setBlikButtons] = useState(false);
+
+  useEffect(() => {
+    setInterval(() => {
+      setBlikButtons(!blikButtons);
+    }, 1500);
+
+    let url = window.location.pathname;
+    console.log(url);
+    if (url === "/") {
+      setActiveFlag({
         home: true,
         eligiblity: false,
         SYLLABUS: false,
@@ -130,289 +169,337 @@ const Navbar = (props) => {
         COURSES: false,
         REWARD: false,
         ADMIT: false,
-    });
-
-    useEffect(() => {
-        let url = window.location.pathname;
-        console.log(url);
-        if (url === ('/')) {
-            setActiveFlag({
-                home: true,
-                eligiblity: false,
-                SYLLABUS: false,
-                SAMPLE_PAPER: false,
-                IMPORTANT_DATES: false,
-                TEST_CNETRES: false,
-                PROCEDURE: false,
-                NEWS_RESULT: false,
-                TERMS: false,
-                COURSES: false,
-                REWARD: false,
-                ADMIT: false,
-            });
-        }
-        else if (url.includes('/eligiblity')) {
-            setActiveFlag({
-                home: false,
-                eligiblity: true,
-                SYLLABUS: false,
-                SAMPLE_PAPER: false,
-                IMPORTANT_DATES: false,
-                TEST_CNETRES: false,
-                PROCEDURE: false,
-                NEWS_RESULT: false,
-                TERMS: false,
-                COURSES: false,
-                REWARD: false,
-                ADMIT: false,
-            });
-        }
-        else if (url.includes('syllabus')) {
-            setActiveFlag({
-                home: false,
-                eligiblity: false,
-                SYLLABUS: true,
-                SAMPLE_PAPER: false,
-                IMPORTANT_DATES: false,
-                TEST_CNETRES: false,
-                PROCEDURE: false,
-                NEWS_RESULT: false,
-                TERMS: false,
-                COURSES: false,
-                REWARD: false,
-                ADMIT: false,
-            });
-        }
-        else if (url.includes('/sample-paper')) {
-            setActiveFlag({
-                home: false,
-                eligiblity: false,
-                SYLLABUS: false,
-                SAMPLE_PAPER: true,
-                IMPORTANT_DATES: false,
-                TEST_CNETRES: false,
-                PROCEDURE: false,
-                NEWS_RESULT: false,
-                TERMS: false,
-                COURSES: false,
-                REWARD: false,
-                ADMIT: false,
-            });
-        }
-        else if (url.includes('zones')) {
-            setActiveFlag({
-                home: false,
-                eligiblity: false,
-                SYLLABUS: false,
-                SAMPLE_PAPER: false,
-                IMPORTANT_DATES: true,
-                TEST_CNETRES: false,
-                PROCEDURE: false,
-                NEWS_RESULT: false,
-                TERMS: false,
-                COURSES: false,
-                REWARD: false,
-                ADMIT: false,
-            });
-        }
-        else if (url.includes('test-centers')) {
-            setActiveFlag({
-                home: false,
-                eligiblity: false,
-                SYLLABUS: false,
-                SAMPLE_PAPER: false,
-                IMPORTANT_DATES: false,
-                TEST_CNETRES: true,
-                PROCEDURE: false,
-                NEWS_RESULT: false,
-                TERMS: false,
-                COURSES: false,
-                REWARD: false,
-                ADMIT: false,
-            });
-        }
-        else if (url.includes('procedure')) {
-            setActiveFlag({
-                home: false,
-                eligiblity: false,
-                SYLLABUS: false,
-                SAMPLE_PAPER: false,
-                IMPORTANT_DATES: false,
-                TEST_CNETRES: false,
-                PROCEDURE: true,
-                NEWS_RESULT: false,
-                TERMS: false,
-                COURSES: false,
-                REWARD: false,
-                ADMIT: false,
-            });
-        }
-        else if (url.includes('news')) {
-            setActiveFlag({
-                home: false,
-                eligiblity: false,
-                SYLLABUS: false,
-                SAMPLE_PAPER: false,
-                IMPORTANT_DATES: false,
-                TEST_CNETRES: false,
-                PROCEDURE: false,
-                NEWS_RESULT: true,
-                TERMS: false,
-                COURSES: false,
-                REWARD: false,
-                ADMIT: false,
-            });
-        }
-        else if (url.includes('terms')) {
-            setActiveFlag({
-                home: false,
-                eligiblity: false,
-                SYLLABUS: false,
-                SAMPLE_PAPER: false,
-                IMPORTANT_DATES: false,
-                TEST_CNETRES: false,
-                PROCEDURE: false,
-                NEWS_RESULT: false,
-                TERMS: true,
-                COURSES: false,
-                REWARD: false,
-                ADMIT: false,
-            });
-        }
-        else if (url.includes('courses')) {
-            setActiveFlag({
-                home: false,
-                eligiblity: false,
-                SYLLABUS: false,
-                SAMPLE_PAPER: false,
-                IMPORTANT_DATES: false,
-                TEST_CNETRES: false,
-                PROCEDURE: false,
-                NEWS_RESULT: false,
-                TERMS: false,
-                COURSES: true,
-                REWARD: false,
-                ADMIT: false,
-            });
-        }
-        else if (url.includes('rewards')) {
-            setActiveFlag({
-                home: false,
-                eligiblity: false,
-                SYLLABUS: false,
-                SAMPLE_PAPER: false,
-                IMPORTANT_DATES: false,
-                TEST_CNETRES: false,
-                PROCEDURE: false,
-                NEWS_RESULT: false,
-                TERMS: false,
-                COURSES: false,
-                REWARD: true,
-                ADMIT: false,
-            });
-        }
-        else if (url.includes('admit-card')) {
-            setActiveFlag({
-                home: false,
-                eligiblity: false,
-                SYLLABUS: false,
-                SAMPLE_PAPER: false,
-                IMPORTANT_DATES: false,
-                TEST_CNETRES: false,
-                PROCEDURE: false,
-                NEWS_RESULT: false,
-                TERMS: false,
-                COURSES: false,
-                REWARD: false,
-                ADMIT: true,
-            });
-        }
-    }, [props.flag]);
-
-    function openNav() {
-        document.getElementById("mySidenav").style.width = "100%";
+      });
+    } else if (url.includes("/eligiblity")) {
+      setActiveFlag({
+        home: false,
+        eligiblity: true,
+        SYLLABUS: false,
+        SAMPLE_PAPER: false,
+        IMPORTANT_DATES: false,
+        TEST_CNETRES: false,
+        PROCEDURE: false,
+        NEWS_RESULT: false,
+        TERMS: false,
+        COURSES: false,
+        REWARD: false,
+        ADMIT: false,
+      });
+    } else if (url.includes("syllabus")) {
+      setActiveFlag({
+        home: false,
+        eligiblity: false,
+        SYLLABUS: true,
+        SAMPLE_PAPER: false,
+        IMPORTANT_DATES: false,
+        TEST_CNETRES: false,
+        PROCEDURE: false,
+        NEWS_RESULT: false,
+        TERMS: false,
+        COURSES: false,
+        REWARD: false,
+        ADMIT: false,
+      });
+    } else if (url.includes("/sample-paper")) {
+      setActiveFlag({
+        home: false,
+        eligiblity: false,
+        SYLLABUS: false,
+        SAMPLE_PAPER: true,
+        IMPORTANT_DATES: false,
+        TEST_CNETRES: false,
+        PROCEDURE: false,
+        NEWS_RESULT: false,
+        TERMS: false,
+        COURSES: false,
+        REWARD: false,
+        ADMIT: false,
+      });
+    } else if (url.includes("zones")) {
+      setActiveFlag({
+        home: false,
+        eligiblity: false,
+        SYLLABUS: false,
+        SAMPLE_PAPER: false,
+        IMPORTANT_DATES: true,
+        TEST_CNETRES: false,
+        PROCEDURE: false,
+        NEWS_RESULT: false,
+        TERMS: false,
+        COURSES: false,
+        REWARD: false,
+        ADMIT: false,
+      });
+    } else if (url.includes("test-centers")) {
+      setActiveFlag({
+        home: false,
+        eligiblity: false,
+        SYLLABUS: false,
+        SAMPLE_PAPER: false,
+        IMPORTANT_DATES: false,
+        TEST_CNETRES: true,
+        PROCEDURE: false,
+        NEWS_RESULT: false,
+        TERMS: false,
+        COURSES: false,
+        REWARD: false,
+        ADMIT: false,
+      });
+    } else if (url.includes("procedure")) {
+      setActiveFlag({
+        home: false,
+        eligiblity: false,
+        SYLLABUS: false,
+        SAMPLE_PAPER: false,
+        IMPORTANT_DATES: false,
+        TEST_CNETRES: false,
+        PROCEDURE: true,
+        NEWS_RESULT: false,
+        TERMS: false,
+        COURSES: false,
+        REWARD: false,
+        ADMIT: false,
+      });
+    } else if (url.includes("news")) {
+      setActiveFlag({
+        home: false,
+        eligiblity: false,
+        SYLLABUS: false,
+        SAMPLE_PAPER: false,
+        IMPORTANT_DATES: false,
+        TEST_CNETRES: false,
+        PROCEDURE: false,
+        NEWS_RESULT: true,
+        TERMS: false,
+        COURSES: false,
+        REWARD: false,
+        ADMIT: false,
+      });
+    } else if (url.includes("terms")) {
+      setActiveFlag({
+        home: false,
+        eligiblity: false,
+        SYLLABUS: false,
+        SAMPLE_PAPER: false,
+        IMPORTANT_DATES: false,
+        TEST_CNETRES: false,
+        PROCEDURE: false,
+        NEWS_RESULT: false,
+        TERMS: true,
+        COURSES: false,
+        REWARD: false,
+        ADMIT: false,
+      });
+    } else if (url.includes("courses")) {
+      setActiveFlag({
+        home: false,
+        eligiblity: false,
+        SYLLABUS: false,
+        SAMPLE_PAPER: false,
+        IMPORTANT_DATES: false,
+        TEST_CNETRES: false,
+        PROCEDURE: false,
+        NEWS_RESULT: false,
+        TERMS: false,
+        COURSES: true,
+        REWARD: false,
+        ADMIT: false,
+      });
+    } else if (url.includes("rewards")) {
+      setActiveFlag({
+        home: false,
+        eligiblity: false,
+        SYLLABUS: false,
+        SAMPLE_PAPER: false,
+        IMPORTANT_DATES: false,
+        TEST_CNETRES: false,
+        PROCEDURE: false,
+        NEWS_RESULT: false,
+        TERMS: false,
+        COURSES: false,
+        REWARD: true,
+        ADMIT: false,
+      });
+    } else if (url.includes("admit-card")) {
+      setActiveFlag({
+        home: false,
+        eligiblity: false,
+        SYLLABUS: false,
+        SAMPLE_PAPER: false,
+        IMPORTANT_DATES: false,
+        TEST_CNETRES: false,
+        PROCEDURE: false,
+        NEWS_RESULT: false,
+        TERMS: false,
+        COURSES: false,
+        REWARD: false,
+        ADMIT: true,
+      });
     }
+  }, [props.flag]);
 
-    function closeNav() {
-        console.log('sdfsdf');
-        document.getElementById("mySidenav").style.width = "0";
-    }
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "100%";
+  }
 
-    return (
-        <>
-            <nav className="navbar">
-                <div className="nav1">
-                    <div className="nav11">
-                        <img src="/assets/images/LEft logo.jpeg" alt="" />
-                    </div>
-                    <div className="nav12">
-                        <div className="nav121 me-2">
-                            <img src="/assets/images/Logo middle.jpeg" alt="" />
-                        </div>
-                        <div className="nav121 ms-2">
-                            <button className="btn btn-danger">Register Now</button>
-                        </div>
-                    </div>
-                    <div className="nav13">
-                        <img src="/assets/images/right.jpeg" alt="" />
-                    </div>
-                </div>
-                <div className="nav2">
-                    {navOp.map((e, index) => {
-                        return (
-                            <div key={index} className={activeFlag[urlObj[e.cat]] ? "nav21 nav-active" : "nav21"}>
-                                <div className="dropdown">
-                                    {e.subcat.length > 0 ? <>
-                                        <button className="dropbtn">{e.cat}</button>
-                                        <div className="dropdown-content">
-                                            {e.subcat.map((f, index1) => {
-                                                return (
-                                                    <NavLink key={index1} to={f.link}>{f.name}</NavLink>
-                                                )
-                                            })}
-                                        </div>
-                                    </> : <NavLink className="navli" to={e.link}>{e.cat}</NavLink>}
-                                </div>
-                            </div>
-                        );
-                    })}
-                </div>
-                <div id="mySidenav" className="sidenav">
-                    <div className="closebtn" onClick={closeNav}>&times;</div>
-                    <div className="sdi">
-                        {navOp.map((e, index) => {
-                            return (
-                                <div key={index} className={activeFlag[urlObj[e.cat]] ? "nav21 nav-active" : "nav21"}>
-                                    <div className="dropdown">
-                                        {e.subcat.length > 0 ? <>
-                                            <button className="dropbtn">{e.cat}</button>
-                                            <div className="dropdown-content">
-                                                {e.subcat.map((f, index1) => {
-                                                    return (
-                                                        <NavLink onClick={closeNav} key={index1} to={f.link}>{f.name}</NavLink>
-                                                    )
-                                                })}
-                                            </div>
-                                        </> : <NavLink onClick={closeNav} className="navli" to={e.link}>{e.cat}</NavLink>}
-                                    </div>
-                                </div>
-                            );
-                        })}
-                    </div>
-                </div>
+  function closeNav() {
+    console.log("sdfsdf");
+    document.getElementById("mySidenav").style.width = "0";
+  }
 
-                <div className="navbtn">
-                    <svg onClick={openNav} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-list" viewBox="0 0 16 16">
-                        <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-                    </svg>
-                </div>
-            </nav>
-            <div className="enq-btns">
-                <button className="btn btn-warning me-1">Register Now</button>
-                <button className="btn btn-primary ms-1">Post Enquiry</button>
+  return (
+    <>
+      <div className="top-header">
+        Phone:
+        <span style={{ marginLeft: "10px" }}>+91 8989898989</span>
+        <span style={{ marginLeft: "30px" }}>
+          email: email@vertexeducation.com
+        </span>
+      </div>
+
+      <nav className="navbar">
+        <div className="nav1">
+          <div className="nav11">
+            <img src="/assets/images/LEft logo.jpeg" alt="" />
+            {/* <img src={logofile} alt="" /> */}
+          </div>
+          <div className="nav12">
+            <div className="nav121 me-2">
+              <img src="/assets/images/Logo middle.jpeg" alt="" />
             </div>
-        </>
-    )
-}
+            <div className="nav121 reg ms-2">
+              <button
+                // className="btn btn-danger"
+                className="registerbtn"
+              >
+                Register Now
+              </button>
+            </div>
+          </div>
+          <div className="nav13">
+            <img
+              src="/assets/images/right.jpeg"
+              alt=""
+              width="60px"
+              height="60px"
+            />
+          </div>
+        </div>
+        <div
+          className="nav121-mob reg-mob ms-2"
+          style={{ display: "flex", justifyContent: "center" }}
+        >
+          <button
+            // className="btn btn-danger"
+
+            className="registerbtn"
+          >
+            Register Now
+          </button>
+        </div>
+        <div className="nav2">
+          {navOp.map((e, index) => {
+            return (
+              <div
+                key={index}
+                className={
+                  activeFlag[urlObj[e.cat]] ? "nav21 nav-active" : "nav21"
+                }
+              >
+                <div className="dropdown">
+                  {e.subcat.length > 0 ? (
+                    <>
+                      <button className="dropbtn">{e.cat}</button>
+                      <div className="dropdown-content">
+                        {e.subcat.map((f, index1) => {
+                          return (
+                            <NavLink key={index1} to={f.link}>
+                              {f.name}
+                            </NavLink>
+                          );
+                        })}
+                      </div>
+                    </>
+                  ) : (
+                    <NavLink className="navli" to={e.link}>
+                      {e.cat}
+                    </NavLink>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <div id="mySidenav" className="sidenav">
+          <div className="closebtn" onClick={closeNav}>
+            &times;
+          </div>
+          <div className="sdi">
+            {navOp.map((e, index) => {
+              return (
+                <div
+                  key={index}
+                  className={
+                    activeFlag[urlObj[e.cat]] ? "nav21 nav-active" : "nav21"
+                  }
+                >
+                  <div className="dropdown">
+                    {e.subcat.length > 0 ? (
+                      <>
+                        <button className="dropbtn">{e.cat}</button>
+                        <div className="dropdown-content">
+                          {e.subcat.map((f, index1) => {
+                            return (
+                              <NavLink
+                                onClick={closeNav}
+                                key={index1}
+                                to={f.link}
+                              >
+                                {f.name}
+                              </NavLink>
+                            );
+                          })}
+                        </div>
+                      </>
+                    ) : (
+                      <NavLink onClick={closeNav} className="navli" to={e.link}>
+                        {e.cat}
+                      </NavLink>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="navbtn">
+          <svg
+            onClick={openNav}
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            className="bi bi-list"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fillRule="evenodd"
+              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+            />
+          </svg>
+        </div>
+      </nav>
+      <div className="enq-btns">
+        <button className="btn btn-warning me-1 registerbtnright">
+          Register Now
+        </button>
+        <button className="btn btn-primary ms-1 registerbtnright">
+          Post Enquiry
+        </button>
+      </div>
+    </>
+  );
+};
 
 export default Navbar;

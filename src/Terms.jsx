@@ -9,7 +9,7 @@ const Terms = (props) => {
       url: "/sample-paper",
     },
     {
-      name: "Zone",
+      name: "Important Dates",
       url: "/zones",
     },
     {
@@ -42,10 +42,10 @@ const Terms = (props) => {
         <div className="comm2">
           <h4>TERMS & CONDITIONS</h4>
           <div className="terms">
-            <h2>Terms & Condition</h2>
+            {/* <h2>Terms & Condition</h2> */}
             <div className="terms1">
               <h5 className="text-center text-decoration-underline mb-5">
-                TERMS & CONDITIONS
+                {/* TERMS & CONDITIONS */}
               </h5>
               {termsData.map((e, index) => {
                 return (

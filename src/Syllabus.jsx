@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { syllabus } from "./SyllabusData";
+import sylabusimage from "./assets/sylabus.jpg";
 
 const Syllabus = (props) => {
   const { id } = useParams();
@@ -23,17 +24,17 @@ const Syllabus = (props) => {
       name: "For Class 10 Studying Students going to Class 11 in 2023",
       url: "/syllabus/10",
     },
+    // {
+    //   name: "For Class 10 Studying Students going to Class 11 in 2023",
+    //   url: "/syllabus/11",
+    // },
     {
-      name: "For Class 10 Studying Students going to Class 11 in 2023",
+      name: "For Class 11 Studying Students going to Class 12 [E] in 2023",
       url: "/syllabus/11",
     },
     {
-      name: "For Class 11 Studying Students going to Class 12 [E] in 2023",
-      url: "/syllabus/12",
-    },
-    {
       name: "For Class 11 Studying Students going to Class 12 [M] in 2023",
-      url: "/syllabus/13",
+      url: "/syllabus/12",
     },
   ];
 
@@ -104,6 +105,12 @@ const Syllabus = (props) => {
 
   return (
     <div>
+      <img
+        src={sylabusimage}
+        width="100%"
+        height="250px"
+        style={{ objectFit: "cover" }}
+      />
       <div className="comm">
         <div className="comm1">
           <div className="comm11">
