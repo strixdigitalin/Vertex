@@ -9,36 +9,36 @@ const Syllabus = (props) => {
 
   let links = [
     {
-      name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022)ZENITH – Class–XIIth PASS Students",
+      name: "ZENITH – Class–XIIth PASS Students",
       link: "/syllabus/7",
     },
     {
-      name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) ZENITH – Class–XIIth PASS Students",
+      name: "ZENITH – Class–XIIth PASS Students",
       link: "/syllabus/8",
     },
     {
-      name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) ACME – Class–IX (8th Studying Students)",
+      name: "ACME – Class–IX (8th Studying Students)",
       link: "/syllabus/9",
     },
     {
-      name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) APEX – Class–XI (10th Studying Students)",
+      name: "APEX – Class–XI (10th Studying Students)",
       link: "/syllabus/10",
     },
 
     {
-      name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) APOGEE– Class–X(9th Studying Students)",
+      name: "APOGEE– Class–X(9th Studying Students)",
       link: "/syllabus/11",
     },
     {
-      name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) CREST – Class–XII IIT (11th Studying Students)",
+      name: "CREST – Class–XII IIT (11th Studying Students)",
       link: "/syllabus/12",
     },
     {
-      name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) CREST – Class–XII Medical (11th Studying Students)",
+      name: "CREST – Class–XII Medical (11th Studying Students)",
       link: "/syllabus/13",
     },
     {
-      name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) SUMMIT – Class–VIII(7th Studying Students)",
+      name: "SUMMIT – Class–VIII(7th Studying Students)",
       link: "/syllabus/14",
     },
   ];

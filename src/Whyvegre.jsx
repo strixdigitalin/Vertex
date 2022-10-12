@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
-
-const Rewards = (props) => {
+import whyUs1 from "./assets/why-us1.png";
+import whyUs2 from "./assets/why-us2.png";
+import whyUs3 from "./assets/why-us3.png";
+import whyUs4 from "./assets/why-us4.png";
+import whyUs5 from "./assets/why-us5.png";
+const WhyVegre = (props) => {
   let links = [
     {
       name: "Sample Papers",
@@ -40,8 +44,13 @@ const Rewards = (props) => {
         </div>
         <div className="comm2">
           <div className="rewards">
-            <h4>REWARDS & SCHOLARSHIPS</h4>
-            <div className="rewards1">
+            <h4>Why VE-GRE ?</h4>
+            <img src={whyUs1} width="100%" style={{ objectFit: "contain" }} />
+            <img src={whyUs2} width="100%" style={{ objectFit: "contain" }} />
+            <img src={whyUs3} width="100%" style={{ objectFit: "contain" }} />
+            <img src={whyUs4} width="100%" style={{ objectFit: "contain" }} />
+            <img src={whyUs5} width="100%" style={{ objectFit: "contain" }} />
+            {/* <div className="rewards1">
               <div className="rewards11">
                 <ul>
                   <li>
@@ -86,21 +95,19 @@ const Rewards = (props) => {
                   <li>Rank 2: Rs. 2100</li>
                   <li>Rank 3: Rs. 1100</li>
                 </ul>
-                {/* <div>
-                  <b>For 25 districts, total liability=1.575Lac</b>
-                </div> */}
+               
                 <b></b>
               </div>
-            </div>
+            </div> */}
           </div>
-          <em style={{ color: "green", textDecoration: "underline" }}>
+          {/* <em style={{ color: "green", textDecoration: "underline" }}>
             Topper of good schools will get waiver on registration fee on the
             recommendations of school principal.
-          </em>
+          </em> */}
         </div>
       </div>
     </div>
   );
 };
 
-export default Rewards;
+export default WhyVegre;

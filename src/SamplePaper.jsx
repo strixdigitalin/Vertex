@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const SamplePaper = (props) => {
   let links = [
@@ -51,55 +51,157 @@ const SamplePaper = (props) => {
                   >
                     S No.
                   </th>
-                  <th scope="col" 
-                   style={{
-                    background: "#ea6666",
-                    color: "white",
-                  }}
-                  >Class</th>
-                  <th scope="col"
-                   style={{
-                    background: "#ea6666",
-                    color: "white",
-                  }}
-                  >Question Paper with Key</th>
+                  <th
+                    scope="col"
+                    style={{
+                      background: "#ea6666",
+                      color: "white",
+                    }}
+                  >
+                    Class
+                  </th>
+                  <th
+                    scope="col"
+                    style={{
+                      background: "#ea6666",
+                      color: "white",
+                    }}
+                  >
+                    Question Paper with Key
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <th scope="row">1</th>
-                  <td>For Class 7 Students Moving to Class 8 in 2023</td>
-                  <td className="text-warning">Click to download</td>
+                  <td>(English) ACME – Class–IX (8th Studying Students)</td>
+                  {/* <Link to="/" style={{ height: "100%" }}> */}
+                  <td
+                    className="text-warning"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      window.location.href =
+                        "https://drive.google.com/file/d/1L5YlUQLpIJu_Hgr8BYAfKRLg3VZ2shz9/view?usp=sharing";
+                    }}
+                  >
+                    Click to download
+                  </td>
+                  {/* </Link> */}
                 </tr>
                 <tr>
                   <th scope="row">2</th>
-                  <td>For Class 8 Students Moving to Class 9 in 2023</td>
-                  <td className="text-warning">Click to download</td>
+                  <td>
+                    (Hindi) (English) ACME – Class–IX (8th Studying Students)
+                  </td>
+                  <td
+                    className="text-warning"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      window.location.href =
+                        "https://drive.google.com/file/d/1Wv5wjMda5zO5CNySmQicl45yEPj_aKb6/view?usp=sharing";
+                    }}
+                  >
+                    Click to download
+                  </td>
                 </tr>
                 <tr>
                   <th scope="row">3</th>
-                  <td>For Class 9 Students Moving to Class 10 in 2023</td>
-                  <td className="text-warning">Click to download</td>
+                  <td>
+                    (English)(English) APEX – Class–XI (10th Studying Students)
+                  </td>
+                  <td
+                    className="text-warning"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      window.location.href =
+                        "https://drive.google.com/file/d/1242Xk2AhS3yBgMXdUUcHxBUTsLTkuJ2J/view?usp=sharing";
+                    }}
+                  >
+                    Click to download
+                  </td>
                 </tr>
                 <tr>
                   <th scope="row">4</th>
-                  <td>For Class 10 Students Moving to Class 11 [E] in 2023</td>
-                  <td className="text-warning">Click to download</td>
+                  <td>
+                    (Hindi)(English) APEX – Class–XI (10th Studying Students)
+                  </td>
+                  <td
+                    className="text-warning"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      window.location.href =
+                        "https://drive.google.com/file/d/16STNuqFpQUJ09Rt7Xn641JJ9PJzcuxh0/view?usp=sharing";
+                    }}
+                  >
+                    Click to download
+                  </td>
                 </tr>
                 <tr>
                   <th scope="row">5</th>
-                  <td>For Class 10 Students Moving to Class 11 [M] in 2023</td>
-                  <td className="text-warning">Click to download</td>
+                  <td>
+                    {" "}
+                    (English) (English) APOGEE– Class–X(9th Studying Students)
+                  </td>
+                  <td
+                    className="text-warning"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      window.location.href =
+                        "https://drive.google.com/file/d/1nn5Av549NChuNwxXEB_PoSnsrt26KtkU/view?usp=sharing";
+                    }}
+                  >
+                    Click to download
+                  </td>
                 </tr>
                 <tr>
                   <th scope="row">6</th>
-                  <td>For Class 11 Students Moving to Class 12 [E] in 2023</td>
-                  <td className="text-warning">Click to download</td>
+                  <td>
+                    (Hindi)(English) APOGEE– Class–X(9th Studying Students)
+                  </td>
+                  <td
+                    onClick={() => {
+                      window.location.href =
+                        "https://drive.google.com/file/d/15KRXYpVQS_v1Miu2-7Vk7rdmZkpDuRQw/view?usp=sharing";
+                    }}
+                    className="text-warning"
+                    style={{ cursor: "pointer" }}
+                  >
+                    Click to download
+                  </td>
                 </tr>
                 <tr>
                   <th scope="row">7</th>
-                  <td>For Class 11 Students Moving to Class 12 [M] in 2023</td>
-                  <td className="text-warning">Click to download</td>
+                  <td>
+                    (English)(English) CREST – Class–XII IIT (11th Studying
+                    Students)
+                  </td>
+                  <td
+                    onClick={() => {
+                      window.location.href =
+                        "https://drive.google.com/file/d/1OuoqXVsw3GioEtQxR4SZQu6KdeZiU1P0/view?usp=sharing";
+                    }}
+                    className="text-warning"
+                    style={{ cursor: "pointer" }}
+                  >
+                    Click to download
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">8</th>
+                  <td>
+                    (Hindi)(English) CREST – Class–XII IIT (11th Studying
+                    Students)
+                  </td>
+                  <td
+                    onClick={() => {
+                      window.location.href =
+                        "https://drive.google.com/file/d/1finQH2MiazTOaPvPPYRN8QpMaISA7WbJ/view?usp=sharing";
+                    }}
+                    className="text-warning"
+                    style={{ cursor: "pointer" }}
+                  >
+                    Click to download
+                  </td>
                 </tr>
               </tbody>
             </table>

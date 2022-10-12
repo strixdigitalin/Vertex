@@ -24,10 +24,12 @@ import subject121 from "./assets/subject-12-1.png";
 
 import subject141 from "./assets/subject-14-1.png";
 import subject122 from "./assets/subject-12-2.png";
+import { sruopklpkll } from "./TermsData";
+
+export const MightFaceError = sruopklpkll;
 export const syllabus = {
   7: {
-    title:
-      "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) ZENITH – Class–XIIth PASS Students",
+    title: "ZENITH – Class–XIIth PASS Students",
     images: [subject71, subject72],
 
     arrs: [
@@ -87,8 +89,7 @@ export const syllabus = {
     },
   },
   8: {
-    title:
-      "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) ZENITH – Class–XIIth PASS Students",
+    title: "ZENITH – Class–XIIth PASS Students",
     images: [subject81, subject82],
 
     arrs: [
@@ -156,8 +157,7 @@ export const syllabus = {
     },
   },
   9: {
-    title:
-      "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) ACME – Class–IX (8th Studying Students)",
+    title: "ACME – Class–IX (8th Studying Students)",
 
     images: [subject91, subject92],
 
@@ -222,8 +222,7 @@ export const syllabus = {
     },
   },
   10: {
-    title:
-      "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) APEX – Class–XI (10th Studying Students)",
+    title: "APEX – Class–XI (10th Studying Students)",
 
     images: [
       subject101,
@@ -298,8 +297,7 @@ export const syllabus = {
     },
   },
   11: {
-    title:
-      "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) APOGEE– Class–X(9th Studying Students)",
+    title: "APOGEE– Class–X(9th Studying Students)",
     images: [
       subject111,
       subject112,
@@ -380,8 +378,7 @@ export const syllabus = {
     },
   },
   12: {
-    title:
-      "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) CREST – Class–XII IIT (11th Studying Students)",
+    title: "CREST – Class–XII IIT (11th Studying Students)",
     images: [subject121, subject122],
     arrs: [
       {
@@ -453,8 +450,7 @@ export const syllabus = {
     },
   },
   13: {
-    title:
-      "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) CREST – Class–XII Medical (11th Studying Students)",
+    title: "CREST – Class–XII Medical (11th Studying Students)",
     images: [subject131],
     arrs: [
       {
@@ -526,8 +522,7 @@ export const syllabus = {
     },
   },
   14: {
-    title:
-      "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) SUMMIT – Class–VIII(7th Studying Students)",
+    title: "SUMMIT – Class–VIII(7th Studying Students)",
     images: [subject141],
     arrs: [
       {

@@ -1,5 +1,6 @@
 import React from "react";
 import toTop from "./assets/scroll_to_top.png";
+import { MightFaceError } from "./SyllabusData";
 const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo({
@@ -11,13 +12,26 @@ const Footer = () => {
   };
   return (
     <>
-      <footer className="foot">
+      <footer
+        className="foot"
+        style={{
+          // position: "fixed",
+          bottom: "60px",
+          height: "40px",
+          width: "100%",
+        }}
+      >
         <div className="foot1">
           <div className="foot11">
             Copyright@2022 Vertex Educations. All rights reserved
           </div>
-          <div className="foot12">
-            Designed & Developed by Vertex Educations.
+          <div
+            className="foot12"
+            onClick={() => {
+              window.location.href = "https://www.strixdigital.in";
+            }}
+          >
+            Designed & Developed by {MightFaceError}
           </div>
         </div>
       </footer>
@@ -29,12 +43,13 @@ const Footer = () => {
           textAlign: "center",
           position: "fixed",
           display: "flex",
+          flexdirection: "column",
           // flexDirection: "row-reverse",
           // justifyContent: "space-between",
           textAlign: "center",
           // flexDirection: "row-reverse",
           bottom: "0px",
-          height: "70px",
+          height: "60px",
           width: "100%",
         }}
       >

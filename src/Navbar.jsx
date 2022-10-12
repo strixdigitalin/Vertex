@@ -10,6 +10,11 @@ const navOp = [
     subcat: [],
     link: "/",
   },
+  // {
+  //   cat: "Why Ve-Gre",
+  //   subcat: [],
+  //   link: "/",
+  // },
   {
     cat: "ELIGIBILITY",
     subcat: [],
@@ -19,36 +24,36 @@ const navOp = [
     cat: "SYLLABUS",
     subcat: [
       {
-        name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022)ZENITH – Class–XIIth PASS Students",
+        name: "ENITH – Class–XIIth PASS Students",
         link: "/syllabus/7",
       },
       {
-        name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) ZENITH – Class–XIIth PASS Students",
+        name: "ZENITH – Class–XIIth PASS Students",
         link: "/syllabus/8",
       },
       {
-        name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) ACME – Class–IX (8th Studying Students)",
+        name: "ACME – Class–IX (8th Studying Students)",
         link: "/syllabus/9",
       },
       {
-        name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) APEX – Class–XI (10th Studying Students)",
+        name: "APEX – Class–XI (10th Studying Students)",
         link: "/syllabus/10",
       },
 
       {
-        name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) APOGEE– Class–X(9th Studying Students)",
+        name: "APOGEE– Class–X(9th Studying Students)",
         link: "/syllabus/11",
       },
       {
-        name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) CREST – Class–XII IIT (11th Studying Students)",
+        name: "CREST – Class–XII IIT (11th Studying Students)",
         link: "/syllabus/12",
       },
       {
-        name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) CREST – Class–XII Medical (11th Studying Students)",
+        name: "CREST – Class–XII Medical (11th Studying Students)",
         link: "/syllabus/13",
       },
       {
-        name: "VERTEX EDUCATIONS-GENIUS REWARD EXAM (VE-GRE-2022) SUMMIT – Class–VIII(7th Studying Students)",
+        name: "SUMMIT – Class–VIII(7th Studying Students)",
         link: "/syllabus/14",
       },
     ],
@@ -375,18 +380,24 @@ const Navbar = (props) => {
   return (
     <>
       <div className="top-header">
-        Phone:
-        <span style={{ marginLeft: "10px" }}>+91 90310 11932</span>
-        <span style={{ marginLeft: "30px" }}>
-          email: info@vertexeducations.com
-        </span>
+        <div style={{ display: "flex", gap: "2%" }} className="left-head">
+          <div>
+            Phone:
+            <span style={{ marginLeft: "10px" }}>+91 90310 11932</span>
+          </div>
+          <div>
+            <span>Email: infovertexedu@gmail.com</span>
+          </div>
+        </div>
+        <div> Why VE-GRE ?</div>
       </div>
 
       <nav className="navbar">
         <div className="nav1">
           <div className="nav11">
             <img src="/assets/images/LEft logo.jpeg" alt="" />
-            {/* <img src={logofile} alt="" /> */}
+            {/* <img src="/assets/dainiklogo.svg" alt="" /> */}
+            {/* <img src= alt="" /> */}
           </div>
           <div className="nav12">
             <div className="nav121 me-2">
@@ -539,7 +550,7 @@ const Navbar = (props) => {
             (Submit your details below and you will be contacted by our
             Executive)
           </p>
-          <input placeholder="name" />
+          <input placeholder="Name" />
           {/* <br /> */}
           <input placeholder="Mobile" />
           {/* <br /> */}

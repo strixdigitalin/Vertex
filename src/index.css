@@ -81,6 +81,10 @@
 
 .top-header {background-color: black;color: white;
 padding: 5px 20px;
+color: yellow;
+font-weight: bold;
+display: flex;
+justify-content: space-between;
 
 }
 
@@ -386,6 +390,7 @@ p{
 table, th, td {
   border: 1px solid black;
 }
+
 .comm-table{
   width: 90%;
   margin: auto;
@@ -468,6 +473,9 @@ align-items: center;
 
   border-color: #bfbfbf;
 }
+.left-head{
+  width: 50%;
+}
 
 @media screen and (max-width:1170px){
   .nav2{
@@ -520,6 +528,7 @@ align-items: center;
   }
   .nav13{
     width: 16vw;
+    
   }
   .main4{
     flex-direction: column;
@@ -559,6 +568,16 @@ align-items: center;
 
 
 @media screen and (max-width:600px){
+  .left-head{
+  display: flex;
+  flex-direction: column;
+    width: 70%;
+    
+  }
+  .top-header{
+    font-size: 12px;
+
+  }
   .modal1{
     min-height: 400px;
  width: 300px;
@@ -595,12 +614,12 @@ align-items: center;
   .reg-mob{
     display: block;
   }
-  
+ 
   
   .nav13 {
     /* width: 21vw; */
     /* margin-top: 1.4rem; */
-    /* display: none; */
+    display: none;
   }
   .zones{
     font-size: 9px;
