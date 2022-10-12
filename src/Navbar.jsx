@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import logofile from "./assets/logo.svg";
+import logofile from "./assets/logo.jpg";
 
 const navOp = [
   {
@@ -395,8 +395,18 @@ const Navbar = (props) => {
       <nav className="navbar">
         <div className="nav1">
           <div className="nav11">
-            <img src="/assets/images/LEft logo.jpeg" alt="" />
-            {/* <img src="/assets/dainiklogo.svg" alt="" /> */}
+            {/* <img src="/assets/images/LEft logo.jpeg" alt="" /> */}
+            <img
+              src={logofile}
+              alt=""
+              height="70px"
+              width="100px"
+              style={
+                {
+                  // objectFit: "contain",
+                }
+              }
+            />
             {/* <img src= alt="" /> */}
           </div>
           <div className="nav12">
