@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logofile from "./assets/logo.jpg";
 
 const navOp = [
@@ -389,7 +389,14 @@ const Navbar = (props) => {
             <span>Email: infovertexedu@gmail.com</span>
           </div>
         </div>
-        <div> Why VE-GRE ?</div>
+        <div>
+          <Link
+            to="/why-vegre"
+            style={{ textDecoration: "none", color: "yellow" }}
+          >
+            Why VE-GRE ?
+          </Link>
+        </div>
       </div>
 
       <nav className="navbar">
