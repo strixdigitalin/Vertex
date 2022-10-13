@@ -16,6 +16,7 @@ import Courses from "./Courses";
 import Rewards from "./Rewards";
 import AdmitCard from "./AdmitCard";
 import { useState } from "react";
+import RegisterNow from "./RegisterNow";
 
 const App = () => {
   const [flag, setFlag] = useState(false);
@@ -73,9 +74,13 @@ const App = () => {
             path="/admit-card"
             element={<AdmitCard setFlag={setFlag} flag={flag} />}
           />
+          <Route
+            path="/register-now"
+            element={<RegisterNow setFlag={setFlag} flag={flag} />}
+          />
         </Routes>
+        <Footer />
       </BrowserRouter>
-      <Footer />
     </>
   );
 };

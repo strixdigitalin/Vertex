@@ -421,17 +421,19 @@ const Navbar = (props) => {
               <img src="/assets/images/Logo middle.jpeg" alt="" />
             </div>
             <div className="nav121 reg ms-2">
-              <button
-                // className="btn btn-danger"
-                className="registerbtn "
-                onClick={() => {
-                  console.log(registerRef.current, "<<<registerref");
-                  registerRef.current.style.color = "red";
-                }}
-                ref={registerRef}
-              >
-                Register Now
-              </button>
+              <Link to="/register-now">
+                <button
+                  // className="btn btn-danger"
+                  className="registerbtn "
+                  onClick={() => {
+                    console.log(registerRef.current, "<<<registerref");
+                    registerRef.current.style.color = "red";
+                  }}
+                  ref={registerRef}
+                >
+                  Register Now
+                </button>
+              </Link>
             </div>
           </div>
           <div className="nav13">
@@ -447,13 +449,15 @@ const Navbar = (props) => {
           className="nav121-mob  ms-2"
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <button
-            // className="btn btn-danger"
+          <Link to="/register-now">
+            <button
+              // className="btn btn-danger"
 
-            className="registerbtn reg-mob"
-          >
-            Register Now
-          </button>
+              className="registerbtn reg-mob"
+            >
+              Register Now
+            </button>
+          </Link>
         </div>
         <div className="nav2">
           {navOp.map((e, index) => {
@@ -549,9 +553,11 @@ const Navbar = (props) => {
         </div>
       </nav>
       <div className="enq-btns">
-        <button className="btn btn-warning me-1 registerbtnright">
-          Register Now
-        </button>
+        <Link to="/register-now">
+          <button className="btn btn-warning me-1 registerbtnright">
+            Register Now
+          </button>
+        </Link>
         <button
           className="btn btn-primary ms-1 registerbtnright"
           onClick={onClickPostEnquiry}

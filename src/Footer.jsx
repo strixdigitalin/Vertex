@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import toTop from "./assets/scroll_to_top.png";
 import { MightFaceError } from "./SyllabusData";
 const Footer = () => {
@@ -16,7 +17,7 @@ const Footer = () => {
         className="foot"
         style={{
           // position: "fixed",
-          bottom: "60px",
+          // bottom: "60px",
           height: "40px",
           width: "100%",
         }}
@@ -58,13 +59,15 @@ const Footer = () => {
 
         <div style={{ width: "100%" }}>
           Get upto free education with Free Lodging and Free Food
-          <button
-            // className="btn btn-danger"
-            className="registerbtn "
-            onClick={scrollToTop}
-          >
-            Register Now
-          </button>
+          <Link to="/register-now">
+            <button
+              // className="btn btn-danger"
+              className="registerbtn "
+              onClick={scrollToTop}
+            >
+              Register Now
+            </button>
+          </Link>
         </div>
         <div
           onClick={scrollToTop}

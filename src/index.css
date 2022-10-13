@@ -477,6 +477,73 @@ align-items: center;
   width: 50%;
 }
 
+/* --Registration form */
+
+.registrationFormbody{
+  /* width: 65%; */
+  padding: 10px 17%;
+  margin: auto;
+  min-height: 100vh;
+max-height: 100%;
+  background: rgb(255,255,255);
+background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,197,127,0.7430322470785189) 46%, rgba(252,170,70,1) 100%);
+height: 100%;
+  /* height: 80vh; */
+}
+.regsubmit {
+  margin: auto;
+  width:  60%;
+  margin-top: 40px;
+  padding: 10px;
+  border-radius: 40px;
+}
+.input-cover-reg{
+  display: flex;
+
+}
+.input-upper{
+  display: flex ;
+}
+.input-label-reg{
+  color: #7B0100;
+  font-size: 20px;
+  max-width: 20%;
+  min-width: 277px;
+  /* margin-left: 20px; */
+
+}
+.input-box-reg > select {
+  width: 100%;
+  min-width: 150px;
+  border-radius: 10px;
+  padding: 5px 5px;
+}
+.dis-city{
+  min-width: 68px !important;
+}
+.dist-city-tow{
+ width: 60% !important; 
+}
+.input-box-reg{
+ /* width: 70%;  */
+ /* margin-left: 2rem; */
+
+}
+.input-box-reg > input {
+  border-radius: 10px;
+  padding: 5px;
+
+}
+
+.reg-two-field{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.reg-tow-field-single{
+  width: 50%;
+}
+
 @media screen and (max-width:1170px){
   .nav2{
     flex-wrap: wrap;
@@ -568,6 +635,44 @@ align-items: center;
 
 
 @media screen and (max-width:600px){
+
+  .input-label-reg{
+    color: #7B0100;
+    font-size: 20px;
+    /* max-width: 20%; */
+    /* min-width: 100px; */
+    /* margin-left: 20px; */
+  
+  }
+  .registrationFormbody {
+    /* width: 65%; */
+    padding: 10px 5%;
+    margin: auto;
+    min-height: 100vh;
+    max-height: 100%;
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,197,127,0.7430322470785189) 46%, rgba(252,170,70,1) 100%);
+    height: 100%;
+    /* height: 80vh; */
+}
+.dist-city-tow {
+  width: 100% !important;
+}
+.input-cover-reg {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.input-box-reg {
+  /* width: 70%; */
+  /* margin-left: 2rem; */
+  width: 100%;
+}
+.input-box-reg > input {
+  border-radius: 10px;
+  width: 100%;
+  padding: 5px;
+}
   .left-head{
   display: flex;
   flex-direction: column;

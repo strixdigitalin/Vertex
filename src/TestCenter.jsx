@@ -55,7 +55,7 @@ const TestCenter = (props) => {
             Gopalganj, Siwan, West Champaran, Supaul, Saharsha, Lakhisarai,
             Munger, Bhagalpur, Jamui, Banka, Purnea, Katihar, Kishanganj,
             Madhepura, Supaul, Araria, Khagaria, Patna, Garhwa, Daltonganj,
-            Sheikhpura
+            Sheikhpura,
           </h5>
         </div>
       </div>
