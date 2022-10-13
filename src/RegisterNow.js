@@ -72,17 +72,7 @@ function RegisterNow() {
         },
       ],
     },
-    {
-      fields: [
-        {
-          label: "District",
-          type: "text",
-          name: "district",
-          value: formData.district,
-          onChange: onChange,
-        },
-      ],
-    },
+
     // {
     //   fields: [
     //     {
