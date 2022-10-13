@@ -1,7 +1,97 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
+import PaymentButton from "./PaymentButton";
+import { base_URL, getOrder } from "./Payment/APi/ORders";
 
 function RegisterNow() {
   const [formData, setFormData] = useState({});
+
+  const [showBuy, setShowBuy] = useState(true);
+  // Paymet
+  const [values, setValues] = useState({
+    amount: 0,
+    orderId: "",
+    error: "",
+    success: false,
+  });
+
+  const { amount, orderId, success, error } = values;
+  useEffect(() => {
+    createOrder();
+  }, []);
+
+  const createOrder = () => {
+    getOrder((response) => {
+      console.log(response);
+      if (response.error) {
+        setValues({ ...values, error: response.error, success: false });
+      } else {
+        alert(response.amount);
+        setValues({
+          ...values,
+          error: "",
+          success: true,
+          orderId: response.id,
+          amount: response.amount,
+        });
+      }
+    });
+  };
+
+  useEffect(() => {
+    if (amount > 0 && orderId != "") {
+      showRazoryPay();
+    }
+  }, [amount]);
+
+  const payDEtails = async () => {
+    const payload = {
+      "data-key": "rzp_test_Mu5DUXrPHI2u7b",
+      "data-amount": 100,
+      "data-name": "Strix Digital",
+      "data-prefill.contact": 8989802546,
+      "data-prefill.email": "email@gmail.com",
+      "data-order_id": orderId,
+      "data-prefill.name": "strix",
+    };
+
+    // window.location.href = "http://localhost:5000/";
+
+    const { data } = await axios.post(`${base_URL}/payment/callback`, null, {
+      params: payload,
+    });
+    console.log(data);
+  };
+
+  const showRazoryPay = () => {
+    const form = document.createElement("form");
+    form.setAttribute("action", `http://localhost:5000/api/payment/callback`);
+    form.setAttribute("method", "POST");
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    script.setAttribute("data-key", "rzp_test_Mu5DUXrPHI2u7b");
+    script.setAttribute("data-amount", amount);
+    script.setAttribute("data-name", "Clever Coder");
+    script.setAttribute("data-prefill.contact", "9678452132");
+    script.setAttribute("data-prefill.email", "abc@gmail.com");
+    script.setAttribute("data-order_id", orderId);
+    script.setAttribute("data-prefill.name", "Lalit Patel");
+    // script.setAttribute("data-image", `http://localhost:5000/logo`);
+    script.setAttribute("data-buttontext", "Proceed To Payment");
+    let paymentbutton = document.getElementById("paymentbutton");
+    paymentbutton.appendChild(form);
+    form.appendChild(script);
+    const input = document.createElement("input");
+    input.type = "hidden";
+    input.custom = "Hidden Element";
+    input.name = "hidden";
+    form.appendChild(input);
+    setShowBuy(false);
+  };
+  // 0----------------------------------------
+
+  // -------------
   const onChange = (e) => {
     const { name, value } = e.target;
     console.log("label-->", name, "\t value-->", value);
@@ -307,6 +397,22 @@ function RegisterNow() {
         style={{ width: " 100%", display: "flex", justifyContent: "center" }}
       >
         <button className="regsubmit"> Submit</button>
+      </div>
+      <div
+        style={{ width: " 100%", display: "flex", justifyContent: "center" }}
+      >
+        {/* <PaymentButton /> */}
+        {/* {PaymentButton()} */}
+      </div>
+
+      <div>
+        {amount === 0 && orderId == "" && <h1>Loading...</h1>}
+        {false && (
+          <div id="" onClick={showRazoryPay}>
+            Proceed To Payment
+          </div>
+        )}
+        <div id="paymentbutton" onClick={showRazoryPay}></div>
       </div>
       {/* <div className="reg-two-field">
         <div className="input-cover-reg">
