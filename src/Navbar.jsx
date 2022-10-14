@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logofile from "./assets/logo.jpg";
+import { sendEnquiry } from "./Payment/APi/Users";
 
 const navOp = [
   {
@@ -10,11 +11,11 @@ const navOp = [
     subcat: [],
     link: "/",
   },
-  // {
-  //   cat: "Why Ve-Gre",
-  //   subcat: [],
-  //   link: "/",
-  // },
+  {
+    cat: "Why Ve-Gre",
+    subcat: [],
+    link: "/why-vegre",
+  },
   {
     cat: "ELIGIBILITY",
     subcat: [],
@@ -32,28 +33,28 @@ const navOp = [
         link: "/syllabus/8",
       },
       {
-        name: "ACME – Class–IX (8th Studying Students)",
+        name: "IX (8th Studying Students)",
         link: "/syllabus/9",
       },
       {
-        name: "APEX – Class–XI (10th Studying Students)",
+        name: "XI (10th Studying Students)",
         link: "/syllabus/10",
       },
 
       {
-        name: "APOGEE– Class–X(9th Studying Students)",
+        name: "X(9th Studying Students)",
         link: "/syllabus/11",
       },
       {
-        name: "CREST – Class–XII IIT (11th Studying Students)",
+        name: "XII IIT (11th Studying Students)",
         link: "/syllabus/12",
       },
       {
-        name: "CREST – Class–XII Medical (11th Studying Students)",
+        name: "XII Medical (11th Studying Students)",
         link: "/syllabus/13",
       },
       {
-        name: "SUMMIT – Class–VIII(7th Studying Students)",
+        name: "VIII(7th Studying Students)",
         link: "/syllabus/14",
       },
     ],
@@ -78,11 +79,11 @@ const navOp = [
     subcat: [],
     link: "/procedure",
   },
-  {
-    cat: "NEWS",
-    subcat: [{ name: "Result", link: "/news" }],
-    link: "/news",
-  },
+  // {
+  //   cat: "NEWS",
+  //   subcat: [{ name: "Result", link: "/news" }],
+  //   link: "/news",
+  // },
   {
     cat: "TERMS & CONDITIONS",
     subcat: [],
@@ -92,27 +93,27 @@ const navOp = [
     cat: "OUR COURSES",
     subcat: [
       {
-        name: "SUMMIT BATCH (FOR Class-8)",
+        name: "FOR Class-8",
         link: "/courses/8",
       },
       {
-        name: "ACME BATCH (FOR Class-9) ",
+        name: "FOR Class-9 ",
         link: "/courses/9",
       },
       {
-        name: "APOGEE BATCH (FOR Class-10) ",
+        name: "FOR Class-10",
         link: "/courses/10",
       },
       {
-        name: "APEX BATCH (FOR Class-11)",
+        name: "BATCH FOR Class-11",
         link: "/courses/11",
       },
       {
-        name: "CREST BATCH (FOR Class-12) ",
+        name: "FOR Class-12",
         link: "/courses/12",
       },
       {
-        name: "ZENITH BATCH (FOR 12th Pass Students)",
+        name: "FOR 12th Pass Students",
         link: "/courses/13",
       },
     ],
@@ -131,6 +132,7 @@ const navOp = [
 
 const urlObj = {
   HOME: "home",
+  "Why Ve-Gre": "whyVegre",
   ELIGIBILITY: "eligiblity",
   SYLLABUS: "SYLLABUS",
   "SAMPLE PAPER": "SAMPLE_PAPER",
@@ -147,6 +149,7 @@ const urlObj = {
 const Navbar = (props) => {
   const [activeFlag, setActiveFlag] = useState({
     home: true,
+    whyVegre: false,
     eligiblity: false,
     SYLLABUS: false,
     SAMPLE_PAPER: false,
@@ -159,6 +162,7 @@ const Navbar = (props) => {
     REWARD: false,
     ADMIT: false,
   });
+  const [enquiry, setEnquiry] = useState({});
 
   const registerRef = useRef();
   const modlRef = useRef();
@@ -178,6 +182,14 @@ const Navbar = (props) => {
     navtoggle.current.style.display = "none";
   };
 
+  const sendEnquirySubmit = () => {
+    sendEnquiry(enquiry, (res) => {
+      alert(res.msg);
+      setEnquiry({});
+      // /*);
+    });
+  };
+
   useEffect(() => {
     setInterval(() => {
       setBlikButtons(!blikButtons);
@@ -195,6 +207,22 @@ const Navbar = (props) => {
         TEST_CNETRES: false,
         PROCEDURE: false,
         NEWS_RESULT: false,
+        TERMS: false,
+        COURSES: false,
+        REWARD: false,
+        ADMIT: false,
+      });
+    } else if (url.includes("/why-vegre")) {
+      setActiveFlag({
+        home: false,
+        whyVegre: true,
+        eligiblity: false,
+        SYLLABUS: false,
+        SAMPLE_PAPER: false,
+        IMPORTANT_DATES: false,
+        TEST_CNETRES: false,
+        PROCEDURE: false,
+        // NEWS_RESULT: false,
         TERMS: false,
         COURSES: false,
         REWARD: false,
@@ -389,14 +417,14 @@ const Navbar = (props) => {
             <span>Email: infovertexedu@gmail.com</span>
           </div>
         </div>
-        <div>
+        {/* <div>
           <Link
             to="/why-vegre"
             style={{ textDecoration: "none", color: "yellow" }}
           >
             Why VE-GRE ?
           </Link>
-        </div>
+        </div> */}
       </div>
 
       <nav className="navbar">
@@ -560,6 +588,7 @@ const Navbar = (props) => {
         </Link>
         <button
           className="btn btn-primary ms-1 registerbtnright"
+          // style={{display}}
           onClick={onClickPostEnquiry}
         >
           Post Enquiry
@@ -573,13 +602,37 @@ const Navbar = (props) => {
             (Submit your details below and you will be contacted by our
             Executive)
           </p>
-          <input placeholder="Name" />
+          <input
+            value={enquiry.name}
+            placeholder="Name"
+            onChange={(e) => {
+              setEnquiry({ ...enquiry, name: e.target.value });
+            }}
+          />
           {/* <br /> */}
-          <input placeholder="Mobile" />
+          <input
+            value={enquiry.mobile}
+            placeholder="Mobile"
+            onChange={(e) => {
+              setEnquiry({ ...enquiry, mobile: e.target.value });
+            }}
+          />
           {/* <br /> */}
-          <input placeholder="Email" />
+          <input
+            placeholder="Email"
+            value={enquiry.email}
+            onChange={(e) => {
+              setEnquiry({ ...enquiry, email: e.target.value });
+            }}
+          />
           {/* <br /> */}
-          <input placeholder="Message" />
+          <input
+            placeholder="Message"
+            value={enquiry.message}
+            onChange={(e) => {
+              setEnquiry({ ...enquiry, message: e.target.value });
+            }}
+          />
           <br />
           <button
             style={{
@@ -589,6 +642,7 @@ const Navbar = (props) => {
               padding: " 5px 10px",
               width: "120px",
             }}
+            onClick={sendEnquirySubmit}
           >
             Submit
           </button>

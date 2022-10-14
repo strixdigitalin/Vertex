@@ -441,7 +441,7 @@ table, th, td {
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
-display: flex;
+display: none;
 justify-content: center;
 align-items: center;
   overflow: auto; /* Enable scroll if needed */

@@ -3,11 +3,13 @@ import axios from "axios";
 
 import PaymentButton from "./PaymentButton";
 import { base_URL, getOrder } from "./Payment/APi/ORders";
+import { RegisterUser } from "./Payment/APi/Users";
 
 function RegisterNow() {
   const [formData, setFormData] = useState({});
 
   const [showBuy, setShowBuy] = useState(true);
+
   // Paymet
   const [values, setValues] = useState({
     amount: 0,
@@ -17,9 +19,9 @@ function RegisterNow() {
   });
 
   const { amount, orderId, success, error } = values;
-  useEffect(() => {
-    createOrder();
-  }, []);
+  // useEffect(() => {
+  //   createOrder();
+  // }, []);
 
   const createOrder = () => {
     getOrder((response) => {
@@ -27,7 +29,7 @@ function RegisterNow() {
       if (response.error) {
         setValues({ ...values, error: response.error, success: false });
       } else {
-        alert(response.amount);
+        // alert(response.amount);
         setValues({
           ...values,
           error: "",
@@ -39,11 +41,11 @@ function RegisterNow() {
     });
   };
 
-  useEffect(() => {
-    if (amount > 0 && orderId != "") {
-      showRazoryPay();
-    }
-  }, [amount]);
+  // useEffect(() => {
+  //   if (amount > 0 && orderId != "") {
+  //     showRazoryPay();
+  //   }
+  // }, [amount]);
 
   const payDEtails = async () => {
     const payload = {
@@ -89,14 +91,94 @@ function RegisterNow() {
     form.appendChild(input);
     setShowBuy(false);
   };
+
   // 0----------------------------------------
 
   // -------------
+
+  // const showRazorPay2 = () => {};
+
   const onChange = (e) => {
     const { name, value } = e.target;
     console.log("label-->", name, "\t value-->", value);
     setFormData({ ...formData, [name]: value });
   };
+
+  function loadScript(src) {
+    return new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = src;
+      script.onload = () => {
+        resolve(true);
+      };
+      script.onerror = () => {
+        resolve(false);
+      };
+      document.body.appendChild(script);
+    });
+  }
+
+  async function showRazorPay2() {
+    const res = await loadScript(
+      "https://checkout.razorpay.com/v1/checkout.js"
+    );
+
+    if (!res) {
+      alert("Razorpay SDK failed to load. Are you online?");
+      return;
+    }
+
+    // creating a new order
+    const result = await axios.get("http://localhost:5000/api/createorder");
+
+    if (!result) {
+      alert("Server error. Are you online?");
+      return;
+    }
+    console.log(result, "<<<result");
+
+    // Getting the order details back
+    const { amount, id, currency } = result.data;
+
+    const options = {
+      key: "rzp_test_Mu5DUXrPHI2u7b", // Enter the Key ID generated from the Dashboard
+      amount: amount.toString(),
+      currency: currency,
+      name: "Soumya Corp.",
+      description: "Test Transaction",
+      // image: { logo },
+      order_id: id,
+      handler: async function (response) {
+        const data = {
+          orderCreationId: id,
+          razorpayPaymentId: response.razorpay_payment_id,
+          razorpayOrderId: response.razorpay_order_id,
+          razorpaySignature: response.razorpay_signature,
+        };
+        console.log(data);
+        const result = await axios.post(
+          "http://localhost:5000/api/payment/callback",
+          data
+        );
+
+        alert(result.data.msg);
+      },
+      prefill: {
+        name: "Vertex Education",
+        email: "SoumyaDey@example.com",
+        contact: "9999999999",
+      },
+      notes: {
+        address: "Soumya Dey Corporate Office",
+      },
+      theme: {
+        color: "#61dafb",
+      },
+    };
+
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.open();
+  }
 
   const inputFields = [
     // {
@@ -134,8 +216,8 @@ function RegisterNow() {
         {
           label: "Date of Birth",
           type: "date",
-          name: "date",
-          value: formData.date,
+          name: "dob",
+          value: formData.dob,
           onChange: onChange,
         },
       ],
@@ -211,6 +293,12 @@ function RegisterNow() {
       ],
     },
   ];
+  const submitForm = () => {
+    RegisterUser(formData, (res) => {
+      console.log(res);
+      alert(res.msg);
+    });
+  };
 
   return (
     <div className="registrationFormbody">
@@ -396,7 +484,10 @@ function RegisterNow() {
       <div
         style={{ width: " 100%", display: "flex", justifyContent: "center" }}
       >
-        <button className="regsubmit"> Submit</button>
+        <button className="regsubmit" onClick={submitForm}>
+          {" "}
+          Submit
+        </button>
       </div>
       <div
         style={{ width: " 100%", display: "flex", justifyContent: "center" }}
@@ -405,15 +496,18 @@ function RegisterNow() {
         {/* {PaymentButton()} */}
       </div>
 
-      <div>
+      {/* <div>
         {amount === 0 && orderId == "" && <h1>Loading...</h1>}
         {false && (
           <div id="" onClick={showRazoryPay}>
             Proceed To Payment
           </div>
         )}
-        <div id="paymentbutton" onClick={showRazoryPay}></div>
-      </div>
+        {/* <div id="paymentbutton" onClick={showRazoryPay}></div> */}
+      {/* </div> */}
+
+      {/* <button onClick={showRazorPay2}>Pay 2</button> */}
+
       {/* <div className="reg-two-field">
         <div className="input-cover-reg">
           <div className="input-label-reg">Mobile No. of (Father) </div>
