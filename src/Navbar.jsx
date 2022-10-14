@@ -12,7 +12,7 @@ const navOp = [
     link: "/",
   },
   {
-    cat: "Why Ve-Gre",
+    cat: "Why VEGRE",
     subcat: [],
     link: "/why-vegre",
   },
@@ -25,25 +25,12 @@ const navOp = [
     cat: "SYLLABUS",
     subcat: [
       {
-        name: "ENITH – Class–XIIth PASS Students",
+        name: "For Class–XIIth Pass students (IIT)",
         link: "/syllabus/7",
       },
       {
-        name: "ZENITH – Class–XIIth PASS Students",
+        name: "For Class–XI th Pass Students (Medical)",
         link: "/syllabus/8",
-      },
-      {
-        name: "IX (8th Studying Students)",
-        link: "/syllabus/9",
-      },
-      {
-        name: "XI (10th Studying Students)",
-        link: "/syllabus/10",
-      },
-
-      {
-        name: "X(9th Studying Students)",
-        link: "/syllabus/11",
       },
       {
         name: "XII IIT (11th Studying Students)",
@@ -54,7 +41,20 @@ const navOp = [
         link: "/syllabus/13",
       },
       {
-        name: "VIII(7th Studying Students)",
+        name: "XI (10th Studying Students)",
+        link: "/syllabus/10",
+      },
+      {
+        name: "X (9th Studying Students)",
+        link: "/syllabus/11",
+      },
+      {
+        name: "IX (8th Studying Students)",
+        link: "/syllabus/9",
+      },
+
+      {
+        name: "VIII (7th Studying Students)",
         link: "/syllabus/14",
       },
     ],
@@ -93,28 +93,32 @@ const navOp = [
     cat: "OUR COURSES",
     subcat: [
       {
-        name: "FOR Class-8",
-        link: "/courses/8",
-      },
-      {
-        name: "FOR Class-9 ",
-        link: "/courses/9",
-      },
-      {
-        name: "FOR Class-10",
-        link: "/courses/10",
-      },
-      {
-        name: "BATCH FOR Class-11",
-        link: "/courses/11",
-      },
-      {
         name: "FOR Class-12",
         link: "/courses/12",
       },
       {
         name: "FOR 12th Pass Students",
         link: "/courses/13",
+      },
+      {
+        name: "FOR Class-11",
+        link: "/courses/11",
+      },
+      {
+        name: "FOR Class-11",
+        link: "/courses/11",
+      },
+      {
+        name: "FOR Class-10",
+        link: "/courses/10",
+      },
+      {
+        name: "FOR Class-9 ",
+        link: "/courses/9",
+      },
+      {
+        name: "FOR Class-8",
+        link: "/courses/8",
       },
     ],
   },

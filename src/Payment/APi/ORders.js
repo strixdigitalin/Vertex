@@ -5,7 +5,7 @@ export const getOrder = (callBack) => {
     redirect: "follow",
   };
 
-  fetch("http://localhost:5000/api/createorder", requestOptions)
+  fetch(base_URL+"/api/createorder", requestOptions)
     .then((response) => response.text())
     .then((result) => {
       //   console.log(result);

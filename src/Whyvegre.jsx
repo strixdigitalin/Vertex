@@ -48,8 +48,8 @@ const WhyVegre = (props) => {
             <img src={whyUs1} width="100%" style={{ objectFit: "contain" }} />
             <img src={whyUs2} width="100%" style={{ objectFit: "contain" }} />
             <img src={whyUs3} width="100%" style={{ objectFit: "contain" }} />
-            <img src={whyUs4} width="100%" style={{ objectFit: "contain" }} />
-            <img src={whyUs5} width="100%" style={{ objectFit: "contain" }} />
+            {/* <img src={whyUs4} width="100%" style={{ objectFit: "contain" }} /> */}
+            {/* <img src={whyUs5} width="100%" style={{ objectFit: "contain" }} /> */}
             {/* <div className="rewards1">
               <div className="rewards11">
                 <ul>

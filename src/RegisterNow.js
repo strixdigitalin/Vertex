@@ -4,9 +4,53 @@ import axios from "axios";
 import PaymentButton from "./PaymentButton";
 import { base_URL, getOrder } from "./Payment/APi/ORders";
 import { RegisterUser } from "./Payment/APi/Users";
+import { allDistrict } from "./District";
 
 function RegisterNow() {
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({
+    field: null,
+    studying: null,
+    name: null,
+    dob: null,
+    father: null,
+    address: null,
+    email: null,
+    mobile: Number,
+    district: null,
+    city: null,
+    pin: null,
+    state: null,
+    fatherOccupation: null,
+    mobileFather: null,
+    motherOccupation: null,
+    motherMobile: null,
+    appearDistrict: null,
+    gender: null,
+  });
+  const fieldOptions = [
+    {
+      field: "field",
+      show: "Field",
+    },
+    { field: "studying", show: "Current Studying Class" },
+    { field: "gender", show: "Gender" },
+    { field: "name", show: "Name" },
+    { field: "dob", show: "Date of birth" },
+    { field: "father", show: "Father's Name" },
+    { field: "address", show: "Address" },
+
+    { field: "district", show: "District" },
+    { field: "city", show: "City" },
+    { field: "pin", show: "Pin Code" },
+    { field: "state", show: "State" },
+    { field: "email", show: "Email" },
+    { field: "mobile", show: "Mobile" },
+    { field: "fatherOccupation", show: "Father Occupation" },
+    { field: "motherOccupation", show: "Mother Occupation" },
+    { field: "mobileFather", show: "Father's Mobile Number" },
+    { field: "motherMobile", show: "Mother's Mobile Number" },
+    { field: "appearDistrict", show: "Appeaed District for Exam" },
+  ];
 
   const [showBuy, setShowBuy] = useState(true);
 
@@ -49,7 +93,7 @@ function RegisterNow() {
 
   const payDEtails = async () => {
     const payload = {
-      "data-key": "rzp_test_Mu5DUXrPHI2u7b",
+      "data-key": "rzp_live_XVo1ue3IK3yAAY",
       "data-amount": 100,
       "data-name": "Strix Digital",
       "data-prefill.contact": 8989802546,
@@ -66,31 +110,31 @@ function RegisterNow() {
     console.log(data);
   };
 
-  const showRazoryPay = () => {
-    const form = document.createElement("form");
-    form.setAttribute("action", `http://localhost:5000/api/payment/callback`);
-    form.setAttribute("method", "POST");
-    const script = document.createElement("script");
-    script.src = "https://checkout.razorpay.com/v1/checkout.js";
-    script.setAttribute("data-key", "rzp_test_Mu5DUXrPHI2u7b");
-    script.setAttribute("data-amount", amount);
-    script.setAttribute("data-name", "Clever Coder");
-    script.setAttribute("data-prefill.contact", "9678452132");
-    script.setAttribute("data-prefill.email", "abc@gmail.com");
-    script.setAttribute("data-order_id", orderId);
-    script.setAttribute("data-prefill.name", "Lalit Patel");
-    // script.setAttribute("data-image", `http://localhost:5000/logo`);
-    script.setAttribute("data-buttontext", "Proceed To Payment");
-    let paymentbutton = document.getElementById("paymentbutton");
-    paymentbutton.appendChild(form);
-    form.appendChild(script);
-    const input = document.createElement("input");
-    input.type = "hidden";
-    input.custom = "Hidden Element";
-    input.name = "hidden";
-    form.appendChild(input);
-    setShowBuy(false);
-  };
+  // const showRazoryPay = () => {
+  //   const form = document.createElement("form");
+  //   form.setAttribute("action", `http://localhost:5000/api/payment/callback`);
+  //   form.setAttribute("method", "POST");
+  //   const script = document.createElement("script");
+  //   script.src = "https://checkout.razorpay.com/v1/checkout.js";
+  //   script.setAttribute("data-key", "rzp_live_XVo1ue3IK3yAAY");
+  //   script.setAttribute("data-amount", amount);
+  //   script.setAttribute("data-name", "Clever Coder");
+  //   script.setAttribute("data-prefill.contact", "9678452132");
+  //   script.setAttribute("data-prefill.email", "abc@gmail.com");
+  //   script.setAttribute("data-order_id", orderId);
+  //   script.setAttribute("data-prefill.name", "Lalit Patel");
+  //   // script.setAttribute("data-image", `http://localhost:5000/logo`);
+  //   script.setAttribute("data-buttontext", "Proceed To Payment");
+  //   let paymentbutton = document.getElementById("paymentbutton");
+  //   paymentbutton.appendChild(form);
+  //   form.appendChild(script);
+  //   const input = document.createElement("input");
+  //   input.type = "hidden";
+  //   input.custom = "Hidden Element";
+  //   input.name = "hidden";
+  //   form.appendChild(input);
+  //   setShowBuy(false);
+  // };
 
   // 0----------------------------------------
 
@@ -118,7 +162,7 @@ function RegisterNow() {
     });
   }
 
-  async function showRazorPay2() {
+  async function showRazorPay2(payload) {
     const res = await loadScript(
       "https://checkout.razorpay.com/v1/checkout.js"
     );
@@ -129,7 +173,7 @@ function RegisterNow() {
     }
 
     // creating a new order
-    const result = await axios.get("http://localhost:5000/api/createorder");
+    const result = await axios.get(base_URL + "/api/createorder");
 
     if (!result) {
       alert("Server error. Are you online?");
@@ -138,28 +182,37 @@ function RegisterNow() {
     console.log(result, "<<<result");
 
     // Getting the order details back
+
     const { amount, id, currency } = result.data;
+    // const liveKey = "rzp_live_rWC4iXaB2ed5LL"; // old live key
+    const testKey = "rzp_test_Mu5DUXrPHI2u7b"; // old test key
+
+    const liveKey = "rzp_live_XVo1ue3IK3yAAY"; // new live key
 
     const options = {
-      key: "rzp_test_Mu5DUXrPHI2u7b", // Enter the Key ID generated from the Dashboard
+      // key: "rzp_live_XVo1ue3IK3yAAY", // Enter the Key ID generated from the Dashboard
+      key: liveKey, // Enter the Key ID generated from the Dashboard
       amount: amount.toString(),
       currency: currency,
       name: "Soumya Corp.",
       description: "Test Transaction",
       // image: { logo },
       order_id: id,
+
       handler: async function (response) {
         const data = {
           orderCreationId: id,
           razorpayPaymentId: response.razorpay_payment_id,
           razorpayOrderId: response.razorpay_order_id,
           razorpaySignature: response.razorpay_signature,
+          ...payload,
         };
         console.log(data);
         const result = await axios.post(
-          "http://localhost:5000/api/payment/callback",
+          base_URL + "/api/payment/callback",
           data
         );
+        console.log(result);
 
         alert(result.data.msg);
       },
@@ -222,6 +275,17 @@ function RegisterNow() {
         },
       ],
     },
+    // {
+    //   fields: [
+    //     {
+    //       label: "Gender",
+    //       type: "text",
+    //       name: "gender",
+    //       value: formData.gender,
+    //       onChange: onChange,
+    //     },
+    //   ],
+    // },
     {
       fields: [
         {
@@ -294,10 +358,30 @@ function RegisterNow() {
     },
   ];
   const submitForm = () => {
-    RegisterUser(formData, (res) => {
-      console.log(res);
-      alert(res.msg);
-    });
+    const showAlertField = (field) => {
+      console.log(field);
+      let findField = fieldOptions.filter((item) => item.field == field);
+      console.log(findField, "<<<<");
+      return findField[0].show;
+    };
+    const payloadArr = Object.keys(formData);
+    let flag = 0;
+
+    for (let index = 0; index < payloadArr.length; index++) {
+      // const element = payloadArr[index];
+      if (formData[payloadArr[index]] == null) {
+        alert(`${showAlertField(payloadArr[index])} is required`);
+        flag = 1;
+        break;
+      }
+    }
+    if (flag == 0) {
+      showRazorPay2(formData);
+      // RegisterUser(formData, (res) => {
+      //   console.log(res);
+      //   alert(res.msg);
+      // });
+    }
   };
 
   return (
@@ -310,7 +394,7 @@ function RegisterNow() {
           <div className="input-label-reg">Select Field</div>
           <div className="input-box-reg">
             <select
-              name="course"
+              name="field"
               value={formData.course}
               onChange={(e) => onChange(e)}
             >
@@ -363,6 +447,18 @@ function RegisterNow() {
         );
       })}
 
+      {/*  */}
+      <div className="input-cover-reg" style={{ marginTop: "10px" }}>
+        <div className="input-label-reg"> Gender </div>
+        <div className="input-box-reg">
+          <select name="gender" onChange={onChange}>
+            <option value={null}>Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+      </div>
+      {/*  */}
       <div
         className="reg-two-field dist-city-tow "
         style={{ marginTop: "3rem" }}
@@ -370,12 +466,22 @@ function RegisterNow() {
         <div className="input-cover-reg">
           <div className="input-label-reg dis-city">District </div>
           <div className="input-box-reg">
-            <input
+            <select
+              name="district"
+              value={formData.district}
+              onChange={(e) => onChange(e)}
+            >
+              <option>Select</option>
+              {allDistrict.map((item) => {
+                return <option value={item}>{item}</option>;
+              })}
+            </select>
+            {/* <input
               type="text"
               name="district"
               value={formData.district}
               onChange={(e) => onChange(e)}
-            />{" "}
+            />{" "} */}
           </div>
         </div>
         <div className="input-cover-reg">
@@ -392,12 +498,22 @@ function RegisterNow() {
         <div className="input-cover-reg">
           <div className="input-label-reg dis-city">State</div>
           <div className="input-box-reg">
-            <input
+            <select name="state" onChange={(e) => onChange(e)}>
+              <option value="null">Select</option>
+              <option
+                name="state"
+                value="Bihar"
+                // onChange={(e) => onChange(e)}
+              >
+                Bihar
+              </option>
+            </select>
+            {/* <input
               type="text"
               name="state"
               value={formData.state}
               onChange={(e) => onChange(e)}
-            />{" "}
+            />{" "} */}
           </div>
         </div>
         <div className="input-cover-reg">
@@ -486,7 +602,7 @@ function RegisterNow() {
       >
         <button className="regsubmit" onClick={submitForm}>
           {" "}
-          Submit
+          Pay (200) and Submit
         </button>
       </div>
       <div

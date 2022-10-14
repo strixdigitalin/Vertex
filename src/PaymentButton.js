@@ -39,32 +39,14 @@ const PaymentButton = () => {
     }
   }, [amount]);
 
-  const payDEtails = async () => {
-    const payload = {
-      "data-key": "rzp_test_Mu5DUXrPHI2u7b",
-      "data-amount": 100,
-      "data-name": "Strix Digital",
-      "data-prefill.contact": 8989802546,
-      "data-prefill.email": "email@gmail.com",
-      "data-order_id": orderId,
-      "data-prefill.name": "strix",
-    };
-
-    window.location.href = "http://localhost:5000/";
-
-    const { data } = await axios.post(`${base_URL}/payment/callback`, null, {
-      params: payDEtails,
-    });
-    console.log(data);
-  };
-
+ 
   const showRazoryPay = () => {
     const form = document.createElement("form");
     form.setAttribute("action", `http://localhost:5000/api/payment/callback`);
     form.setAttribute("method", "POST");
     const script = document.createElement("script");
     script.src = "https://checkout.razorpay.com/v1/checkout.js";
-    script.setAttribute("data-key", "rzp_test_Mu5DUXrPHI2u7b");
+    script.setAttribute("data-key", "rzp_live_XVo1ue3IK3yAAY");
     script.setAttribute("data-amount", amount);
     script.setAttribute("data-name", "Clever Coder");
     script.setAttribute("data-prefill.contact", "9678452132");
