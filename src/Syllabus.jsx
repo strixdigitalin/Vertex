@@ -9,36 +9,36 @@ const Syllabus = (props) => {
 
   let links = [
     {
-      name: "ZENITH – Class–XIIth PASS Students",
+      name: "(IIT) For Class–XIIth Pass students",
       link: "/syllabus/7",
     },
     {
-      name: "ZENITH – Class–XIIth PASS Students",
+      name: "(Medical) For Class–XII th Pass Students",
       link: "/syllabus/8",
     },
     {
-      name: "ACME – Class–IX (8th Studying Students)",
+      name: "IX (8th studying students going to class 9 in 2023)",
       link: "/syllabus/9",
     },
     {
-      name: "APEX – Class–XI (10th Studying Students)",
+      name: "XI (10th studying students going to class 11 in 2023)",
       link: "/syllabus/10",
     },
 
     {
-      name: "APOGEE– Class–X(9th Studying Students)",
+      name: "X (9th studying students going to class 10 in 2023)",
       link: "/syllabus/11",
     },
     {
-      name: "CREST – Class–XII IIT (11th Studying Students)",
+      name: "XII IIT (11th studying students going to class 12 in 2023)",
       link: "/syllabus/12",
     },
     {
-      name: "CREST – Class–XII Medical (11th Studying Students)",
+      name: "XII Medical (11th studying students going to class 12 in 2023)",
       link: "/syllabus/13",
     },
     {
-      name: "SUMMIT – Class–VIII(7th Studying Students)",
+      name: "VIII (7th studying students going to class 8 in 2023)",
       link: "/syllabus/14",
     },
   ];

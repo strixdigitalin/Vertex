@@ -93,10 +93,10 @@ const Rewards = (props) => {
               </div>
             </div>
           </div>
-          <em style={{ color: "green", textDecoration: "underline" }}>
+          {/* <em style={{ color: "green", textDecoration: "underline" }}>
             Topper of good schools will get waiver on registration fee on the
             recommendations of school principal.
-          </em>
+          </em> */}
         </div>
       </div>
     </div>

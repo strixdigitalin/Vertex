@@ -25,36 +25,36 @@ const navOp = [
     cat: "SYLLABUS",
     subcat: [
       {
-        name: "For Class–XIIth Pass students (IIT)",
+        name: "(IIT) For Class–XIIth Pass students",
         link: "/syllabus/7",
       },
       {
-        name: "For Class–XI th Pass Students (Medical)",
+        name: "(Medical) For Class–XII th Pass Students",
         link: "/syllabus/8",
       },
       {
-        name: "XII IIT (11th Studying Students)",
+        name: "XII IIT (11th studying students going to class 12 in 2023)",
         link: "/syllabus/12",
       },
       {
-        name: "XII Medical (11th Studying Students)",
+        name: "XII Medical (11th studying students going to class 12 in 2023)",
         link: "/syllabus/13",
       },
       {
-        name: "XI (10th Studying Students)",
+        name: "XI (10th studying students going to class 11 in 2023)",
         link: "/syllabus/10",
       },
       {
-        name: "X (9th Studying Students)",
+        name: "X (9th studying students going to class 10 in 2023)",
         link: "/syllabus/11",
       },
       {
-        name: "IX (8th Studying Students)",
+        name: "IX (8th studying students going to class 9 in 2023)",
         link: "/syllabus/9",
       },
 
       {
-        name: "VIII (7th Studying Students)",
+        name: "VIII (7th studying students going to class 8 in 2023)",
         link: "/syllabus/14",
       },
     ],
@@ -93,31 +93,32 @@ const navOp = [
     cat: "OUR COURSES",
     subcat: [
       {
-        name: "FOR Class-12",
-        link: "/courses/12",
-      },
-      {
-        name: "FOR 12th Pass Students",
+        name: "FOR 12th Pass Students (ZENITH)",
         link: "/courses/13",
       },
       {
-        name: "FOR Class-11",
+        name: "FOR Class-12 (CREST)",
+        link: "/courses/12",
+      },
+
+      // {
+      //   name: "FOR Class-11",
+      //   link: "/courses/11",
+      // },
+      {
+        name: "FOR Class-11 (APEX)",
         link: "/courses/11",
       },
       {
-        name: "FOR Class-11",
-        link: "/courses/11",
-      },
-      {
-        name: "FOR Class-10",
+        name: "FOR Class-10 (APOGEE)",
         link: "/courses/10",
       },
       {
-        name: "FOR Class-9 ",
+        name: "FOR Class-9 (ACME)",
         link: "/courses/9",
       },
       {
-        name: "FOR Class-8",
+        name: "FOR Class-8 (SUMMIT)",
         link: "/courses/8",
       },
     ],
@@ -190,6 +191,7 @@ const Navbar = (props) => {
     sendEnquiry(enquiry, (res) => {
       alert(res.msg);
       setEnquiry({});
+      window.location.reload(true);
       // /*);
     });
   };

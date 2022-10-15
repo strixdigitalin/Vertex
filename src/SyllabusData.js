@@ -29,7 +29,7 @@ import { sruopklpkll } from "./TermsData";
 export const MightFaceError = sruopklpkll;
 export const syllabus = {
   7: {
-    title: "ZENITH – Class–XIIth PASS Students",
+    title: "For Class–XIIth Pass students (IIT)",
     images: [subject71, subject72],
 
     arrs: [
@@ -89,7 +89,7 @@ export const syllabus = {
     },
   },
   8: {
-    title: "ZENITH – Class–XIIth PASS Students",
+    title: "For Class–XII th Pass Students (Medical)",
     images: [subject81, subject82],
 
     arrs: [
@@ -157,7 +157,7 @@ export const syllabus = {
     },
   },
   9: {
-    title: "ACME – Class–IX (8th Studying Students)",
+    title: "IX (8th studying students going to class 9 in 2023)",
 
     images: [subject91, subject92],
 
@@ -222,7 +222,7 @@ export const syllabus = {
     },
   },
   10: {
-    title: "APEX – Class–XI (10th Studying Students)",
+    title: "XI (10th studying students going to class 11 in 2023)",
 
     images: [
       subject101,
@@ -297,7 +297,7 @@ export const syllabus = {
     },
   },
   11: {
-    title: "APOGEE– Class–X(9th Studying Students)",
+    title: "X (9th studying students going to class 10 in 2023)",
     images: [
       subject111,
       subject112,
@@ -378,7 +378,7 @@ export const syllabus = {
     },
   },
   12: {
-    title: "CREST – Class–XII IIT (11th Studying Students)",
+    title: "XII IIT (11th studying students going to class 12 in 2023)",
     images: [subject121, subject122],
     arrs: [
       {
@@ -450,7 +450,7 @@ export const syllabus = {
     },
   },
   13: {
-    title: "CREST – Class–XII Medical (11th Studying Students)",
+    title: "XII Medical (11th studying students going to class 12 in 2023)",
     images: [subject131],
     arrs: [
       {
@@ -522,7 +522,7 @@ export const syllabus = {
     },
   },
   14: {
-    title: "SUMMIT – Class–VIII(7th Studying Students)",
+    title: "VIII (7th studying students going to class 8 in 2023)",
     images: [subject141],
     arrs: [
       {

@@ -26,11 +26,35 @@ function RegisterNow() {
     motherMobile: null,
     appearDistrict: null,
     gender: null,
+    mother: null,
+    category: null,
+    school: null,
+    board: null,
   });
   const fieldOptions = [
     {
       field: "field",
       show: "Field",
+    },
+    {
+      field: "school",
+      show: "School Name",
+    },
+    {
+      field: "board",
+      show: "Board Name",
+    },
+    {
+      field: "aadhar",
+      show: "Aadhar Number",
+    },
+    {
+      field: "category",
+      show: "Category",
+    },
+    {
+      field: "mother",
+      show: "Mother's Name",
     },
     { field: "studying", show: "Current Studying Class" },
     { field: "gender", show: "Gender" },
@@ -173,7 +197,7 @@ function RegisterNow() {
     }
 
     // creating a new order
-    const result = await axios.get(base_URL + "/api/createorder");
+    const result = await axios.get(base_URL + "/createorder");
 
     if (!result) {
       alert("Server error. Are you online?");
@@ -194,8 +218,8 @@ function RegisterNow() {
       key: liveKey, // Enter the Key ID generated from the Dashboard
       amount: amount.toString(),
       currency: currency,
-      name: "Soumya Corp.",
-      description: "Test Transaction",
+      name: "Vertex Education",
+      description: "Coaching Institue for (IIT / Medical students)",
       // image: { logo },
       order_id: id,
 
@@ -208,21 +232,19 @@ function RegisterNow() {
           ...payload,
         };
         console.log(data);
-        const result = await axios.post(
-          base_URL + "/api/payment/callback",
-          data
-        );
+        const result = await axios.post(base_URL + "/payment/callback", data);
         console.log(result);
 
         alert(result.data.msg);
+        window.location.reload(true);
       },
       prefill: {
-        name: "Vertex Education",
-        email: "SoumyaDey@example.com",
-        contact: "9999999999",
+        name: formData.name,
+        email: formData.email,
+        contact: formData.mobile,
       },
       notes: {
-        address: "Soumya Dey Corporate Office",
+        address: formData.address,
       },
       theme: {
         color: "#61dafb",
@@ -289,7 +311,7 @@ function RegisterNow() {
     {
       fields: [
         {
-          label: "Father’s/Guadrians name",
+          label: "Father’s/Guardians name",
           type: "text",
           name: "father",
           value: formData.father,
@@ -300,14 +322,25 @@ function RegisterNow() {
     {
       fields: [
         {
-          label: " Correspondence Address",
+          label: "Mother's Name",
           type: "text",
-          name: "address",
-          value: formData.address,
+          name: "mother",
+          value: formData.mother,
           onChange: onChange,
         },
       ],
     },
+    // {
+    //   fields: [
+    //     {
+    //       label: " Correspondence Address",
+    //       type: "text",
+    //       name: "address",
+    //       value: formData.address,
+    //       onChange: onChange,
+    //     },
+    //   ],
+    // },
 
     // {
     //   fields: [
@@ -352,6 +385,17 @@ function RegisterNow() {
           type: "tel",
           name: "mobile",
           value: formData.mobile,
+          onChange: onChange,
+        },
+      ],
+    },
+    {
+      fields: [
+        {
+          label: "Aadhar Number",
+          type: "number",
+          name: "aadhar",
+          value: formData.aadhar,
           onChange: onChange,
         },
       ],
@@ -458,16 +502,63 @@ function RegisterNow() {
           </select>
         </div>
       </div>
+      <div className="input-cover-reg" style={{ marginTop: "10px" }}>
+        <div className="input-label-reg"> Category </div>
+        <div className="input-box-reg">
+          <select name="category" onChange={onChange}>
+            <option value={null}>Select</option>
+            <option value="GENERAL">General</option>
+            <option value="OBC">OBC</option>
+            <option value="SC">SC</option>
+            <option value="ST">ST</option>
+            {/* <option value="OTHER">OTHER</option> */}
+          </select>
+        </div>
+      </div>
       {/*  */}
+      <div className="input-cover-reg" style={{ marginTop: "20px" }}>
+        <div className="input-label-reg"> Address </div>
+        <div className="input-box-reg">
+          <textarea
+            style={{ width: "100%", minWidth: "300px" }}
+            type="text"
+            name="address"
+            value={formData.address}
+            onChange={onChange}
+          />{" "}
+        </div>
+      </div>
       <div
         className="reg-two-field dist-city-tow "
         style={{ marginTop: "3rem" }}
       >
         <div className="input-cover-reg">
+          <div className="input-label-reg dis-city">State</div>
+          <div className="input-box-reg">
+            <select name="state" onChange={(e) => onChange(e)}>
+              <option value="null">Select</option>
+              <option
+                name="state"
+                value="Bihar"
+                // onChange={(e) => onChange(e)}
+              >
+                Bihar
+              </option>
+            </select>
+            {/* <input
+              type="text"
+              name="state"
+              value={formData.state}
+              onChange={(e) => onChange(e)}
+            />{" "} */}
+          </div>
+        </div>
+        <div className="input-cover-reg">
           <div className="input-label-reg dis-city">District </div>
           <div className="input-box-reg">
             <select
               name="district"
+              style={{ width: "195px" }}
               value={formData.district}
               onChange={(e) => onChange(e)}
             >
@@ -495,32 +586,12 @@ function RegisterNow() {
             />{" "}
           </div>
         </div>
-        <div className="input-cover-reg">
-          <div className="input-label-reg dis-city">State</div>
-          <div className="input-box-reg">
-            <select name="state" onChange={(e) => onChange(e)}>
-              <option value="null">Select</option>
-              <option
-                name="state"
-                value="Bihar"
-                // onChange={(e) => onChange(e)}
-              >
-                Bihar
-              </option>
-            </select>
-            {/* <input
-              type="text"
-              name="state"
-              value={formData.state}
-              onChange={(e) => onChange(e)}
-            />{" "} */}
-          </div>
-        </div>
+
         <div className="input-cover-reg">
           <div className="input-label-reg dis-city">Pin</div>
           <div className="input-box-reg">
             <input
-              type="text"
+              type="number"
               name="pin"
               value={formData.pin}
               onChange={(e) => onChange(e)}
@@ -529,6 +600,28 @@ function RegisterNow() {
         </div>
       </div>
       <div className="reg-two-field" style={{ marginTop: "3rem" }}>
+        <div className="input-cover-reg">
+          <div className="input-label-reg">Name of School</div>
+          <div className="input-box-reg">
+            <input
+              type="text"
+              name="school"
+              value={formData.school}
+              onChange={(e) => onChange(e)}
+            />{" "}
+          </div>
+        </div>
+        <div className="input-cover-reg">
+          <div className="input-label-reg">Board Name</div>
+          <div className="input-box-reg">
+            <input
+              type="text"
+              name="board"
+              value={formData.board}
+              onChange={(e) => onChange(e)}
+            />{" "}
+          </div>
+        </div>
         <div className="input-cover-reg">
           <div className="input-label-reg">Occupation of Father </div>
           <div className="input-box-reg">
@@ -541,7 +634,7 @@ function RegisterNow() {
           </div>
         </div>
         <div className="input-cover-reg">
-          <div className="input-label-reg">Mobile No. of (Father) </div>
+          <div className="input-label-reg">Mobile No. (Father) </div>
           <div className="input-box-reg">
             <input
               type="tel"

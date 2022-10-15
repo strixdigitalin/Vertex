@@ -18,6 +18,10 @@ import AdmitCard from "./AdmitCard";
 import { useState } from "react";
 import RegisterNow from "./RegisterNow";
 import PaymentButton from "./PaymentButton";
+import PaymentTerms from "./PaymentTerms";
+import PaymentPrivacy from "./PaymentPrivacy";
+import PaymentRefund from "./PaymentRefund";
+import ContactUs from "./ContactUs";
 
 const App = () => {
   const [flag, setFlag] = useState(false);
@@ -45,7 +49,8 @@ const App = () => {
           />
           <Route
             path="/test-centers"
-            element={<TestCenter setFlag={setFlag} flag={flag} />}
+            element={<Zone setFlag={setFlag} flag={flag} />}
+            // element={<TestCenter setFlag={setFlag} flag={flag} />}
           />
           <Route
             path="/procedure"
@@ -58,6 +63,22 @@ const App = () => {
           <Route
             path="/terms"
             element={<Terms setFlag={setFlag} flag={flag} />}
+          />
+          <Route
+            path="/payment-terms"
+            element={<PaymentTerms setFlag={setFlag} flag={flag} />}
+          />
+          <Route
+            path="/privacy-policy-payment"
+            element={<PaymentPrivacy setFlag={setFlag} flag={flag} />}
+          />
+          <Route
+            path="/refund-collection"
+            element={<PaymentRefund setFlag={setFlag} flag={flag} />}
+          />
+          <Route
+            path="/contact-us"
+            element={<ContactUs setFlag={setFlag} flag={flag} />}
           />
           <Route
             path="/courses/:id"
@@ -84,6 +105,7 @@ const App = () => {
             element={<PaymentButton setFlag={setFlag} flag={flag} />}
           />
         </Routes>
+
         <Footer />
       </BrowserRouter>
     </>

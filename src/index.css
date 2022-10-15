@@ -287,7 +287,7 @@ justify-content: space-between;
 }
 footer{
   background-color: #222;
-  padding: 12px 1rem;
+  /* padding: 12px 1rem; */
 }
 
 th {
@@ -377,6 +377,8 @@ p{
   padding: 2rem;
   min-height: 43rem;
   flex-direction: row;
+  padding-bottom: 15rem;
+
 }
 
 .comm1{
@@ -499,6 +501,7 @@ height: 100%;
 }
 .input-cover-reg{
   display: flex;
+  margin-top: 20px;
 
 }
 .input-upper{
@@ -534,6 +537,11 @@ height: 100%;
   padding: 5px;
 
 }
+.input-box-reg > select {
+  border-radius: 10px;
+  padding: 5px;
+
+}
 
 .reg-two-field{
   display: flex;
@@ -542,6 +550,23 @@ height: 100%;
 }
 .reg-tow-field-single{
   width: 50%;
+}
+
+.blackFooter{
+width: 100%;
+background: black;
+text-align: left;
+padding: 0 2rem;
+display: flex;
+}
+.blackFooterTerms{
+  display: flex;
+  width: 100%;
+  gap: 4%;
+justify-content: flex-end;
+}
+.foot2{
+  /* height: 70px; */
 }
 
 @media screen and (max-width:1170px){
@@ -564,6 +589,29 @@ height: 100%;
 
 
 @media screen and (max-width:900px){
+
+  .blackFooter{
+    width: 100%;
+    background: black;
+    text-align: left;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    }
+    .singleTerm{
+      width: 140px;
+    }
+    .blackFooterTerms{
+      display: flex;
+      width: 100%;
+      gap: 4%;
+    justify-content: center;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 12px;
+    flex-wrap: wrap;
+    }
   .width1{
     min-width: 50px;
   
@@ -612,6 +660,7 @@ height: 100%;
   }
   .comm{
     flex-direction: column;
+    padding-bottom: 15rem;
   }
   .comm1{
     margin-right: 0;
@@ -630,12 +679,20 @@ height: 100%;
   }
   .comm{
     padding: 2rem 1rem;
+    padding-bottom: 15rem;
+
   }
 }
 
 
 @media screen and (max-width:600px){
-
+  .foot1{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    flex-direction: column;
+    height: 100px;
+  }
   .input-label-reg{
     color: #7B0100;
     font-size: 20px;
@@ -662,6 +719,8 @@ height: 100%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  margin-top: 20px;
+  
 }
 .input-box-reg {
   /* width: 70%; */
@@ -669,6 +728,11 @@ height: 100%;
   width: 100%;
 }
 .input-box-reg > input {
+  border-radius: 10px;
+  width: 100%;
+  padding: 5px;
+}
+.input-box-reg > select {
   border-radius: 10px;
   width: 100%;
   padding: 5px;
