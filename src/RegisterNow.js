@@ -30,6 +30,7 @@ function RegisterNow() {
     category: null,
     school: null,
     board: null,
+    aadhar: null,
   });
   const fieldOptions = [
     {
