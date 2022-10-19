@@ -29,7 +29,7 @@ import { sruopklpkll } from "./TermsData";
 export const MightFaceError = sruopklpkll;
 export const syllabus = {
   7: {
-    title: "For Class–XIIth Pass students (IIT)",
+    title: "For Class–XII Pass students (IIT)",
     images: [subject71, subject72],
 
     arrs: [
@@ -89,7 +89,7 @@ export const syllabus = {
     },
   },
   8: {
-    title: "For Class–XII th Pass Students (Medical)",
+    title: "For Class–XII Pass Students (Medical)",
     images: [subject81, subject82],
 
     arrs: [

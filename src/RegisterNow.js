@@ -88,6 +88,9 @@ function RegisterNow() {
   });
 
   const { amount, orderId, success, error } = values;
+  const [stateOther, setStateOther] = useState(false);
+  const [districtOther, setDistrictOther] = useState(false);
+  const [boardOther, setBoardOther] = useState(false);
   // useEffect(() => {
   //   createOrder();
   // }, []);
@@ -536,7 +539,14 @@ function RegisterNow() {
         <div className="input-cover-reg">
           <div className="input-label-reg dis-city">State</div>
           <div className="input-box-reg">
-            <select name="state" onChange={(e) => onChange(e)}>
+            <select
+              name="state"
+              onChange={(e) => {
+                onChange(e);
+                if (e.target.value == "Other") setStateOther(true);
+                else setStateOther(false);
+              }}
+            >
               <option value="null">Select</option>
               <option
                 name="state"
@@ -545,13 +555,45 @@ function RegisterNow() {
               >
                 Bihar
               </option>
+              <option
+                name="state"
+                value="Jharkhand"
+                // onChange={(e) => onChange(e)}
+              >
+                Jharkhand
+              </option>
+              <option
+                name="state"
+                value="West Bengal"
+                // onChange={(e) => onChange(e)}
+              >
+                West Bengal
+              </option>
+              <option
+                name="state"
+                value="Uttar Pradesh"
+                // onChange={(e) => onChange(e)}
+              >
+                Uttar Pradesh
+              </option>
+              <option
+                name="state"
+                value="Other"
+                // onChange={(e) => onChange(e)}
+              >
+                Other
+              </option>
             </select>
-            {/* <input
-              type="text"
-              name="state"
-              value={formData.state}
-              onChange={(e) => onChange(e)}
-            />{" "} */}
+            {stateOther && (
+              <input
+                style={{ marginTop: "1rem" }}
+                type="text"
+                name="state"
+                placeholder="Enter State name"
+                // value={formData.state}
+                onChange={(e) => onChange(e)}
+              />
+            )}{" "}
           </div>
         </div>
         <div className="input-cover-reg">
@@ -561,19 +603,27 @@ function RegisterNow() {
               name="district"
               style={{ width: "195px" }}
               value={formData.district}
-              onChange={(e) => onChange(e)}
+              onChange={(e) => {
+                onChange(e);
+                if (e.target.value == "Other") setDistrictOther(true);
+                else setDistrictOther(false);
+              }}
             >
               <option>Select</option>
               {allDistrict.map((item) => {
                 return <option value={item}>{item}</option>;
               })}
+              <option value="Other">Other</option>
             </select>
-            {/* <input
-              type="text"
-              name="district"
-              value={formData.district}
-              onChange={(e) => onChange(e)}
-            />{" "} */}
+            {districtOther && (
+              <input
+                placeholder="Enter District Name"
+                type="text"
+                name="district"
+                // value={formData.district}
+                onChange={(e) => onChange(e)}
+              />
+            )}
           </div>
         </div>
         <div className="input-cover-reg">
@@ -602,6 +652,35 @@ function RegisterNow() {
       </div>
       <div className="reg-two-field" style={{ marginTop: "3rem" }}>
         <div className="input-cover-reg">
+          <div className="input-label-reg">Medium of Exam</div>
+          <div className="input-box-reg">
+            <select
+              name="medium"
+              onChange={(e) => {
+                onChange(e);
+              }}
+            >
+              <option value="null">Select</option>
+              <option
+                name="medium"
+                value="English"
+                // onChange={(e) => onChange(e)}
+              >
+                English
+              </option>
+              <option
+                name="medium"
+                value="Hindi"
+                // onChange={(e) => onChange(e)}
+              >
+                Hindi
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div className="reg-two-field" style={{ marginTop: "3rem" }}>
+        <div className="input-cover-reg">
           <div className="input-label-reg">Name of School</div>
           <div className="input-box-reg">
             <input
@@ -615,12 +694,54 @@ function RegisterNow() {
         <div className="input-cover-reg">
           <div className="input-label-reg">Board Name</div>
           <div className="input-box-reg">
-            <input
-              type="text"
+            <select
               name="board"
-              value={formData.board}
-              onChange={(e) => onChange(e)}
-            />{" "}
+              onChange={(e) => {
+                onChange(e);
+                if (e.target.value == "Other") setBoardOther(true);
+                else setBoardOther(false);
+              }}
+            >
+              <option value="null">Select</option>
+              <option
+                name="board"
+                value="CBSE"
+                // onChange={(e) => onChange(e)}
+              >
+                CBSE
+              </option>
+              <option
+                name="board"
+                value="ICSE"
+                // onChange={(e) => onChange(e)}
+              >
+                ICSE
+              </option>
+              <option
+                name="board"
+                value="BSEB"
+                // onChange={(e) => onChange(e)}
+              >
+                BSEB
+              </option>
+              <option
+                name="board"
+                value="Other"
+                // onChange={(e) => onChange(e)}
+              >
+                Other
+              </option>
+            </select>
+            {boardOther && (
+              <input
+                style={{ marginTop: "1rem" }}
+                type="text"
+                name="board"
+                placeholder="Enter Board name"
+                // value={formData.state}
+                onChange={(e) => onChange(e)}
+              />
+            )}
           </div>
         </div>
         <div className="input-cover-reg">

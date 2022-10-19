@@ -25,36 +25,36 @@ const navOp = [
     cat: "SYLLABUS",
     subcat: [
       {
-        name: "(IIT) For Class–XIIth Pass students",
+        name: "(IIT) For Class–XII Pass students",
         link: "/syllabus/7",
       },
       {
-        name: "(Medical) For Class–XII th Pass Students",
+        name: "(Medical) For Class–XII Pass Students",
         link: "/syllabus/8",
       },
       {
-        name: "XII IIT (11th studying students going to class 12 in 2023)",
+        name: "IIT (11th studying students going to class 12 in 2023)",
         link: "/syllabus/12",
       },
       {
-        name: "XII Medical (11th studying students going to class 12 in 2023)",
+        name: "Medical (11th studying students going to class 12 in 2023)",
         link: "/syllabus/13",
       },
       {
-        name: "XI (10th studying students going to class 11 in 2023)",
+        name: "10th studying students going to class 11 in 2023",
         link: "/syllabus/10",
       },
       {
-        name: "X (9th studying students going to class 10 in 2023)",
+        name: "9th studying students going to class 10 in 2023",
         link: "/syllabus/11",
       },
       {
-        name: "IX (8th studying students going to class 9 in 2023)",
+        name: "8th studying students going to class 9 in 2023",
         link: "/syllabus/9",
       },
 
       {
-        name: "VIII (7th studying students going to class 8 in 2023)",
+        name: "7th studying students going to class 8 in 2023",
         link: "/syllabus/14",
       },
     ],
@@ -415,12 +415,33 @@ const Navbar = (props) => {
     <>
       <div className="top-header">
         <div style={{ display: "flex", gap: "2%" }} className="left-head">
-          <div>
+          <div style={{ width: "100%" }}>
             Phone:
-            <span style={{ marginLeft: "10px" }}>+91 90310 11932</span>
+            <span style={{ marginLeft: "10px" }}>
+              <a
+                href="tel:+919031011932"
+                style={{ color: "yellow", texdecoration: "none" }}
+              >
+                +91 9031011932,
+              </a>{" "}
+              <a
+                href="tel:+919031011931"
+                style={{ color: "yellow", texdecoration: "none" }}
+              >
+                +91 90310 11931
+              </a>{" "}
+            </span>
           </div>
           <div>
-            <span>Email: infovertexedu@gmail.com</span>
+            <span>
+              Email:{"  "}{" "}
+              <a
+                href="mailto:infovertexedu@gmail.com"
+                style={{ color: "yellow" }}
+              >
+                infovertexedu@gmail.com
+              </a>
+            </span>
           </div>
         </div>
         {/* <div>
@@ -483,7 +504,7 @@ const Navbar = (props) => {
           className="nav121-mob  ms-2"
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <Link to="/register-now">
+          <Link to="/register-now" style={{ textDecoration: "none" }}>
             <button
               // className="btn btn-danger"
 

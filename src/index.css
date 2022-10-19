@@ -745,7 +745,7 @@ padding-bottom: 15rem;
   .left-head{
   display: flex;
   flex-direction: column;
-    width: 70%;
+    width: 100%;
     
   }
   .top-header{

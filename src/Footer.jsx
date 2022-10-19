@@ -88,7 +88,7 @@ const Footer = () => {
         {/* <div className="foot12" style={{ background: "#01843" }}> */}
         {/* <div className="foot112" style={{ background: "#01843" }}> */}
         <div className="blackFooter">
-          <div style={{ width: "100%" }}>
+          <div style={{ width: "80%", margin: "auto" }}>
             {" "}
             Copyright@2022 Vertex Educations. All rights reserved{" "}
           </div>
