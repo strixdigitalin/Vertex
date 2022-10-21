@@ -90,6 +90,7 @@ function RegisterNow() {
   const { amount, orderId, success, error } = values;
   const [stateOther, setStateOther] = useState(false);
   const [districtOther, setDistrictOther] = useState(false);
+  const [appearDistrictShow, setAppearDistrictShow] = useState(false);
   const [boardOther, setBoardOther] = useState(false);
   // useEffect(() => {
   //   createOrder();
@@ -259,6 +260,10 @@ function RegisterNow() {
     paymentObject.open();
   }
 
+  // const openStripe = async () => {
+  //   await loadScript("https://checkout.stripe.com/v2/checkout.js");
+  // };
+
   const inputFields = [
     // {
     //   fields: [
@@ -425,6 +430,7 @@ function RegisterNow() {
     }
     if (flag == 0) {
       showRazorPay2(formData);
+
       // RegisterUser(formData, (res) => {
       //   console.log(res);
       //   alert(res.msg);
@@ -472,7 +478,6 @@ function RegisterNow() {
           </div>
         </div>
       </div>
-
       {inputFields.map((item, index) => {
         return (
           <div className="input-upper" style={{ marginTop: "10px" }}>
@@ -494,7 +499,6 @@ function RegisterNow() {
           </div>
         );
       })}
-
       {/*  */}
       <div className="input-cover-reg" style={{ marginTop: "10px" }}>
         <div className="input-label-reg"> Gender </div>
@@ -803,15 +807,33 @@ function RegisterNow() {
           Name of the District from where the student will appear for VEGRE
         </div>
         <div className="input-box-reg">
-          <input
-            type="text"
+          <select
             name="appearDistrict"
-            value={formData.appearDistrict}
-            onChange={(e) => onChange(e)}
-          />
+            style={{ width: "195px" }}
+            value={formData.district}
+            onChange={(e) => {
+              onChange(e);
+              if (e.target.value == "Other") setAppearDistrictShow(true);
+              else setAppearDistrictShow(false);
+            }}
+          >
+            <option>Select</option>
+            {allDistrict.map((item) => {
+              return <option value={item}>{item}</option>;
+            })}
+            <option value="Other">Other</option>
+          </select>
+          {appearDistrictShow && (
+            <input
+              type="text"
+              name="appearDistrict"
+              placeholder="Enter District Name"
+              // value={formData.appearDistrict}
+              onChange={(e) => onChange(e)}
+            />
+          )}
         </div>
       </div>
-
       <div
         style={{ width: " 100%", display: "flex", justifyContent: "center" }}
       >
@@ -836,9 +858,7 @@ function RegisterNow() {
         )}
         {/* <div id="paymentbutton" onClick={showRazoryPay}></div> */}
       {/* </div> */}
-
       {/* <button onClick={showRazorPay2}>Pay 2</button> */}
-
       {/* <div className="reg-two-field">
         <div className="input-cover-reg">
           <div className="input-label-reg">Mobile No. of (Father) </div>
