@@ -419,31 +419,38 @@ const Navbar = (props) => {
             Phone:
             <span style={{ marginLeft: "10px" }}>
               <a
+                href="tel:+919031011931"
+                style={{ color: "yellow", textDecoration: "none" }}
+              >
+                +91 90310 11931
+              </a>
+              ,{" "}
+              <a
                 href="tel:+919031011932"
-                style={{ color: "yellow", texdecoration: "none" }}
+                style={{ color: "yellow", textDecoration: "none" }}
               >
                 +91 9031011932,
               </a>{" "}
-              <a
-                href="tel:+919031011931"
-                style={{ color: "yellow", texdecoration: "none" }}
-              >
-                +91 90310 11931
-              </a>{" "}
-            </span>
-          </div>
-          <div>
-            <span>
-              Email:{"  "}{" "}
-              <a
-                href="mailto:infovertexedu@gmail.com"
-                style={{ color: "yellow" }}
-              >
-                infovertexedu@gmail.com
-              </a>
             </span>
           </div>
         </div>
+        <div>
+          <span>
+            Email:{"  "}{" "}
+            <a
+              href="mailto:infovertexedu@gmail.com"
+              style={{
+                color: "yellow",
+                textDecoration: "none",
+                marginLeft: "10px",
+              }}
+            >
+              {" "}
+              infovertexedu@gmail.com
+            </a>
+          </span>
+        </div>
+
         {/* <div>
           <Link
             to="/why-vegre"
