@@ -1,4 +1,6 @@
-export const base_URL = "https://vertex-education.herokuapp.com/api";
+export const base_URL = "https://vertex-education.herokuapp.com";
+
+// export const base_URL = "http://localhost:5000";
 
 export const getOrder = (callBack) => {
   var requestOptions = {

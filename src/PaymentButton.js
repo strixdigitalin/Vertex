@@ -42,7 +42,7 @@ const PaymentButton = () => {
  
   const showRazoryPay = () => {
     const form = document.createElement("form");
-    form.setAttribute("action", `http://localhost:5000/api/payment/callback`);
+    form.setAttribute("action", `${base_URL}/api/payment/callback`);
     form.setAttribute("method", "POST");
     const script = document.createElement("script");
     script.src = "https://checkout.razorpay.com/v1/checkout.js";

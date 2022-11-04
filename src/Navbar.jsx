@@ -188,6 +188,8 @@ const Navbar = (props) => {
   };
 
   const sendEnquirySubmit = () => {
+    console.log(enquiry, "<<<enquiry");
+    // return null;
     sendEnquiry(enquiry, (res) => {
       alert(res.msg);
       setEnquiry({});

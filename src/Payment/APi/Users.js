@@ -29,7 +29,7 @@ export const sendEnquiry = (payload, callBack) => {
   var raw = JSON.stringify({
     name: payload.name,
     email: payload.email,
-    phone: payload.number,
+    mobile: payload.mobile,
     message: payload.message,
   });
 

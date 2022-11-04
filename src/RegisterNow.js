@@ -191,7 +191,8 @@ function RegisterNow() {
     });
   }
 
-  async function showRazorPay2(payload) {
+  async function showRazorPay2(userId) {
+    console.log("updating the user with id--->>>>", userId);
     const res = await loadScript(
       "https://checkout.razorpay.com/v1/checkout.js"
     );
@@ -202,7 +203,7 @@ function RegisterNow() {
     }
 
     // creating a new order
-    const result = await axios.get(base_URL + "/createorder");
+    const result = await axios.get(base_URL + "/api/createorder/" + userId);
 
     if (!result) {
       alert("Server error. Are you online?");
@@ -234,10 +235,16 @@ function RegisterNow() {
           razorpayPaymentId: response.razorpay_payment_id,
           razorpayOrderId: response.razorpay_order_id,
           razorpaySignature: response.razorpay_signature,
-          ...payload,
+          userId: userId,
         };
         console.log(data);
-        const result = await axios.post(base_URL + "/payment/callback", data);
+
+        // 0000
+
+        const result = await axios.post(
+          base_URL + "/api/payment/callback",
+          data
+        );
         console.log(result);
 
         alert(result.data.msg);
@@ -410,7 +417,7 @@ function RegisterNow() {
       ],
     },
   ];
-  const submitForm = () => {
+  const submitForm = async () => {
     const showAlertField = (field) => {
       console.log(field);
       let findField = fieldOptions.filter((item) => item.field == field);
@@ -429,7 +436,16 @@ function RegisterNow() {
       }
     }
     if (flag == 0) {
-      showRazorPay2(formData);
+      const { data } = await axios.post(
+        base_URL + "/user/registration",
+        // "http://localhost:5000" + "/user/registration",
+        formData
+      );
+      console.log(data.data, "<<<<register user");
+      if (data.status == "success") {
+        showRazorPay2(data.data._id);
+      }
+      return null;
 
       // RegisterUser(formData, (res) => {
       //   console.log(res);
@@ -810,7 +826,7 @@ function RegisterNow() {
           <select
             name="appearDistrict"
             style={{ width: "195px" }}
-            value={formData.district}
+            value={formData.appearDistrict}
             onChange={(e) => {
               onChange(e);
               if (e.target.value == "Other") setAppearDistrictShow(true);
