@@ -431,7 +431,7 @@ const Navbar = (props) => {
                 href="tel:+919031011932"
                 style={{ color: "yellow", textDecoration: "none" }}
               >
-                +91 9031011932,
+                +91 9031011932
               </a>{" "}
             </span>
           </div>
@@ -440,7 +440,7 @@ const Navbar = (props) => {
           <span>
             Email:{"  "}{" "}
             <a
-              href="mailto:infovertexedu@gmail.com"
+              href="mailto:info@vertexeducations.com"
               style={{
                 color: "yellow",
                 textDecoration: "none",
@@ -448,7 +448,7 @@ const Navbar = (props) => {
               }}
             >
               {" "}
-              infovertexedu@gmail.com
+              info@vertexeducations.com
             </a>
           </span>
         </div>

@@ -19,73 +19,73 @@ const SamplePaper = (props) => {
 
   const SamplePaperData = [
     {
-      name: "(IIT) For Class–XIIth Pass students(English)",
-      link: "https://drive.google.com/file/d/1e4a6vJAyUF2WCU9-BtdEqWalq8FrkJDu/view?usp=sharing",
+      name: "(IIT) For Class–XIIth Pass students",
+      link: "https://drive.google.com/file/d/1-J5VFnjWII73clOypMwjn4fU1t3pj5W1/view?usp=sharing",
     },
+    // {
+    //   name: "(IIT) For Class–XIIth Pass students(Hindi)",
+    //   link: "https://drive.google.com/file/d/1Si5XmMO85l2zLp9PuFzsWpxoFRDQPlOC/view?usp=sharing",
+    // },
     {
-      name: "(IIT) For Class–XIIth Pass students(Hindi)",
-      link: "https://drive.google.com/file/d/1Si5XmMO85l2zLp9PuFzsWpxoFRDQPlOC/view?usp=sharing",
-    },
-    {
-      name: "(Medical) For Class–XIIth Pass students(English)",
-      link: "https://drive.google.com/file/d/1kOzodkRkcqjnksxEXehTyyivZD0ifu10/view?usp=sharing",
+      name: "(Medical) For Class–XIIth Pass students",
+      link: "https://drive.google.com/file/d/1vy3xNrBHJnhoARy61tXXbjMA7UN3jTfY/view?usp=share_link",
     },
 
+    // {
+    //   name: "(Medical) For Class–XIIth Pass students(Hindi)",
+    //   link: "https://drive.google.com/file/d/118V7soQIgLfg9aSNMjnsZ8PN0Q0QTUot/view?usp=sharing",
+    // },
     {
-      name: "(Medical) For Class–XIIth Pass students(Hindi)",
-      link: "https://drive.google.com/file/d/118V7soQIgLfg9aSNMjnsZ8PN0Q0QTUot/view?usp=sharing",
+      name: " IIT (11th studying students going to class 12 in 2023",
+      link: "https://drive.google.com/file/d/1k9LxEbZoXza7XDIrjScClgcZfgwBzH7E/view?usp=share_link",
     },
+    // {
+    //   name: " IIT (11th studying students going to class 12 in 2023(Hindi)",
+    //   link: "https://drive.google.com/file/d/1mBCjwLpXBfsmtGTTg8o5HQW5djsS7OV2/view?usp=sharing",
+    // },
     {
-      name: " IIT (11th studying students going to class 12 in 2023(English)",
-      link: "https://drive.google.com/file/d/1Jfu71MtFcazUxeTp_LJKFAdlGt_IwKbi/view?usp=sharing",
+      name: " Medical (11th studying students going to class 12 in 2023",
+      link: "https://drive.google.com/file/d/1RApu-ssy42HlSTDj1AUgk945T4fEbzxj/view?usp=sharing",
     },
-    {
-      name: " IIT (11th studying students going to class 12 in 2023(Hindi)",
-      link: "https://drive.google.com/file/d/1mBCjwLpXBfsmtGTTg8o5HQW5djsS7OV2/view?usp=sharing",
-    },
-    {
-      name: " Medical (11th studying students going to class 12 in 2023(English)",
-      link: "https://drive.google.com/file/d/1_NY9JTC5oZIcwZ52Ra1KZcg67LkIW-lN/view?usp=sharing",
-    },
-    {
-      name: "  Medical (11th studying students going to class 12 in 2023(Hindi)",
-      link: "https://drive.google.com/file/d/1w6deb-pl1ye0N7lgGkXxXbNuSZBws9Ug/view?usp=sharing",
-    },
+    // {
+    //   name: "  Medical (11th studying students going to class 12 in 2023(Hindi)",
+    //   link: "https://drive.google.com/file/d/1w6deb-pl1ye0N7lgGkXxXbNuSZBws9Ug/view?usp=sharing",
+    // },
     //
     {
-      name: "10th studying students going to class 11 in 2023(English)",
-      link: " https://drive.google.com/file/d/1pLhLFRskOV5tRd253LTz-ddYtgGiq3Pf/view?usp=sharing",
+      name: "10th studying students going to class 11 in 2023",
+      link: "https://drive.google.com/file/d/18hMH1sFy2_4cOmmsAGqjv9e4jM4LsJ_u/view?usp=sharing",
     },
     //
-    {
-      name: "10th studying students going to class 11 in 2023(Hindi)",
-      link: "https://drive.google.com/file/d/1yYF-0WMNfRZzqItg-7RYLXH2w5aWO8oO/view?usp=sharing",
-    },
+    // {
+    //   name: "10th studying students going to class 11 in 2023(Hindi)",
+    //   link: "https://drive.google.com/file/d/1yYF-0WMNfRZzqItg-7RYLXH2w5aWO8oO/view?usp=sharing",
+    // },
     //
     {
-      name: "9th studying students going to class 10 in 2023(English)",
-      link: "https://drive.google.com/file/d/12b56LsNvwBUoTIRb2nRmVEVGiCHnZlxT/view?usp=sharing",
+      name: "9th studying students going to class 10 in 2023",
+      link: "https://drive.google.com/file/d/1zAx1_tDmHKbxnyHKhPbQKi4nc74uOY9J/view?usp=sharing",
     },
+    // {
+    //   name: "9th studying students going to class 10 in 2023(Hindi)",
+    //   link: "https://drive.google.com/file/d/1pV4_8n3EeisgyHaG28J1tFuT7r2yeoe3/view?usp=sharing",
+    // },
     {
-      name: "9th studying students going to class 10 in 2023(Hindi)",
-      link: "https://drive.google.com/file/d/1pV4_8n3EeisgyHaG28J1tFuT7r2yeoe3/view?usp=sharing",
+      name: "8th studying students going to class 9 in 2023",
+      link: "https://drive.google.com/file/d/1lUFgIzMgzH6hE8bxMGT5P_NMfz-U1sjq/view?usp=share_link",
     },
+    // {
+    //   name: "8th studying students going to class 9 in 2023(Hindi)",
+    //   link: "https://drive.google.com/file/d/14TDwG5DfCZyo9qFS1nKTWGNb7g-lPsZU/view?usp=sharing",
+    // },
     {
-      name: "8th studying students going to class 9 in 2023(English)",
-      link: "https://drive.google.com/file/d/1x9smQTUaSc0tBf0uknDnXF45eSs35q5p/view?usp=sharing",
+      name: "7th studying students going to class 8 in 2023",
+      link: "https://drive.google.com/file/d/1ti4jf16fpyq_9ZjCeOP-D9UVtwOrogxG/view?usp=sharing",
     },
-    {
-      name: "8th studying students going to class 9 in 2023(Hindi)",
-      link: "https://drive.google.com/file/d/14TDwG5DfCZyo9qFS1nKTWGNb7g-lPsZU/view?usp=sharing",
-    },
-    {
-      name: "7th studying students going to class 8 in 2023 (English)",
-      link: "https://drive.google.com/file/d/1ABznZRFTwazn_DIWne9XnCoarGgFYxJi/view?usp=sharing",
-    },
-    {
-      name: "7th studying students going to class 8 in 2023)(Hindi)",
-      link: "https://drive.google.com/file/d/1AgyvXrk28ia0iQeI7km4UHgzHXT-bYKf/view?usp=sharing",
-    },
+    // {
+    //   name: "7th studying students going to class 8 in 2023)(Hindi)",
+    //   link: "https://drive.google.com/file/d/1AgyvXrk28ia0iQeI7km4UHgzHXT-bYKf/view?usp=sharing",
+    // },
     //
   ];
 
