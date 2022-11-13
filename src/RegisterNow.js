@@ -398,7 +398,7 @@ function RegisterNow() {
       fields: [
         {
           label: "Mobile",
-          type: "tel",
+          type: "number",
           name: "mobile",
           value: formData.mobile,
           onChange: onChange,
@@ -418,12 +418,23 @@ function RegisterNow() {
     },
   ];
   const submitForm = async () => {
+    // alert("df");
     const showAlertField = (field) => {
       console.log(field);
       let findField = fieldOptions.filter((item) => item.field == field);
       console.log(findField, "<<<<");
       return findField[0].show;
     };
+    if (formData.aadhar.length != 12) {
+      alert("Aadhar number is invalid");
+      return null;
+    }
+    let regex = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}");
+    // console.log(regex.test(formData.email));
+    if (!regex.test(formData.email)) {
+      alert("invalid email address !");
+      return null;
+    }
     const payloadArr = Object.keys(formData);
     let flag = 0;
 
@@ -779,8 +790,9 @@ function RegisterNow() {
           <div className="input-label-reg">Mobile No. (Father) </div>
           <div className="input-box-reg">
             <input
-              type="tel"
+              type="number"
               name="mobileFather"
+              placeholder="10 digit mobile number"
               value={formData.mobileFather}
               onChange={(e) => onChange(e)}
             />{" "}
@@ -801,7 +813,8 @@ function RegisterNow() {
           <div className="input-label-reg">Mobile No. (Mother) </div>
           <div className="input-box-reg">
             <input
-              type="tel"
+              type="number"
+              maxlength={10}
               name="motherMobile"
               value={formData.motherMobile}
               onChange={(e) => onChange(e)}

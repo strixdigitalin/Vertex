@@ -22,6 +22,7 @@ import PaymentTerms from "./PaymentTerms";
 import PaymentPrivacy from "./PaymentPrivacy";
 import PaymentRefund from "./PaymentRefund";
 import ContactUs from "./ContactUs";
+import UploadFile from "./UploadFile";
 
 const App = () => {
   const [flag, setFlag] = useState(false);
@@ -103,6 +104,10 @@ const App = () => {
           <Route
             path="/Payment"
             element={<PaymentButton setFlag={setFlag} flag={flag} />}
+          />
+          <Route
+            path="/admin-upload"
+            element={<UploadFile setFlag={setFlag} flag={flag} />}
           />
         </Routes>
 
