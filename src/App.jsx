@@ -23,7 +23,8 @@ import PaymentPrivacy from "./PaymentPrivacy";
 import PaymentRefund from "./PaymentRefund";
 import ContactUs from "./ContactUs";
 import UploadFile from "./UploadFile";
-
+import "./admitcard.css";
+import PaymentSuccess from "./PaymentSuccessPage";
 const App = () => {
   const [flag, setFlag] = useState(false);
   return (
@@ -68,6 +69,10 @@ const App = () => {
           <Route
             path="/payment-terms"
             element={<PaymentTerms setFlag={setFlag} flag={flag} />}
+          />
+          <Route
+            path="/payment-success/:orderId"
+            element={<PaymentSuccess setFlag={setFlag} flag={flag} />}
           />
           <Route
             path="/privacy-policy-payment"

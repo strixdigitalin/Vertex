@@ -572,6 +572,27 @@ justify-content: flex-end;
   /* height: 70px; */
 }
 
+/* admin */
+.admin-upload-actions{
+  display: flex;
+  width: 80%;
+  margin: auto;
+  gap: 2%;
+  justify-content:center;
+  margin-top: 20px;
+  align-items: center;
+}
+.admin-buttons{
+  border-radius: 10px;
+  padding: 5px 10px;
+  background-color: #7b0100;
+  color: white;
+}
+.admin-inputs{
+display: flex;
+justify-content: space-between;
+}
+
 @media screen and (max-width:1170px){
   .nav2{
     flex-wrap: wrap;
@@ -697,7 +718,17 @@ justify-content: flex-end;
 }
 
 
+
 @media screen and (max-width:600px){
+  .admin-upload-actions{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    gap: 15px;
+    justify-content:center;
+    align-items: center;
+  }
   .foot1{
     display: flex;
     justify-content: space-between;

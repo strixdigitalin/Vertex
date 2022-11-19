@@ -92,9 +92,10 @@ function RegisterNow() {
   const [districtOther, setDistrictOther] = useState(false);
   const [appearDistrictShow, setAppearDistrictShow] = useState(false);
   const [boardOther, setBoardOther] = useState(false);
-  // useEffect(() => {
-  //   createOrder();
-  // }, []);
+  useEffect(() => {
+    // createOrder();
+    // window.location.href = "/payment-success/" + 5;
+  }, []);
 
   const createOrder = () => {
     getOrder((response) => {
@@ -248,7 +249,8 @@ function RegisterNow() {
         console.log(result);
 
         alert(result.data.msg);
-        window.location.reload(true);
+
+        window.location.href = "/payment-success/" + id;
       },
       prefill: {
         name: formData.name,
@@ -466,178 +468,388 @@ function RegisterNow() {
   };
 
   return (
-    <div className="registrationFormbody">
-      <div
-        className="reg-two-field "
-        style={{ marginTop: "20px", marginBottom: "35px" }}
-      >
-        <div className="input-cover-reg">
-          <div className="input-label-reg">Select Field</div>
-          <div className="input-box-reg">
-            <select
-              name="field"
-              value={formData.course}
-              onChange={(e) => onChange(e)}
-            >
-              <option>Select</option>
-              <option>Engineering</option>
-              <option>Medical</option>
-              <option>Other</option>
-            </select>
-          </div>
-        </div>
-        <div className="input-cover-reg">
-          <div className="input-label-reg ">Currently Studying In </div>
-          <div className="input-box-reg">
-            <select
-              name="studying"
-              value={formData.studying}
-              onChange={(e) => onChange(e)}
-            >
-              <option>Select</option>
-              <option>VII</option>
-              <option>VIII</option>
-              <option>IX</option>
-              <option>X</option>
-              <option>XI</option>
-              <option>XII</option>
-            </select>
-          </div>
-        </div>
+    <>
+      <div className="successFulModal">
+        <div className="paymentData"></div>
       </div>
-      {inputFields.map((item, index) => {
-        return (
-          <div className="input-upper" style={{ marginTop: "10px" }}>
-            {item.fields.map((field) => {
-              return (
-                <div className="input-cover-reg">
-                  <div className="input-label-reg"> {field.label} </div>
-                  <div className="input-box-reg">
-                    <input
-                      type={field.type}
-                      name={field.name}
-                      value={field.value}
-                      onChange={field.onChange}
-                    />{" "}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        );
-      })}
-      {/*  */}
-      <div className="input-cover-reg" style={{ marginTop: "10px" }}>
-        <div className="input-label-reg"> Gender </div>
-        <div className="input-box-reg">
-          <select name="gender" onChange={onChange}>
-            <option value={null}>Select</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-          </select>
-        </div>
-      </div>
-      <div className="input-cover-reg" style={{ marginTop: "10px" }}>
-        <div className="input-label-reg"> Category </div>
-        <div className="input-box-reg">
-          <select name="category" onChange={onChange}>
-            <option value={null}>Select</option>
-            <option value="GENERAL">General</option>
-            <option value="OBC">OBC</option>
-            <option value="SC">SC</option>
-            <option value="ST">ST</option>
-            {/* <option value="OTHER">OTHER</option> */}
-          </select>
-        </div>
-      </div>
-      {/*  */}
-      <div className="input-cover-reg" style={{ marginTop: "20px" }}>
-        <div className="input-label-reg"> Address </div>
-        <div className="input-box-reg">
-          <textarea
-            style={{ width: "100%", minWidth: "300px" }}
-            type="text"
-            name="address"
-            value={formData.address}
-            onChange={onChange}
-          />{" "}
-        </div>
-      </div>
-      <div
-        className="reg-two-field dist-city-tow "
-        style={{ marginTop: "3rem" }}
-      >
-        <div className="input-cover-reg">
-          <div className="input-label-reg dis-city">State</div>
-          <div className="input-box-reg">
-            <select
-              name="state"
-              onChange={(e) => {
-                onChange(e);
-                if (e.target.value == "Other") setStateOther(true);
-                else setStateOther(false);
-              }}
-            >
-              <option value="null">Select</option>
-              <option
-                name="state"
-                value="Bihar"
-                // onChange={(e) => onChange(e)}
-              >
-                Bihar
-              </option>
-              <option
-                name="state"
-                value="Jharkhand"
-                // onChange={(e) => onChange(e)}
-              >
-                Jharkhand
-              </option>
-              <option
-                name="state"
-                value="West Bengal"
-                // onChange={(e) => onChange(e)}
-              >
-                West Bengal
-              </option>
-              <option
-                name="state"
-                value="Uttar Pradesh"
-                // onChange={(e) => onChange(e)}
-              >
-                Uttar Pradesh
-              </option>
-              <option
-                name="state"
-                value="Other"
-                // onChange={(e) => onChange(e)}
-              >
-                Other
-              </option>
-            </select>
-            {stateOther && (
-              <input
-                style={{ marginTop: "1rem" }}
-                type="text"
-                name="state"
-                placeholder="Enter State name"
-                // value={formData.state}
+      <div className="registrationFormbody">
+        <div
+          className="reg-two-field "
+          style={{ marginTop: "20px", marginBottom: "35px" }}
+        >
+          <div className="input-cover-reg">
+            <div className="input-label-reg">Select Field</div>
+            <div className="input-box-reg">
+              <select
+                name="field"
+                value={formData.course}
                 onChange={(e) => onChange(e)}
-              />
-            )}{" "}
+              >
+                <option>Select</option>
+                <option>Engineering</option>
+                <option>Medical</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div className="input-cover-reg">
+            <div className="input-label-reg ">Currently Studying In </div>
+            <div className="input-box-reg">
+              <select
+                name="studying"
+                value={formData.studying}
+                onChange={(e) => onChange(e)}
+              >
+                <option>Select</option>
+                <option>VII</option>
+                <option>VIII</option>
+                <option>IX</option>
+                <option>X</option>
+                <option>XI</option>
+                <option>XII</option>
+              </select>
+            </div>
           </div>
         </div>
-        <div className="input-cover-reg">
-          <div className="input-label-reg dis-city">District </div>
+        {inputFields.map((item, index) => {
+          return (
+            <div className="input-upper" style={{ marginTop: "10px" }}>
+              {item.fields.map((field) => {
+                return (
+                  <div className="input-cover-reg">
+                    <div className="input-label-reg"> {field.label} </div>
+                    <div className="input-box-reg">
+                      <input
+                        type={field.type}
+                        name={field.name}
+                        value={field.value}
+                        onChange={field.onChange}
+                      />{" "}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })}
+        {/*  */}
+        <div className="input-cover-reg" style={{ marginTop: "10px" }}>
+          <div className="input-label-reg"> Gender </div>
+          <div className="input-box-reg">
+            <select name="gender" onChange={onChange}>
+              <option value={null}>Select</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+        </div>
+        <div className="input-cover-reg" style={{ marginTop: "10px" }}>
+          <div className="input-label-reg"> Category </div>
+          <div className="input-box-reg">
+            <select name="category" onChange={onChange}>
+              <option value={null}>Select</option>
+              <option value="GENERAL">General</option>
+              <option value="OBC">OBC</option>
+              <option value="SC">SC</option>
+              <option value="ST">ST</option>
+              {/* <option value="OTHER">OTHER</option> */}
+            </select>
+          </div>
+        </div>
+        {/*  */}
+        <div className="input-cover-reg" style={{ marginTop: "20px" }}>
+          <div className="input-label-reg"> Address </div>
+          <div className="input-box-reg">
+            <textarea
+              style={{ width: "100%", minWidth: "300px" }}
+              type="text"
+              name="address"
+              value={formData.address}
+              onChange={onChange}
+            />{" "}
+          </div>
+        </div>
+        <div
+          className="reg-two-field dist-city-tow "
+          style={{ marginTop: "3rem" }}
+        >
+          <div className="input-cover-reg">
+            <div className="input-label-reg dis-city">State</div>
+            <div className="input-box-reg">
+              <select
+                name="state"
+                onChange={(e) => {
+                  onChange(e);
+                  if (e.target.value == "Other") setStateOther(true);
+                  else setStateOther(false);
+                }}
+              >
+                <option value="null">Select</option>
+                <option
+                  name="state"
+                  value="Bihar"
+                  // onChange={(e) => onChange(e)}
+                >
+                  Bihar
+                </option>
+                <option
+                  name="state"
+                  value="Jharkhand"
+                  // onChange={(e) => onChange(e)}
+                >
+                  Jharkhand
+                </option>
+                <option
+                  name="state"
+                  value="West Bengal"
+                  // onChange={(e) => onChange(e)}
+                >
+                  West Bengal
+                </option>
+                <option
+                  name="state"
+                  value="Uttar Pradesh"
+                  // onChange={(e) => onChange(e)}
+                >
+                  Uttar Pradesh
+                </option>
+                <option
+                  name="state"
+                  value="Other"
+                  // onChange={(e) => onChange(e)}
+                >
+                  Other
+                </option>
+              </select>
+              {stateOther && (
+                <input
+                  style={{ marginTop: "1rem" }}
+                  type="text"
+                  name="state"
+                  placeholder="Enter State name"
+                  // value={formData.state}
+                  onChange={(e) => onChange(e)}
+                />
+              )}{" "}
+            </div>
+          </div>
+          <div className="input-cover-reg">
+            <div className="input-label-reg dis-city">District </div>
+            <div className="input-box-reg">
+              <select
+                name="district"
+                style={{ width: "195px" }}
+                value={formData.district}
+                onChange={(e) => {
+                  onChange(e);
+                  if (e.target.value == "Other") setDistrictOther(true);
+                  else setDistrictOther(false);
+                }}
+              >
+                <option>Select</option>
+                {allDistrict.map((item) => {
+                  return <option value={item}>{item}</option>;
+                })}
+                <option value="Other">Other</option>
+              </select>
+              {districtOther && (
+                <input
+                  placeholder="Enter District Name"
+                  type="text"
+                  name="district"
+                  // value={formData.district}
+                  onChange={(e) => onChange(e)}
+                />
+              )}
+            </div>
+          </div>
+          <div className="input-cover-reg">
+            <div className="input-label-reg dis-city">City </div>
+            <div className="input-box-reg">
+              <input
+                type="text"
+                name="city"
+                value={formData.city}
+                onChange={(e) => onChange(e)}
+              />{" "}
+            </div>
+          </div>
+
+          <div className="input-cover-reg">
+            <div className="input-label-reg dis-city">Pin</div>
+            <div className="input-box-reg">
+              <input
+                type="number"
+                name="pin"
+                value={formData.pin}
+                onChange={(e) => onChange(e)}
+              />{" "}
+            </div>
+          </div>
+        </div>
+        <div className="reg-two-field" style={{ marginTop: "3rem" }}>
+          <div className="input-cover-reg">
+            <div className="input-label-reg">Medium of Exam</div>
+            <div className="input-box-reg">
+              <select
+                name="medium"
+                onChange={(e) => {
+                  onChange(e);
+                }}
+              >
+                <option value="null">Select</option>
+                <option
+                  name="medium"
+                  value="English"
+                  // onChange={(e) => onChange(e)}
+                >
+                  English
+                </option>
+                <option
+                  name="medium"
+                  value="Hindi"
+                  // onChange={(e) => onChange(e)}
+                >
+                  Hindi
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div className="reg-two-field" style={{ marginTop: "3rem" }}>
+          <div className="input-cover-reg">
+            <div className="input-label-reg">Name of School</div>
+            <div className="input-box-reg">
+              <input
+                type="text"
+                name="school"
+                value={formData.school}
+                onChange={(e) => onChange(e)}
+              />{" "}
+            </div>
+          </div>
+          <div className="input-cover-reg">
+            <div className="input-label-reg">Board Name</div>
+            <div className="input-box-reg">
+              <select
+                name="board"
+                onChange={(e) => {
+                  onChange(e);
+                  if (e.target.value == "Other") setBoardOther(true);
+                  else setBoardOther(false);
+                }}
+              >
+                <option value="null">Select</option>
+                <option
+                  name="board"
+                  value="CBSE"
+                  // onChange={(e) => onChange(e)}
+                >
+                  CBSE
+                </option>
+                <option
+                  name="board"
+                  value="ICSE"
+                  // onChange={(e) => onChange(e)}
+                >
+                  ICSE
+                </option>
+                <option
+                  name="board"
+                  value="BSEB"
+                  // onChange={(e) => onChange(e)}
+                >
+                  BSEB
+                </option>
+                <option
+                  name="board"
+                  value="Other"
+                  // onChange={(e) => onChange(e)}
+                >
+                  Other
+                </option>
+              </select>
+              {boardOther && (
+                <input
+                  style={{ marginTop: "1rem" }}
+                  type="text"
+                  name="board"
+                  placeholder="Enter Board name"
+                  // value={formData.state}
+                  onChange={(e) => onChange(e)}
+                />
+              )}
+            </div>
+          </div>
+          <div className="input-cover-reg">
+            <div className="input-label-reg">Occupation of Father </div>
+            <div className="input-box-reg">
+              <input
+                type="text"
+                name="fatherOccupation"
+                value={formData.fatherOccupation}
+                onChange={(e) => onChange(e)}
+              />{" "}
+            </div>
+          </div>
+          <div className="input-cover-reg">
+            <div className="input-label-reg">Mobile No. (Father) </div>
+            <div className="input-box-reg">
+              <input
+                type="number"
+                name="mobileFather"
+                placeholder="10 digit mobile number"
+                value={formData.mobileFather}
+                onChange={(e) => onChange(e)}
+              />{" "}
+            </div>
+          </div>
+          <div className="input-cover-reg">
+            <div className="input-label-reg">Occupation of Mother </div>
+            <div className="input-box-reg">
+              <input
+                type="text"
+                name="motherOccupation"
+                value={formData.motherOccupation}
+                onChange={(e) => onChange(e)}
+              />{" "}
+            </div>
+          </div>
+          <div className="input-cover-reg">
+            <div className="input-label-reg">Mobile No. (Mother) </div>
+            <div className="input-box-reg">
+              <input
+                type="number"
+                maxlength={10}
+                name="motherMobile"
+                value={formData.motherMobile}
+                onChange={(e) => onChange(e)}
+              />{" "}
+            </div>
+          </div>
+        </div>
+        <div
+          className="input-cover-reg"
+          style={{
+            marginTop: "20px",
+          }}
+        >
+          <div
+            className="input-label-reg"
+            style={{ minWidth: "60%", maxWidth: "100%" }}
+          >
+            {" "}
+            Name of the District from where the student will appear for VEGRE
+          </div>
           <div className="input-box-reg">
             <select
-              name="district"
+              name="appearDistrict"
               style={{ width: "195px" }}
-              value={formData.district}
+              value={formData.appearDistrict}
               onChange={(e) => {
                 onChange(e);
-                if (e.target.value == "Other") setDistrictOther(true);
-                else setDistrictOther(false);
+                if (e.target.value == "Other") setAppearDistrictShow(true);
+                else setAppearDistrictShow(false);
               }}
             >
               <option>Select</option>
@@ -646,239 +858,33 @@ function RegisterNow() {
               })}
               <option value="Other">Other</option>
             </select>
-            {districtOther && (
+            {appearDistrictShow && (
               <input
+                type="text"
+                name="appearDistrict"
                 placeholder="Enter District Name"
-                type="text"
-                name="district"
-                // value={formData.district}
+                // value={formData.appearDistrict}
                 onChange={(e) => onChange(e)}
               />
             )}
           </div>
         </div>
-        <div className="input-cover-reg">
-          <div className="input-label-reg dis-city">City </div>
-          <div className="input-box-reg">
-            <input
-              type="text"
-              name="city"
-              value={formData.city}
-              onChange={(e) => onChange(e)}
-            />{" "}
-          </div>
-        </div>
-
-        <div className="input-cover-reg">
-          <div className="input-label-reg dis-city">Pin</div>
-          <div className="input-box-reg">
-            <input
-              type="number"
-              name="pin"
-              value={formData.pin}
-              onChange={(e) => onChange(e)}
-            />{" "}
-          </div>
-        </div>
-      </div>
-      <div className="reg-two-field" style={{ marginTop: "3rem" }}>
-        <div className="input-cover-reg">
-          <div className="input-label-reg">Medium of Exam</div>
-          <div className="input-box-reg">
-            <select
-              name="medium"
-              onChange={(e) => {
-                onChange(e);
-              }}
-            >
-              <option value="null">Select</option>
-              <option
-                name="medium"
-                value="English"
-                // onChange={(e) => onChange(e)}
-              >
-                English
-              </option>
-              <option
-                name="medium"
-                value="Hindi"
-                // onChange={(e) => onChange(e)}
-              >
-                Hindi
-              </option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <div className="reg-two-field" style={{ marginTop: "3rem" }}>
-        <div className="input-cover-reg">
-          <div className="input-label-reg">Name of School</div>
-          <div className="input-box-reg">
-            <input
-              type="text"
-              name="school"
-              value={formData.school}
-              onChange={(e) => onChange(e)}
-            />{" "}
-          </div>
-        </div>
-        <div className="input-cover-reg">
-          <div className="input-label-reg">Board Name</div>
-          <div className="input-box-reg">
-            <select
-              name="board"
-              onChange={(e) => {
-                onChange(e);
-                if (e.target.value == "Other") setBoardOther(true);
-                else setBoardOther(false);
-              }}
-            >
-              <option value="null">Select</option>
-              <option
-                name="board"
-                value="CBSE"
-                // onChange={(e) => onChange(e)}
-              >
-                CBSE
-              </option>
-              <option
-                name="board"
-                value="ICSE"
-                // onChange={(e) => onChange(e)}
-              >
-                ICSE
-              </option>
-              <option
-                name="board"
-                value="BSEB"
-                // onChange={(e) => onChange(e)}
-              >
-                BSEB
-              </option>
-              <option
-                name="board"
-                value="Other"
-                // onChange={(e) => onChange(e)}
-              >
-                Other
-              </option>
-            </select>
-            {boardOther && (
-              <input
-                style={{ marginTop: "1rem" }}
-                type="text"
-                name="board"
-                placeholder="Enter Board name"
-                // value={formData.state}
-                onChange={(e) => onChange(e)}
-              />
-            )}
-          </div>
-        </div>
-        <div className="input-cover-reg">
-          <div className="input-label-reg">Occupation of Father </div>
-          <div className="input-box-reg">
-            <input
-              type="text"
-              name="fatherOccupation"
-              value={formData.fatherOccupation}
-              onChange={(e) => onChange(e)}
-            />{" "}
-          </div>
-        </div>
-        <div className="input-cover-reg">
-          <div className="input-label-reg">Mobile No. (Father) </div>
-          <div className="input-box-reg">
-            <input
-              type="number"
-              name="mobileFather"
-              placeholder="10 digit mobile number"
-              value={formData.mobileFather}
-              onChange={(e) => onChange(e)}
-            />{" "}
-          </div>
-        </div>
-        <div className="input-cover-reg">
-          <div className="input-label-reg">Occupation of Mother </div>
-          <div className="input-box-reg">
-            <input
-              type="text"
-              name="motherOccupation"
-              value={formData.motherOccupation}
-              onChange={(e) => onChange(e)}
-            />{" "}
-          </div>
-        </div>
-        <div className="input-cover-reg">
-          <div className="input-label-reg">Mobile No. (Mother) </div>
-          <div className="input-box-reg">
-            <input
-              type="number"
-              maxlength={10}
-              name="motherMobile"
-              value={formData.motherMobile}
-              onChange={(e) => onChange(e)}
-            />{" "}
-          </div>
-        </div>
-      </div>
-      <div
-        className="input-cover-reg"
-        style={{
-          marginTop: "20px",
-        }}
-      >
         <div
-          className="input-label-reg"
-          style={{ minWidth: "60%", maxWidth: "100%" }}
+          style={{ width: " 100%", display: "flex", justifyContent: "center" }}
         >
-          {" "}
-          Name of the District from where the student will appear for VEGRE
+          <button className="regsubmit" onClick={submitForm}>
+            {" "}
+            Pay (200) and Submit
+          </button>
         </div>
-        <div className="input-box-reg">
-          <select
-            name="appearDistrict"
-            style={{ width: "195px" }}
-            value={formData.appearDistrict}
-            onChange={(e) => {
-              onChange(e);
-              if (e.target.value == "Other") setAppearDistrictShow(true);
-              else setAppearDistrictShow(false);
-            }}
-          >
-            <option>Select</option>
-            {allDistrict.map((item) => {
-              return <option value={item}>{item}</option>;
-            })}
-            <option value="Other">Other</option>
-          </select>
-          {appearDistrictShow && (
-            <input
-              type="text"
-              name="appearDistrict"
-              placeholder="Enter District Name"
-              // value={formData.appearDistrict}
-              onChange={(e) => onChange(e)}
-            />
-          )}
+        <div
+          style={{ width: " 100%", display: "flex", justifyContent: "center" }}
+        >
+          {/* <PaymentButton /> */}
+          {/* {PaymentButton()} */}
         </div>
-      </div>
-      <div
-        style={{ width: " 100%", display: "flex", justifyContent: "center" }}
-      >
-        <button className="regsubmit" onClick={submitForm}>
-          {" "}
-          Pay (200) and Submit
-        </button>
-      </div>
-      <div
-        style={{ width: " 100%", display: "flex", justifyContent: "center" }}
-      >
-        {/* <PaymentButton /> */}
-        {/* {PaymentButton()} */}
-      </div>
 
-      {/* <div>
+        {/* <div>
         {amount === 0 && orderId == "" && <h1>Loading...</h1>}
         {false && (
           <div id="" onClick={showRazoryPay}>
@@ -886,9 +892,9 @@ function RegisterNow() {
           </div>
         )}
         {/* <div id="paymentbutton" onClick={showRazoryPay}></div> */}
-      {/* </div> */}
-      {/* <button onClick={showRazorPay2}>Pay 2</button> */}
-      {/* <div className="reg-two-field">
+        {/* </div> */}
+        {/* <button onClick={showRazorPay2}>Pay 2</button> */}
+        {/* <div className="reg-two-field">
         <div className="input-cover-reg">
           <div className="input-label-reg">Mobile No. of (Father) </div>
           <div className="input-box-reg">
@@ -907,7 +913,8 @@ function RegisterNow() {
           </div>
         </div>
       </div> */}
-    </div>
+      </div>
+    </>
   );
 }
 
