@@ -1,3 +1,5 @@
+import { base_URL } from "./Payment/APi/ORders";
+
 export const uploadExcel = async (payload, callBack) => {
   try {
     var myHeaders = new Headers();
@@ -14,7 +16,7 @@ export const uploadExcel = async (payload, callBack) => {
       redirect: "follow",
     };
 
-    fetch("http://localhost:5000/excel/upload", requestOptions)
+    fetch(base_URL + "/excel/upload", requestOptions)
       .then((response) => response.text())
       .then((result) => {
         console.log(result, "<<<<result");
@@ -33,7 +35,7 @@ export const fetchAdmitCardDetails = (formData, callBack) => {
   };
 
   fetch(
-    "http://localhost:5000/excel/get?Student_No=" + formData.Student_No,
+    base_URL + "/excel/get?Student_No=" + formData.Student_No,
     requestOptions
   )
     .then((response) => response.text())

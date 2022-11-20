@@ -39,7 +39,6 @@ const PaymentButton = () => {
     }
   }, [amount]);
 
- 
   const showRazoryPay = () => {
     const form = document.createElement("form");
     form.setAttribute("action", `${base_URL}/api/payment/callback`);

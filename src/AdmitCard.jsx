@@ -142,21 +142,22 @@ const AdmitCard = (props) => {
     return (
       <>
         <div className="mt2">
-          {fieldLine("Name of Student:")}{" "}
+          {fieldLine("Name of Student :")}{" "}
           {fieldResponse(selectedStudent?.Student_Name)}
         </div>
         <div className="mt1">
-          {fieldLine("Father's Name:")}{" "}
+          {fieldLine("Father's Name :")}{" "}
           {fieldResponse(selectedStudent?.Father_name)}
         </div>
         {/* <div className="mt1">
           {fieldLine("Mother's Name:")} {fieldResponse("Akshay lakhera")}
         </div> */}
         <div className=" mt1">
-          {fieldLine("Mobile No:")} {fieldResponse(selectedStudent?.Student_No)}
+          {fieldLine("Mobile No :")}{" "}
+          {fieldResponse(selectedStudent?.Student_No)}
           <span style={{ marginLeft: "40px" }}>
-            {fieldLine("Aadhar No")}
-            {fieldResponse(selectedStudent?.Father_name)}
+            {fieldLine("Aadhar No :")}{" "}
+            {fieldResponse(selectedStudent?.AADHAR_NO)}
           </span>
         </div>
         <div className="mt1" style={{ display: "flex" }}>
@@ -166,11 +167,21 @@ const AdmitCard = (props) => {
         <div className="mt1">
           {headingLine("Test Center:")}{" "}
           {fieldResponse(selectedStudent?.TEST_CENTER)}
-          <span style={{ marginLeft: "40px" }}>
+          {/* <span style={{ marginLeft: "40px" }}>
             {headingLine("Test Date:")}{" "}
             {fieldResponse(selectedStudent?.TEST_DATE)}
           </span>
           <span style={{ marginLeft: "40px" }}>
+            {headingLine("Test Time:")}{" "}
+            {fieldResponse(selectedStudent?.TEST_TIME)}
+          </span> */}
+        </div>
+        <div className="mt1">
+          <span style={{}}>
+            {headingLine("Test Date:")}{" "}
+            {fieldResponse(selectedStudent?.TEST_DATE)}
+          </span>
+          <span style={{ marginLeft: "120px" }}>
             {headingLine("Test Time:")}{" "}
             {fieldResponse(selectedStudent?.TEST_TIME)}
           </span>
@@ -183,16 +194,27 @@ const AdmitCard = (props) => {
     return (
       <div className="upper0">
         <div className="upper1">
-          <div style={{ marginTop: "40px" }}>
+          <div style={{ marginTop: "40px", width: "30%" }}>
             {headingLine("Registration No :")}{" "}
-            {fieldResponse(selectedStudent?.Roll_No)}
+            <span style={{ fontWeight: "bold" }}>
+              {fieldResponse(selectedStudent?.Roll_No)}
+            </span>
           </div>
-          <div>
+          <div
+            style={{
+              width: "40%",
+              textAlign: "center",
+            }}
+          >
             {" "}
-            <img src={logofile} height="110px" width="130px" />
+            <img src={logofile} height="120px" width="170px" />
             <div className="admitheading">Admit Card</div>
           </div>
-          <div>
+          <div
+            style={{
+              width: "30%",
+            }}
+          >
             <div className="imagesection">
               <div className="phototext">
                 Please prefix your recent coloured passport size photograph
@@ -336,7 +358,7 @@ const AdmitCard = (props) => {
             <ShowStudents students={getStudentsData} />
           )}
 
-          {/* {pdfJSX(selectedStudent)} */}
+          {pdfJSX(selectedStudent)}
           {/* <h1 className="display-1">Coming Soon...</h1> */}
         </div>
       </div>
