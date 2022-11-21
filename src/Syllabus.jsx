@@ -9,37 +9,12 @@ const Syllabus = (props) => {
 
   let links = [
     {
-      name: "(IIT) For Class–XIIth Pass students",
-      link: "/syllabus/7",
+      name: "Important date",
+      url: "/zones",
     },
     {
-      name: "(Medical) For Class–XII th Pass Students",
-      link: "/syllabus/8",
-    },
-    {
-      name: "IX (8th studying students going to class 9 in 2023)",
-      link: "/syllabus/9",
-    },
-    {
-      name: "XI (10th studying students going to class 11 in 2023)",
-      link: "/syllabus/10",
-    },
-
-    {
-      name: "X (9th studying students going to class 10 in 2023)",
-      link: "/syllabus/11",
-    },
-    {
-      name: "XII IIT (11th studying students going to class 12 in 2023)",
-      link: "/syllabus/12",
-    },
-    {
-      name: "XII Medical (11th studying students going to class 12 in 2023)",
-      link: "/syllabus/13",
-    },
-    {
-      name: "VIII (7th studying students going to class 8 in 2023)",
-      link: "/syllabus/14",
+      name: "Test Centers",
+      url: "/test-centers",
     },
   ];
 
@@ -108,6 +83,78 @@ const Syllabus = (props) => {
     props.setFlag(!props.flag);
   }, []);
 
+  const SamplePaperData = [
+    {
+      name: "(IIT) For Class–XIIth Pass students",
+      link: "https://drive.google.com/file/d/10asW007iA_2VjdvinCrt0rHeXoq5kb59/view?usp=share_link",
+    },
+    // {
+    //   name: "(IIT) For Class–XIIth Pass students(Hindi)",
+    //   link: "https://drive.google.com/file/d/1Si5XmMO85l2zLp9PuFzsWpxoFRDQPlOC/view?usp=sharing",
+    // },
+    {
+      name: "(Medical) For Class–XIIth Pass students",
+      link: "https://drive.google.com/file/d/16f72z6Te2F8lKeLY7sxMmIESP5BpFVyS/view?usp=share_link",
+    },
+
+    // {
+    //   name: "(Medical) For Class–XIIth Pass students(Hindi)",
+    //   link: "https://drive.google.com/file/d/118V7soQIgLfg9aSNMjnsZ8PN0Q0QTUot/view?usp=sharing",
+    // },
+    {
+      name: " IIT (11th studying students going to class 12 in 2023",
+      link: "https://drive.google.com/file/d/1GQy4gxtdfk9JyELeAgQECC91K-6Yjq5d/view?usp=share_link",
+    },
+    // {
+    //   name: " IIT (11th studying students going to class 12 in 2023(Hindi)",
+    //   link: "https://drive.google.com/file/d/1mBCjwLpXBfsmtGTTg8o5HQW5djsS7OV2/view?usp=sharing",
+    // },
+    {
+      name: " Medical (11th studying students going to class 12 in 2023",
+      link: "https://drive.google.com/file/d/1dNM6DYYeLpoxU5Izv8_vKvpwlUYJTqRF/view?usp=share_link",
+    },
+    // {
+    //   name: "  Medical (11th studying students going to class 12 in 2023(Hindi)",
+    //   link: "https://drive.google.com/file/d/1w6deb-pl1ye0N7lgGkXxXbNuSZBws9Ug/view?usp=sharing",
+    // },
+    //
+    {
+      name: "10th studying students going to class 11 in 2023",
+      link: "https://drive.google.com/file/d/12E5GWSgyceeP0JWQ3G-F9IyGhKyyf2as/view?usp=share_link",
+    },
+    //
+    // {
+    //   name: "10th studying students going to class 11 in 2023(Hindi)",
+    //   link: "https://drive.google.com/file/d/1yYF-0WMNfRZzqItg-7RYLXH2w5aWO8oO/view?usp=sharing",
+    // },
+    //
+    {
+      name: "9th studying students going to class 10 in 2023",
+      link: "https://drive.google.com/file/d/1iY5bk-X0cTzrwmABbpaVRAskWWsf7Yic/view?usp=share_link",
+    },
+    // {
+    //   name: "9th studying students going to class 10 in 2023(Hindi)",
+    //   link: "https://drive.google.com/file/d/1pV4_8n3EeisgyHaG28J1tFuT7r2yeoe3/view?usp=sharing",
+    // },
+    {
+      name: "8th studying students going to class 9 in 2023",
+      link: "https://drive.google.com/file/d/1citk3FcVoCm3mVlFdf37AzaZmWKJdADA/view?usp=share_link",
+    },
+    // {
+    //   name: "8th studying students going to class 9 in 2023(Hindi)",
+    //   link: "https://drive.google.com/file/d/14TDwG5DfCZyo9qFS1nKTWGNb7g-lPsZU/view?usp=sharing",
+    // },
+    {
+      name: "7th studying students going to class 8 in 2023",
+      link: "https://drive.google.com/file/d/1NdwEM6-6kkM2nKQVcbQtSShJoVq70GPP/view?usp=share_link",
+    },
+    // {
+    //   name: "7th studying students going to class 8 in 2023)(Hindi)",
+    //   link: "https://drive.google.com/file/d/1AgyvXrk28ia0iQeI7km4UHgzHXT-bYKf/view?usp=sharing",
+    // },
+    //
+  ];
+
   return (
     <div>
       <img
@@ -117,6 +164,20 @@ const Syllabus = (props) => {
         style={{ objectFit: "cover" }}
       />
       <div className="comm">
+        {/* <div className="comm1">
+          <div className="comm11">
+            <h4>Quick Links</h4>
+          </div>
+          <div className="comm12">
+            {links.map((e, index) => {
+              return (
+                <div key={index} className="comm121">
+                  <NavLink to={e.url}>{e.name}</NavLink>
+                </div>
+              );
+            })}
+          </div>
+        </div> */}
         <div className="comm1">
           <div className="comm11">
             <h4>Quick Links</h4>
@@ -133,10 +194,10 @@ const Syllabus = (props) => {
         </div>
         <div className="comm2">
           <h4>SYLLABUS</h4>
-          <h2>{syllabus[id]?.title}</h2>
-          {syllabus[id].images.map((item) => (
+          {/* <h2>{syllabus[id]?.title}</h2> */}
+          {/* {syllabus[id].images.map((item) => (
             <img src={item} width="100%" style={{ objectFit: "contain" }} />
-          ))}
+          ))} */}
 
           {/* <div className="syllabus">
             <h2>{syllabus[id]?.title}</h2>
@@ -169,6 +230,62 @@ const Syllabus = (props) => {
               ) : null}
             </div>
           </div> */}
+
+          <table className="table table-striped">
+            <thead>
+              <tr>
+                <th
+                  scope="col"
+                  className="table-head"
+                  style={{
+                    background: "#ea6666",
+                    color: "white",
+                  }}
+                >
+                  S No.
+                </th>
+                <th
+                  scope="col"
+                  style={{
+                    background: "#ea6666",
+                    color: "white",
+                  }}
+                >
+                  Class
+                </th>
+                <th
+                  scope="col"
+                  style={{
+                    background: "#ea6666",
+                    color: "white",
+                  }}
+                >
+                  {/* Question Paper with Key */}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {SamplePaperData.map((item, key) => {
+                return (
+                  <tr>
+                    <th scope="row">{key + 1}</th>
+                    <td>{item.name}</td>
+                    {/* <Link to="/" style={{ height: "100%" }}> */}
+                    <td
+                      className="text-warning"
+                      style={{ cursor: "pointer" }}
+                      onClick={() => {
+                        window.location.href = item.link;
+                      }}
+                    >
+                      Click to download
+                    </td>
+                    {/* </Link> */}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

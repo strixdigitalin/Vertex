@@ -92,7 +92,7 @@ const Footer = () => {
             {" "}
             Copyright@2022 Vertex Educations. All rights reserved{" "}
             <span style={{ marginLeft: "10px" }}>
-              Visitors Count{" "}
+              {" "}
               <a href="https://www.hitwebcounter.com" target="_blank">
                 <img
                   src="https://hitwebcounter.com/counter/counter.php?page=8069903&style=0006&nbdigits=6&type=page&initCount=0"

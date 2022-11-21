@@ -71,7 +71,7 @@ const App = () => {
             element={<PaymentTerms setFlag={setFlag} flag={flag} />}
           />
           <Route
-            path="/payment-success/:orderId"
+            path="/payment-success/:orderId/:razorpayOrderId/:razorpayPaymentId/:time/:amount/:name/:dob"
             element={<PaymentSuccess setFlag={setFlag} flag={flag} />}
           />
           <Route

@@ -249,8 +249,34 @@ function RegisterNow() {
         console.log(result);
 
         alert(result.data.msg);
-
-        window.location.href = "/payment-success/" + id;
+        const { razorpayPaymentId, razorpayOrderId, time } = result.data.data;
+        // window.location.href =
+        //   "/payment-success/" +
+        //   "745896" +
+        //   "/" +
+        //   "456987465" +
+        //   "/" +
+        //   "745874" +
+        //   "/" +
+        //   "Mon Nov 21 2022 22:32:42 GMT+0530 (India Standard Time)" +
+        //   "/50" +
+        //   "/name" +
+        //   "/4558";
+        window.location.href =
+          "/payment-success/" +
+          id +
+          "/" +
+          razorpayPaymentId +
+          "/" +
+          razorpayOrderId +
+          "/" +
+          time +
+          "/" +
+          amount.toString() +
+          "/" +
+          formData.name +
+          "/" +
+          formData.dob;
       },
       prefill: {
         name: formData.name,

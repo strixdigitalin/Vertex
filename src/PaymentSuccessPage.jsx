@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import exam from "./assets/exam.jpg";
+import ReactDOMServer from "react-dom/server";
+import html2pdf from "html2pdf.js/dist/html2pdf.min";
 
 const PaymentSuccess = (props) => {
   const params = useParams();
@@ -18,9 +20,111 @@ const PaymentSuccess = (props) => {
   useEffect(() => {
     props.setFlag(!props.flag);
   }, []);
+  const showValue = (value) => {
+    return <span style={{ fontWeight: 500, marginLeft: "1rem" }}>{value}</span>;
+  };
+
+  const paymentData = (
+    <>
+      <div className="payment-success">
+        <span style={{ textAlign: "center" }}>
+          {" "}
+          <h4>Payment Successful</h4>
+          <h5 style={{ marginTop: "10px" }}>
+            You have successfully regisered to Ve-Gre
+          </h5>
+        </span>
+        <div style={{ width: "80%", margin: "auto", marginTop: "40px" }}>
+          <span style={{ fontWeight: "bold" }}>
+            Student Name: {showValue(params.name)}
+          </span>
+          <br />
+          <span style={{ fontWeight: "bold" }}>
+            Date of birth {showValue(params.dob)}
+          </span>
+          <br />
+          <span style={{ fontWeight: "bold" }}>
+            Total Amount: Rs {showValue(params.amount)} Only
+          </span>
+          <br />
+          <span style={{ fontWeight: "bold" }}>
+            Order ID: {showValue(params.orderId)}
+          </span>
+          <br />
+          <span style={{ fontWeight: "bold" }}>
+            Razorpay Order id: {showValue(params.razorpayOrderId)}
+          </span>
+          <br />
+          <span style={{ fontWeight: "bold" }}>
+            Razorpay Payment id: {showValue(params.razorpayPaymentId)}
+          </span>
+          <br />
+          <span style={{ fontWeight: "bold" }}>
+            Time: {showValue(params.time)}
+          </span>
+        </div>
+      </div>
+    </>
+  );
+
+  const pdfJSX = () => {
+    return (
+      <div style={{ margin: "20px 20px" }}>
+        {
+          <div className="payment-success1">
+            <span style={{ textAlign: "center" }}>
+              {" "}
+              <h4>Payment Successful</h4>
+              <h5 style={{ marginTop: "10px" }}>
+                You have successfully regisered to Ve-Gre
+              </h5>
+            </span>
+            <div style={{ width: "80%", margin: "auto", marginTop: "40px" }}>
+              <span style={{ fontWeight: "bold" }}>
+                Student Name: {showValue(params.name)}
+              </span>
+              <br />
+              <span style={{ fontWeight: "bold" }}>
+                Date of birth {showValue(params.dob)}
+              </span>
+              <br />
+              <span style={{ fontWeight: "bold" }}>
+                Total Amount: Rs {showValue(params.amount)} Only
+              </span>
+              <br />
+              <span style={{ fontWeight: "bold" }}>
+                Order ID: {showValue(params.orderId)}
+              </span>
+              <br />
+              <span style={{ fontWeight: "bold" }}>
+                Razorpay Order id: {showValue(params.razorpayOrderId)}
+              </span>
+              <br />
+              <span style={{ fontWeight: "bold" }}>
+                Razorpay Payment id: {showValue(params.razorpayPaymentId)}
+              </span>
+              <br />
+              <span style={{ fontWeight: "bold" }}>
+                Time: {showValue(params.time)}
+              </span>
+            </div>
+          </div>
+        }
+      </div>
+    );
+  };
+
+  const printHandler = () => {
+    // setSelectedStudent(item);
+
+    const printElement = ReactDOMServer.renderToString(pdfJSX());
+    console.log(printElement);
+
+    html2pdf().from(printElement).save("Ve-gre Admit card");
+  };
 
   return (
-    <div>
+    <div style={{ marginBottom: "15rem" }}>
       {/* <img
         src={exam}
         width="100%"
@@ -44,30 +148,28 @@ const PaymentSuccess = (props) => {
         </div>
         <div className="comm2"></div>
       </div> */}
-      <div className="payment-success">
-        <h4>Payment Successful</h4>
-        <h5 style={{ marginTop: "10px" }}>
-          You have successfully regisered to Ve-Gre
-        </h5>
-        <div style={{ marginTop: "20px" }}>
-          <span style={{ fontWeight: "bold" }}>Order ID: {params.orderId}</span>
-        </div>
+
+      <div style={{ width: "100%", textAlign: "center" }}>
         <button
           style={{
             backgroundColor: "#7B0100",
             color: "white",
             padding: "5px 10px",
-            marginTop: "20px",
-            borderRadius: "10px",
             width: "150px",
+            margin: "auto",
+            marginTop: "20px",
+            alignSelf: "center",
+            borderRadius: "10px",
           }}
           onClick={() => {
-            window.location.href = "/admit-card";
+            printHandler();
+            // window.location.href = "/admit-card";
           }}
         >
-          Okay
+          Download
         </button>
       </div>
+      {paymentData}
     </div>
   );
 };
