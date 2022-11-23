@@ -5,13 +5,20 @@
     justify-content: space-between;
 }
 .upper0{
-    padding: 40px;
+    padding: 35px;
     background-color: rgb(255, 236, 168);
-    padding-bottom: 75px;
+    padding-bottom: 50px;
     /* padding-top: 6px; */
+    position: relative;
 }
 .colbr{
     color: #7B0100;
+}
+.userimage2{
+    position: absolute;
+    bottom: 11rem;
+    right: 10px;
+
 }
 
 .imagesection{
@@ -53,18 +60,18 @@
     color: white;
     border-radius: 5px;
     margin: auto;
-    margin-top: 10px;
+    margin-top: 5px;
     padding: 2px 2px;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 15px;
     width: 170px;
 
 }
 .mt1{
-    margin-top: 5px;
+    margin-top: 0px;
 }
 .mt2{
-    margin-top: 20px;
+    margin-top: 10px;
 }
 .mt3{
     margin-top: 30px;
@@ -74,19 +81,36 @@
     width: 50%;
     margin: auto;
     text-align: center;
+    display: flex ;
+    justify-content: center;
+    align-items: center;
     font-size: 20px;
+    gap: 2%;
     margin-bottom: 10px;
 }
 .rollnoinput >input {
     padding: 5px;
     border-radius: 5px;
+    font-size: 15px;
+    width: 150px;
+
     margin-top: 10px;
     
 }
+.rollnoinput >select {
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 150px;
+    font-size: 15px;
+    
+}
 .rollnoinput >button {
-    padding: 5px 10px;
+    padding: 0px 10px;
     border-radius: 5px;
     margin-left: 10px;
+    margin-top: 10px;
+    width: 60px;
     
 }
 .showStudent{
@@ -121,6 +145,8 @@
         margin: auto;
         text-align: center;
         font-size: 20px;
+        display: flex;
+        flex-direction: column;
         margin-bottom: 10px;
     }
 }

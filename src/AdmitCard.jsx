@@ -21,8 +21,9 @@ const AdmitCard = (props) => {
     },
   ];
   const [formData, setFormData] = useState({
-    Student_No: "",
+    // Student_No: "",
   });
+  const [selectTyp, setSelectTyp] = useState("DOB");
   const [selectedStudent, setSelectedStudent] = useState({});
 
   const [getStudentsData, setGetStudentsData] = useState([]);
@@ -156,12 +157,15 @@ const AdmitCard = (props) => {
           {fieldLine("Mobile No :")}{" "}
           {fieldResponse(selectedStudent?.Student_No)}
           <span style={{ marginLeft: "40px" }}>
-            {fieldLine("Aadhar No :")}{" "}
+            {fieldLine("Aadhar No :")}
+            {"  "}
             {fieldResponse(selectedStudent?.AADHAR_NO)}
           </span>
         </div>
         <div className="mt1" style={{ display: "flex" }}>
-          {headingLine("Presently studying in :")} <StudentInput />
+          {headingLine("Presently studying in : ")}{" "}
+          {fieldResponse(selectedStudent?.Class)}th
+          {/* <StudentInput /> */}
           {/* {fieldResponse(selectedStudent)} */}
         </div>
         <div className="mt1">
@@ -193,6 +197,18 @@ const AdmitCard = (props) => {
   const pdfJSX = (selectedStudent) => {
     return (
       <div className="upper0">
+        <div
+          className="userimage2"
+          style={{
+            width: "30%",
+          }}
+        >
+          <div className="imagesection">
+            <div className="phototext">
+              Please prefix your recent coloured passport size photograph
+            </div>
+          </div>
+        </div>
         <div className="upper1">
           <div style={{ marginTop: "40px", width: "30%" }}>
             {headingLine("Registration No :")}{" "}
@@ -241,6 +257,7 @@ const AdmitCard = (props) => {
           {fieldResponse(selectedStudent.Roll_No)}
         </div>
         <StudentDetails selectedStudent={selectedStudent} />
+        <SigNaturePart selectedStudent={selectedStudent} />
       </div>
     );
   };
@@ -255,9 +272,10 @@ const AdmitCard = (props) => {
   };
 
   const getStudents = () => {
-    if (formData.Student_No.trim() == "")
-      return alert("Please Enter Student Mobile Number");
-    if (formData.Student_No.length != 10)
+    // if (formData?.Student_No.trim() == "")
+    // if (formData?.Student_No.trim() == "")
+    // return alert("Please Enter Student Mobile Number");
+    if (formData.Student_No && formData.Student_No.length != 10)
       return alert("Mobile number must be of 10 digit.");
 
     fetchAdmitCardDetails(formData, (res) => {
@@ -340,25 +358,60 @@ const AdmitCard = (props) => {
         <div className="comm2">
           <h4>ADMIT CARD</h4>
           <div className="rollnoinput">
-            <div>Enter Registered mobile number</div>
-
-            <input
-              placeholder="Student number provided during registration"
-              value={formData.Student_No}
+            <select
               onChange={(e) => {
-                setFormData({ Student_No: e.target.value });
+                setSelectTyp(e.target.value);
               }}
-            />
-            <button style={{ height: "100%" }} onClick={getStudents}>
-              {" "}
-              Go
-            </button>
+            >
+              <option value="DOB"> Date of birth</option>
+              <option value="NUMBER">Student mobile number </option>
+            </select>
+
+            {/* <div>
+              Enter {selectTyp != "DOB" ? "Registered mobile number" : "Dob"}
+            </div> */}
+            {/* <br /> */}
+            {selectTyp != "DOB" && (
+              <input
+                className="inputadmin"
+                placeholder="Student number provided during registration"
+                value={formData.Student_No}
+                onChange={(e) => {
+                  setFormData({ Student_No: e.target.value });
+                }}
+              />
+            )}
+
+            {selectTyp == "DOB" && (
+              <input
+                type="date"
+                placeholder="Student number provided during registration"
+                value={formData.Student_No}
+                onChange={(e) => {
+                  const dat = e.target.value;
+                  const splitIt = dat.split("-");
+                  console.log(
+                    splitIt[2],
+                    "-",
+                    splitIt[1],
+                    "-",
+                    splitIt[0],
+                    "<<<<<value"
+                  );
+
+                  setFormData({
+                    DOB: splitIt[2] + "-" + splitIt[1] + "-" + splitIt[0],
+                  });
+                }}
+              />
+            )}
+            <button onClick={getStudents}> Go</button>
           </div>
           {getStudentsData.length != 0 && (
             <ShowStudents students={getStudentsData} />
           )}
 
-          {pdfJSX(selectedStudent)}
+          {/* {pdfJSX(selectedStudent)} */}
           {/* <h1 className="display-1">Coming Soon...</h1> */}
         </div>
       </div>

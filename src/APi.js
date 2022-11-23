@@ -1,3 +1,4 @@
+import axios from "axios";
 import { base_URL } from "./Payment/APi/ORders";
 
 export const uploadExcel = async (payload, callBack) => {
@@ -28,20 +29,22 @@ export const uploadExcel = async (payload, callBack) => {
   }
 };
 
-export const fetchAdmitCardDetails = (formData, callBack) => {
+export const fetchAdmitCardDetails = async (formData, callBack) => {
   var requestOptions = {
     method: "GET",
     redirect: "follow",
   };
 
-  fetch(
-    base_URL + "/excel/get?Student_No=" + formData.Student_No,
-    requestOptions
-  )
-    .then((response) => response.text())
-    .then((result) => {
-      const data = JSON.parse(result);
-      callBack(data);
-    })
-    .catch((error) => console.log("error", error));
+  const { data } = await axios.get(base_URL + "/excel/get", {
+    params: formData,
+  });
+  callBack(data);
+
+  // fetch(base_URL + "/excel/get" + { params: formData }, requestOptions)
+  //   .then((response) => response.text())
+  //   .then((result) => {
+  //     const data = JSON.parse(result);
+  //     callBack(data);
+  //   })
+  //   .catch((error) => console.log("error", error));
 };

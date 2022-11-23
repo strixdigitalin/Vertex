@@ -89,7 +89,8 @@ const PaymentSuccess = (props) => {
               </span>
               <br />
               <span style={{ fontWeight: "bold" }}>
-                Total Amount: Rs {showValue(params.amount)} Only
+                {/* Total Amount: Rs {showValue(params.amount)} Only */}
+                Total Amount: Rs 200 Only.
               </span>
               <br />
               <span style={{ fontWeight: "bold" }}>
@@ -120,7 +121,7 @@ const PaymentSuccess = (props) => {
     const printElement = ReactDOMServer.renderToString(pdfJSX());
     console.log(printElement);
 
-    html2pdf().from(printElement).save("Ve-gre Admit card");
+    html2pdf().from(printElement).save("Ve-gre payment receipt");
   };
 
   return (
@@ -166,7 +167,7 @@ const PaymentSuccess = (props) => {
             // window.location.href = "/admit-card";
           }}
         >
-          Download
+          Download Receipt
         </button>
       </div>
       {paymentData}

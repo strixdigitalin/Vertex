@@ -197,7 +197,9 @@ function App() {
                   "Present_Class",
                   "District_Code",
                 ].map((item) => {
-                  return <th style={{ fontSize: "10px" }}>{d[`${item}`]}</th>;
+                  return (
+                    <th style={{ fontSize: "10px" }}>{`${d[`${item}`]}`}</th>
+                  );
                 })}
 
                 {/* <th>{d.APPEAR_DISTRICT}</th> */}
