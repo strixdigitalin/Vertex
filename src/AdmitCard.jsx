@@ -254,7 +254,9 @@ const AdmitCard = (props) => {
 
         <div style={{ marginTop: "20px" }}>
           {headingLine("Registration No :")}{" "}
-          {fieldResponse(selectedStudent.Roll_No)}
+          <span style={{ fontWeight: "bold" }}>
+            {fieldResponse(selectedStudent.Roll_No)}
+          </span>
         </div>
         <StudentDetails selectedStudent={selectedStudent} />
         <SigNaturePart selectedStudent={selectedStudent} />

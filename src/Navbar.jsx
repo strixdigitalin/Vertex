@@ -23,41 +23,8 @@ const navOp = [
   },
   {
     cat: "SYLLABUS",
-    subcat: [
-      {
-        name: "(IIT) For Class–XII Pass students",
-        link: "/syllabus/7",
-      },
-      {
-        name: "(Medical) For Class–XII Pass Students",
-        link: "/syllabus/8",
-      },
-      {
-        name: "IIT (11th studying students going to class 12 in 2023)",
-        link: "/syllabus/12",
-      },
-      {
-        name: "Medical (11th studying students going to class 12 in 2023)",
-        link: "/syllabus/13",
-      },
-      {
-        name: "10th studying students going to class 11 in 2023",
-        link: "/syllabus/10",
-      },
-      {
-        name: "9th studying students going to class 10 in 2023",
-        link: "/syllabus/11",
-      },
-      {
-        name: "8th studying students going to class 9 in 2023",
-        link: "/syllabus/9",
-      },
-
-      {
-        name: "7th studying students going to class 8 in 2023",
-        link: "/syllabus/14",
-      },
-    ],
+    subcat: [],
+    link: "syllabus/1",
   },
   {
     cat: "SAMPLE PAPER",
