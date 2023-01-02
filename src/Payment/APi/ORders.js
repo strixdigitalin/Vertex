@@ -1,4 +1,6 @@
-export const base_URL = "https://vertex-education.herokuapp.com";
+// export const base_URL = "https://vertex-education.herokuapp.com";
+export const base_URL =
+  "https://3wsvy1ywcj.execute-api.us-east-2.amazonaws.com";
 
 // export const base_URL = "http://localhost:5000";
 
@@ -6,6 +8,7 @@ export const getOrder = (callBack) => {
   var requestOptions = {
     method: "GET",
     redirect: "follow",
+    referrerPolicy: "unsafe-url",
   };
 
   fetch(base_URL + "/api/createorder", requestOptions)
@@ -28,6 +31,7 @@ export const getOrder = (callBack) => {
 export const grabStatus = (paymentId) => {
   return fetch(`${base_URL}/payments/${paymentId}`, {
     method: "GET",
+    referrerPolicy: "unsafe-url",
     headers: {
       "Content-Type": "application/json",
     },

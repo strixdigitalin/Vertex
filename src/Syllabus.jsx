@@ -85,7 +85,7 @@ const Syllabus = (props) => {
 
   const SamplePaperData = [
     {
-      name: "(IIT) For Class–XIIth Pass students",
+      name: "(IIT) For Class–XIIth and XIIth Pass students",
       link: "https://drive.google.com/file/d/10asW007iA_2VjdvinCrt0rHeXoq5kb59/view?usp=share_link",
     },
     // {
@@ -93,7 +93,7 @@ const Syllabus = (props) => {
     //   link: "https://drive.google.com/file/d/1Si5XmMO85l2zLp9PuFzsWpxoFRDQPlOC/view?usp=sharing",
     // },
     {
-      name: "(Medical) For Class–XIIth Pass students",
+      name: "(Medical) For Class–XIIth and XIIth Pass students",
       link: "https://drive.google.com/file/d/16f72z6Te2F8lKeLY7sxMmIESP5BpFVyS/view?usp=share_link",
     },
 

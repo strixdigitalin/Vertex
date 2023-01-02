@@ -123,7 +123,7 @@ function RegisterNow() {
 
   const payDEtails = async () => {
     const payload = {
-      "data-key": "rzp_live_XVo1ue3IK3yAAY",
+      "data-key": "rzp_live_fxcA6lQcIJFs5A",
       "data-amount": 100,
       "data-name": "Strix Digital",
       "data-prefill.contact": 8989802546,
@@ -218,7 +218,7 @@ function RegisterNow() {
     // const liveKey = "rzp_live_rWC4iXaB2ed5LL"; // old live key
     const testKey = "rzp_test_Mu5DUXrPHI2u7b"; // old test key
 
-    const liveKey = "rzp_live_XVo1ue3IK3yAAY"; // new live key
+    const liveKey = "rzp_live_fxcA6lQcIJFs5A"; // new live key
 
     const options = {
       // key: "rzp_live_XVo1ue3IK3yAAY", // Enter the Key ID generated from the Dashboard
@@ -272,7 +272,7 @@ function RegisterNow() {
           "/" +
           time +
           "/" +
-          amount.toString() +
+          200 +
           "/" +
           formData.name +
           "/" +
@@ -453,9 +453,16 @@ function RegisterNow() {
       console.log(findField, "<<<<");
       return findField[0].show;
     };
-    if (formData.aadhar.length != 12) {
-      alert("Aadhar number is invalid");
+
+    if (formData.aadhar == null) {
+      // return null;
+      alert("Aadhar number is required");
       return null;
+    } else {
+      if (formData?.aadhar?.length != 12) {
+        alert("Aadhar number is invalid");
+        return null;
+      }
     }
     let regex = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}");
     // console.log(regex.test(formData.email));

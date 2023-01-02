@@ -19,7 +19,7 @@ const SamplePaper = (props) => {
 
   const SamplePaperData = [
     {
-      name: "(IIT) For Class–XIIth Pass students",
+      name: "(IIT) For Class–XIIth and XIIth Pass students",
       link: "https://drive.google.com/file/d/1-J5VFnjWII73clOypMwjn4fU1t3pj5W1/view?usp=sharing",
     },
     // {
@@ -27,7 +27,7 @@ const SamplePaper = (props) => {
     //   link: "https://drive.google.com/file/d/1Si5XmMO85l2zLp9PuFzsWpxoFRDQPlOC/view?usp=sharing",
     // },
     {
-      name: "(Medical) For Class–XIIth Pass students",
+      name: "(Medical) For Class–XIIth and XIIth Pass students",
       link: "https://drive.google.com/file/d/1vy3xNrBHJnhoARy61tXXbjMA7UN3jTfY/view?usp=share_link",
     },
 

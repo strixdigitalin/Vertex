@@ -12,6 +12,7 @@ const Footer = () => {
          in place of 'smooth' */
     });
   };
+  console.log(window.screen.width);
   return (
     <>
       {/* <footer
@@ -140,17 +141,46 @@ const Footer = () => {
           </div>
         </div>
 
-        <div style={{ width: "100%" }}>
-          Get upto free education with Free Lodging and Free Food
-          <Link to="/register-now">
-            <button
-              // className="btn btn-danger"
-              className="registerbtn "
-              onClick={scrollToTop}
+        <div
+          // className="footer-dev"
+          style={{
+            width: window.screen.width > 700 ? "80%" : "100%",
+            display: "flex",
+            // justifyContent: "space-between",
+            flexDirection: window.screen.width > 700 ? "row" : "column",
+            gap: "15%",
+            alignItems: "center",
+            // flexDirection: "row-reverse",
+          }}
+        >
+          <div
+            style={{ fontSize: "15px", marginLeft: "10px", cursor: "pointer" }}
+            onClick={() => {
+              window.location.href = "https://www.strixdigital.in";
+            }}
+          >
+            Design and developed by{" "}
+            <span
+              style={{
+                color: "blue",
+              }}
             >
-              Register Now
-            </button>
-          </Link>
+              Strix Digital
+            </span>
+          </div>
+
+          <div>
+            Get upto free education with Free Lodging and Free Food
+            <Link to="/register-now">
+              <button
+                // className="btn btn-danger"
+                className="registerbtn "
+                onClick={scrollToTop}
+              >
+                Register Now
+              </button>
+            </Link>
+          </div>
         </div>
         <div
           onClick={scrollToTop}

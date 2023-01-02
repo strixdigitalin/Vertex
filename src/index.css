@@ -592,6 +592,15 @@ justify-content: flex-end;
 display: flex;
 justify-content: space-between;
 }
+.footer-dev{
+   width: "80%" !important;
+     display: "flex" !important;
+     justify-content: "space-between" !important;
+     gap: "15%" !important;
+     align-items: "center " !important;
+      /* flex-direction: "row-reverse" ; */
+    
+}
 
 @media screen and (max-width:1170px){
   .nav2{

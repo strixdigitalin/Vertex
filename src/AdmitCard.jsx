@@ -43,9 +43,15 @@ const AdmitCard = (props) => {
   };
   const sigNature = (item) => {
     return (
-      <div style={{ textAlign: "center", fontWeight: "bold" }}>
+      <div
+        style={{ textAlign: "center", fontWeight: "bold", fontSize: "13px" }}
+      >
         <div
-          style={{ backgroundColor: "white", height: "40px", width: "200px" }}
+          style={{
+            backgroundColor: "white",
+            height: "40px",
+            width: "200px",
+          }}
         ></div>
         {item}
       </div>
@@ -120,9 +126,9 @@ const AdmitCard = (props) => {
   const SigNaturePart = ({ selectedStudent }) => {
     return (
       <>
-        <div className="signaturediv mt3">
+        <div className="signaturediv mt2">
           {sigNature("Signature of Invigilator")}
-          {sigNature("Signature of Counsellor")}
+          {sigNature("Signature of Exam Coordinator")}
           {sigNature("Signature of Student")}
         </div>
       </>
@@ -145,6 +151,11 @@ const AdmitCard = (props) => {
         <div className="mt2">
           {fieldLine("Name of Student :")}{" "}
           {fieldResponse(selectedStudent?.Student_Name)}
+        </div>
+        <div className="mt1">
+          {fieldLine("Field :")}
+          {/* {selectedStudent.Course} */}
+          {fieldResponse(selectedStudent?.Course)}
         </div>
         <div className="mt1">
           {fieldLine("Father's Name :")}{" "}
@@ -250,6 +261,9 @@ const AdmitCard = (props) => {
         </div>
 
         <div style={{ border: "1px dashed red", marginTop: "20px" }}></div>
+        <div style={{ textAlign: "center" }}>
+          {instructionLine("THIS COPY IS FOR OFFICE USE ONLY")}
+        </div>
         {/* part 3 */}
 
         <div style={{ marginTop: "20px" }}>
